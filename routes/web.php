@@ -18,3 +18,7 @@ Route::get('/', function () {
 Route::get('/carta', function () {
     return view('letter');
 });
+
+Route::get('/home', function () {
+    return view('home');
+});
