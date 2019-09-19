@@ -7,6 +7,9 @@
     background-size: cover;
     background-position: center;
 }
+.text{
+    resize: none;
+}
 </style>
 <head>
     <meta charset="UTF-8">
@@ -24,7 +27,8 @@
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
             </h1>
             <form>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="14"></textarea>
+                <textarea class="form-control text form-rounded" id="exampleFormControlTextarea1" rows="14"
+                placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
                     <button class="btn btn-primary mr-5" type="button" >Anadir imagen</button>
                     <button class="btn btn-primary ml-5" type="submit" >Enviar mi carta</button>
