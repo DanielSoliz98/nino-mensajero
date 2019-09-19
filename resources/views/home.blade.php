@@ -31,8 +31,8 @@
                 <textarea class="form-control text form-rounded border border-primary" id="exampleFormControlTextarea1" rows="14"
                 placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
-                    <button class="btn btn-primary  btn-lg mr-5" type="button"><i class="far fa-images"></i>Anadir imagen</button>
-                    <button class="btn btn-primary btn-lg ml-5" type="submit"><i class="fas fa-envelope-open-text"></i>Enviar mi carta</button>
+                    <button class="btn btn-primary  btn-lg mr-5" type="button"><i class="mr-2 far fa-images"></i>Anadir imagen</button>
+                    <button class="btn btn-primary btn-lg ml-5" type="submit"><i class="mr-2 fas fa-envelope-open-text"></i>Enviar mi carta</button>
                 </div>
             </form>
         </div>
