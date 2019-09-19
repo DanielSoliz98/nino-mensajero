@@ -15,6 +15,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/618ec73bd6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Escribir mi Carta</title>
 </head>
@@ -27,11 +28,11 @@
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
             </h1>
             <form>
-                <textarea class="form-control text form-rounded" id="exampleFormControlTextarea1" rows="14"
+                <textarea class="form-control text form-rounded border border-primary" id="exampleFormControlTextarea1" rows="14"
                 placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
-                    <button class="btn btn-primary  btn-lg mr-5" type="button" >Anadir imagen</button>
-                    <button class="btn btn-primary btn-lg ml-5" type="submit" >Enviar mi carta</button>
+                    <button class="btn btn-primary  btn-lg mr-5" type="button"><i class="far fa-images"></i>Anadir imagen</button>
+                    <button class="btn btn-primary btn-lg ml-5" type="submit"><i class="fas fa-envelope-open-text"></i>Enviar mi carta</button>
                 </div>
             </form>
         </div>
