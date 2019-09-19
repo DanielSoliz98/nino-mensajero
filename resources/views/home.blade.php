@@ -30,8 +30,8 @@
                 <textarea class="form-control text form-rounded" id="exampleFormControlTextarea1" rows="14"
                 placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
-                    <button class="btn btn-primary mr-5" type="button" >Anadir imagen</button>
-                    <button class="btn btn-primary ml-5" type="submit" >Enviar mi carta</button>
+                    <button class="btn btn-primary  btn-lg mr-5" type="button" >Anadir imagen</button>
+                    <button class="btn btn-primary btn-lg ml-5" type="submit" >Enviar mi carta</button>
                 </div>
             </form>
         </div>
