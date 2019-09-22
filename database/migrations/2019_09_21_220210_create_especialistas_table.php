@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateRolTable extends Migration {
+class CreateEspecialistasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateRolTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('rol', function(Blueprint $table)
+		Schema::create('especialistas', function(Blueprint $table)
 		{
-			$table->smallInteger('id', true);
-			$table->string('nombre');
+			$table->bigInteger('usuario_id')->primary('especialista_pkey');
+			$table->string('profesion', 20);
 		});
 	}
 
@@ -27,7 +27,7 @@ class CreateRolTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('rol');
+		Schema::drop('especialistas');
 	}
 
 }

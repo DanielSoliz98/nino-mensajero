@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateInformacionGeneradaTable extends Migration {
+class CreateInformacionesGeneradasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class CreateInformacionGeneradaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('informacion_generada', function(Blueprint $table)
+		Schema::create('informaciones_generadas', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true);
+			$table->bigIncrements('id', true);
 			$table->text('contenido');
 			$table->dateTime('fecha_creacion');
 			$table->bigInteger('carta_id');
@@ -31,7 +31,7 @@ class CreateInformacionGeneradaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('informacion_generada');
+		Schema::drop('informaciones_generadas');
 	}
 
 }

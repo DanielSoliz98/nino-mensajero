@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddForeignKeysToEspecialistaTable extends Migration {
+class AddForeignKeysToEspecialistasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,9 +12,9 @@ class AddForeignKeysToEspecialistaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('especialista', function(Blueprint $table)
+		Schema::table('especialistas', function(Blueprint $table)
 		{
-			$table->foreign('usuario_id', 'especialista_usuario_id_fkey')->references('id')->on('usuario')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('usuario_id', 'especialista_usuario_id_fkey')->references('id')->on('usuarios')->onUpdate('RESTRICT')->onDelete('RESTRICT');
 		});
 	}
 
@@ -26,7 +26,7 @@ class AddForeignKeysToEspecialistaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('especialista', function(Blueprint $table)
+		Schema::table('especialistas', function(Blueprint $table)
 		{
 			$table->dropForeign('especialista_usuario_id_fkey');
 		});

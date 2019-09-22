@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateAnalisisCartaTable extends Migration {
+class CreateAnalisisCartasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateAnalisisCartaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('analisis_carta', function(Blueprint $table)
+		Schema::create('analisis_cartas', function(Blueprint $table)
 		{
 			$table->bigInteger('carta_id');
 			$table->smallInteger('tipo_carta_id');
-			$table->primary(['carta_id','tipo_carta_id'], 'analisis_carta_pkey');
+			$table->primary(['carta_id','tipo_carta_id'], 'analisis_carta_pkey')->unique();
 		});
 	}
 
@@ -28,7 +28,7 @@ class CreateAnalisisCartaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('analisis_carta');
+		Schema::drop('analisis_cartas');
 	}
 
 }

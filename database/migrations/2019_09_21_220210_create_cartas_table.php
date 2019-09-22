@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateTipoCartaTable extends Migration {
+class CreateCartasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class CreateTipoCartaTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('tipo_carta', function(Blueprint $table)
+		Schema::create('cartas', function(Blueprint $table)
 		{
-			$table->integer('id', true);
-			$table->string('nombre');
-			$table->smallInteger('urgencia');
+			$table->bigIncrements('id', true);
+			$table->text('contenido');
+			$table->ipAddress('ip')->nullable();
+			$table->dateTime('fecha_envio');
 		});
 	}
 
@@ -28,7 +29,7 @@ class CreateTipoCartaTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('tipo_carta');
+		Schema::drop('cartas');
 	}
 
 }

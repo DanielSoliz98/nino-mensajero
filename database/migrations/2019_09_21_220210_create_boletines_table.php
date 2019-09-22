@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateBoletinTable extends Migration {
+class CreateBoletinesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,11 @@ class CreateBoletinTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('boletin', function(Blueprint $table)
+		Schema::create('boletines', function(Blueprint $table)
 		{
-			$table->bigInteger('id', true);
-			$table->string('nombre');
-			$table->date('fecha_creacion');
+			$table->bigIncrements('id', true);
+			$table->string('nombre', 50);
+			$table->dateTime('fecha_creacion');
 			$table->date('fecha_publicacion')->nullable();
 		});
 	}
@@ -29,7 +29,7 @@ class CreateBoletinTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('boletin');
+		Schema::drop('boletines');
 	}
 
 }
