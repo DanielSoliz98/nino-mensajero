@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Letter extends Model
 {
-    protected $fillable = ['content', 'send_date'];
+    protected $fillable = ['content'];
 }

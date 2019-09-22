@@ -39,7 +39,6 @@ class LetterAPIController extends APIBaseController
         }
         $letter = new Letter;
         $letter->content = $input['content'];
-        $letter->send_date = Carbon::now();
         $letter->save();
         return $this->sendResponse($letter->toArray(), 'Carta enviada exitosamente.');
     }
