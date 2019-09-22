@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio');
 });
 
-Route::get('/carta', function () {
-    return view('letter');
+Route::get('/escribirCarta', function () {
+    return view('carta');
 });

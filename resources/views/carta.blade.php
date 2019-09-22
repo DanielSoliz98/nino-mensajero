@@ -24,7 +24,7 @@
         <div class="container">
             <h1 class="display-4 text-center mt-2">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
-                Escribir mi Carta
+                Carta para Niño Mensajero
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
             </h1>
             <form>
