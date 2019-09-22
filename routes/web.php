@@ -16,3 +16,5 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/writeLetter', 'HomeController@writeLetter')->name('writeLetter');
+
+Route::post('/writeLetter', 'API\LetterAPIController@store')->name('letter.post');
