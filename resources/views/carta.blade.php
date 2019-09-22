@@ -2,7 +2,7 @@
 <html lang="en">
 <style>
 .slider{
-    background: url("backgroud.jpg");
+    background: url("background.jpg");
     height: 100vh;
     background-size: cover;
     background-position: center;
