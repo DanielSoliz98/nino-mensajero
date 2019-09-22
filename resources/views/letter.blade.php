@@ -22,17 +22,20 @@
 <body>
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container">
-            <h1 class="display-4 text-center">
+            <h1 class="display-4 text-center mt-2">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
                 Escribir mi Carta
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
             </h1>
             <form>
-                <textarea class="form-control text form-rounded border border-primary" id="exampleFormControlTextarea1" rows="14"
+                <div class="div d-flex justify-content-end">
+                    <button class="btn btn-primary btn-lg" type="button">Ayuda <i class="far fa-question-circle"></i></button>
+                </div>
+                <textarea class="form-control text form-rounded border border-primary mt-2" id="exampleFormControlTextarea1" rows="14"
                 placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
-                    <button class="btn btn-primary  btn-lg mr-5" type="button"><i class="mr-2 far fa-images"></i>Anadir imagen</button>
-                    <button class="btn btn-primary btn-lg ml-5" type="submit"><i class="mr-2 fas fa-envelope-open-text"></i>Enviar mi carta</button>
+                    <button class="btn btn-primary  btn-lg mr-5" type="button">Anadir imagen <i class="ml-2 far fa-images"></i></button>
+                    <button class="btn btn-primary btn-lg ml-5" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
                 </div>
             </form>
         </div>
