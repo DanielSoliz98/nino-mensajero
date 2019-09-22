@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateEspecialidadesTable extends Migration {
+class CreateSpecialtiesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateEspecialidadesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('especialidades', function(Blueprint $table)
+		Schema::create('specialties', function(Blueprint $table)
 		{
 			$table->increments('id', true);
-			$table->string('nombre', 25)->unique();
+			$table->string('name', 25)->unique();
 		});
 	}
 
@@ -27,7 +27,7 @@ class CreateEspecialidadesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('especialidades');
+		Schema::drop('specialties');
 	}
 
 }
