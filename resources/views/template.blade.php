@@ -11,7 +11,7 @@
 <body>
     <section>
         <nav class="navbar navbar-expand-lg navbar-light bg-info navbar-toggleable-md sticky-top">
-            <a class= "navbar-brand" href="{{route('inicio')}}">
+            <a class= "navbar-brand" href="{{route('home')}}">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
                 NINO MENSAJERO
             </a>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </nav>
-        @yield('seccion')
+        @yield('section')
     </section>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

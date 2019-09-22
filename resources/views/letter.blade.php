@@ -1,5 +1,5 @@
-@extends('plantilla')
-@section('seccion')
+@extends('template')
+@section('section')
     <style>
         .slider{
             background: url("background.jpg");

@@ -1,5 +1,5 @@
-@extends('plantilla')
-@section('seccion')
+@extends('template')
+@section('section')
 <style>
 .backgroud{
     background: url("background.jpg");
@@ -13,7 +13,7 @@
 </style>
 <div class="container-fluid backgroud">
     <div class=" content d-flex align-items-center justify-content-center">
-    <a href="{{route('escribirCarta')}}" class="btn btn-primary btn-lg">Escribir mi Carta</a>
+    <a href="{{route('writeLetter')}}" class="btn btn-primary btn-lg">Escribir mi Carta</a>
     </div>
 </div>
 @endsection

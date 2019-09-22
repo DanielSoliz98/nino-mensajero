@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('inicio');
-})->name('inicio');
+    return view('home');
+})->name('home');
 
-Route::get('/escribirCarta', 'InicioController@escribirCarta')->name('escribirCarta');
+Route::get('/writeLetter', 'HomeController@writeLetter')->name('writeLetter');
