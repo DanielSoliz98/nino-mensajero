@@ -1,21 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
-use App\Carta;
+use App\Letter;
+use App\Http\Controllers\API\APIBaseController as APIBaseController;
 use Illuminate\Http\Request;
+use Validator;
+use Carbon\Carbon;
 
-class LetterApiController extends Controller
+class LetterAPIController extends APIBaseController
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function getAllLetters()
+    public function index()
     {
-        $letters = Letter::all()->toJson(JSON_PRETTY_PRINT);
-        return response($letters, 200);
+        $letters = Letter::all();
+        return $this->sendResponse($letters->toArray(), "Cartas recuperadas con exito");
     }
 
     /**
@@ -26,25 +29,19 @@ class LetterApiController extends Controller
      */
     public function store(Request $request)
     {
-        $letter = new Letter;
-        $letter->content = $request->content;
-        $letter->ip_address = $request->ip_address;
-        $letter->send_data = $request->send_data;
-        $letter->save();
-        return response()->json([
-            "message" => "carta enviada"
-        ], 201);
-    }
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'content' => 'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return Letter::where('id',$id)->get();
+        if($validator->fails()){
+            return $this->sendError('Contenido requerido', $validator->errors());       
+        }
+        $letter = new Letter;
+        $letter->content = $input['content'];
+        $letter->send_date = Carbon::now();
+        $letter->save();
+        return $this->sendResponse($letter->toArray(), 'Carta enviada exitosamente.');
     }
 
     /**
