@@ -5,26 +5,17 @@ namespace App\Http\Controllers;
 use App\Carta;
 use Illuminate\Http\Request;
 
-class CartaController extends Controller
+class LetterApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getAllLetters()
     {
-        return Carta::all();
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return Carta::where()->get();
+        $letters = Letter::all()->toJson(JSON_PRETTY_PRINT);
+        return response($letters, 200);
     }
 
     /**
@@ -35,11 +26,14 @@ class CartaController extends Controller
      */
     public function store(Request $request)
     {
-        $carta = new Carta;
-        $carta->contenido = $request->contenido;
-        $carta->ip = $request->ip;
-        $carta->fecha_envio = $request->fecha_envio;
-        $carta->save();
+        $letter = new Letter;
+        $letter->content = $request->content;
+        $letter->ip_address = $request->ip_address;
+        $letter->send_data = $request->send_data;
+        $letter->save();
+        return response()->json([
+            "message" => "carta enviada"
+        ], 201);
     }
 
     /**
@@ -50,7 +44,7 @@ class CartaController extends Controller
      */
     public function show($id)
     {
-        return Carta::where('id',$id)->get();
+        return Letter::where('id',$id)->get();
     }
 
     /**

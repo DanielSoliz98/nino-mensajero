@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/carta', function () {
     return view('letter');
 });
+
+Route::get('/letters', 'LetterApiController@getAllLetters');
