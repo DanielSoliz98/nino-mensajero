@@ -13,8 +13,6 @@
 
 Route::get('/', function () {
     return view('inicio');
-});
+})->name('inicio');
 
-Route::get('/escribirCarta', function () {
-    return view('carta');
-});
+Route::get('/escribirCarta', 'InicioController@escribirCarta')->name('escribirCarta');

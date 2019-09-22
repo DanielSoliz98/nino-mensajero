@@ -22,7 +22,7 @@
       
       <section>
             <nav class="navbar navbar-expand-lg navbar-light bg-info navbar-toggleable-md sticky-top">
-                <a class= "navbar-brand" href="#">
+                <a class= "navbar-brand" href="{{route('inicio')}}">
                     <img src="letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
                     NINO MENSAJERO
                 </a>
@@ -38,7 +38,7 @@
             </nav>
             <div class="container-fluid backgroud">
                 <div class=" content d-flex align-items-center justify-content-center">
-                    <button class="btn btn-primary btn-lg">Escribir mi Carta</button>
+                <a href="{{route('escribirCarta')}}" class="btn btn-primary btn-lg">Escribir mi Carta</a>
                 </div>
             </div>
       </section>
