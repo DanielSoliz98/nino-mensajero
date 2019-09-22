@@ -19,4 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // Controllers routes
 // Letter
-Route::get('letter','LetterApiController@index');
+Route::resource('letters', 'API\LetterAPIController');
