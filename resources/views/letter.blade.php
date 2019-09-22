@@ -55,7 +55,7 @@
                           </div>
                         </div>
                       </div>
-                <textarea class="form-control text form-rounded border border-primary" rows="14"
+                <textarea class="form-control text form-rounded border border-primary mt-2" rows="14"
                 placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
                     <button class="btn btn-primary  btn-lg mr-5" type="button">Anadir imagen <i class="ml-2 far fa-images"></i></button>
