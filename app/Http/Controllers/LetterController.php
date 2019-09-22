@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers;
 
-use App\Letter;
-use App\Http\Controllers\API\APIBaseController as APIBaseController;
+use App;
 use Illuminate\Http\Request;
-use Validator;
-use Carbon\Carbon;
 
-class LetterAPIController extends APIBaseController
+class LetterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +14,18 @@ class LetterAPIController extends APIBaseController
      */
     public function index()
     {
-        $letters = Letter::all();
-        return $this->sendResponse($letters->toArray(), "Cartas recuperadas con exito");
+        $letters = \App\Letter::all();
+        return $letters;
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('letter');
     }
 
     /**
@@ -29,18 +36,24 @@ class LetterAPIController extends APIBaseController
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        $validator = Validator::make($input, [
+        $this->validate($request, [
             'content' => 'required'
         ]);
-
-        if($validator->fails()){
-            return $this->sendError('Contenido requerido', $validator->errors());       
-        }
-        $letter = new Letter;
-        $letter->content = $input['content'];
+        $letter = new App\Letter();
+        $letter->content = $request->content;
         $letter->save();
-        return $this->sendResponse($letter->toArray(), 'Carta enviada exitosamente.');
+        return back()->with('mensaje', 'Gracias por tu carta amiguit@. Fue enviada al Nino Mensajero.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**

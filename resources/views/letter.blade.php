@@ -27,6 +27,14 @@
                     <button class="btn btn-primary btn-lg ml-5" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
                 </div>
             </form>
+            @if (session('mensaje'))
+            <div class="alert alert-success">
+                {{session('mensaje')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         </div>
     </section>
 @endsection
