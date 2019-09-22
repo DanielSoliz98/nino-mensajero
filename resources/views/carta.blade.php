@@ -1,6 +1,5 @@
-
-@extends('template')
-@section('section')
+@extends('plantilla')
+@section('seccion')
     <style>
         .slider{
             background: url("background.jpg");
@@ -24,15 +23,15 @@
                     <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#helpModal">Ayuda <i class="far fa-question-circle"></i></button>
                 </div>
                 <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                          <div class="modal-content">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="helpTitle">Como escribir mi carta 
-                                  <img src="letter.svg" width="30" height="30">
+                                    <img src="letter.svg" width="30" height="30">
                                 </h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                              </button>
+                                </button>
                             </div>
                             <div class="modal-body font-italic">
                                 <p>
@@ -48,14 +47,14 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-success">Ir a Boletin</button>
-                              <button type="button" class="btn btn-success">Ir a Pagina Inicio</button>
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</button>
+                                <a type="button" class="btn btn-success">Ir a Boletin</a>
+                                <a href="{{route('inicio')}}" type="button" class="btn btn-success">Ir a Pagina Inicio</a>
+                                <a type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</a>
                             </div>
-                          </div>
                         </div>
-                      </div>
-                <textarea class="form-control text form-rounded border border-primary" rows="14"
+                    </div>
+                </div>
+                <textarea class="form-control text form-rounded border border-primary mt-2" rows="14"
                 placeholder="Cuentanos tus experiencias..."></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
                     <button class="btn btn-primary  btn-lg mr-5" type="button">Anadir imagen <i class="ml-2 far fa-images"></i></button>
