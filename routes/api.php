@@ -18,5 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Controllers routes
-// Carta
-Route::resource('carta','CartaController');
+// Letter
+Route::get('letter','LetterApiController@index');
