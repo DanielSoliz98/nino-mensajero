@@ -21,8 +21,40 @@
             <form action="{{route('letter.post')}}" method="POST">
                 {{ csrf_field() }}
                 <div class="div d-flex justify-content-end">
-                    <button class="btn btn-primary btn-lg" type="button">Ayuda <i class="far fa-question-circle"></i></button>
+                    <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#helpModal">Ayuda <i class="far fa-question-circle"></i></button>
                 </div>
+                <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="helpTitle">Como escribir mi carta 
+                                  <img src="letter.svg" width="30" height="30">
+                                </h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body font-italic">
+                                <p>
+                                    Hola Amiguito..!! Para escribir tu carta no es necesario que nos digas tu nombre o la direccion donde vives, 
+                                    solo contarnos lo que hiciste en el dia y como te sientes.
+                                </p>
+                                <p>
+                                    Podras anadir 5 imagenes a tu carta para mostrar mejor las actividades que hiciste: 
+                                    como jugar con tus amiguitos, hacer la tarea, ir al parque, etc.
+                                </p>
+                                <p>
+                                    Nino Mensajero te respondera en la seccion "Boletin" que publicamos en la pagina.
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-success">Ir a Boletin</button>
+                              <button type="button" class="btn btn-success">Ir a Pagina Inicio</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 <textarea class="form-control text form-rounded border border-primary" rows="14"
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
