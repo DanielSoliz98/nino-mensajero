@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@create')->name('home');
+
+Route::get('/writeLetter', 'LetterController@create')->name('writeLetter');
+
+Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
