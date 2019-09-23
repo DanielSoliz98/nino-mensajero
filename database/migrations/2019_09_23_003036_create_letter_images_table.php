@@ -16,7 +16,8 @@ class CreateLetterImagesTable extends Migration
         Schema::create('letter_images', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('letter_id');
-            $table->binary('image');
+            $table->string('image_name', 50);
+            $table->integer('size');
             $table->timestamps();
         });
     }
