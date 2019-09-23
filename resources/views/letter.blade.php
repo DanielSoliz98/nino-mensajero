@@ -22,7 +22,7 @@
         .text{
             resize: none;
         }
-     </style>
+    </style>
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container">
             <h1 class="display-5 text-center mt-2">
@@ -36,15 +36,15 @@
                     <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#helpModal">Ayuda <i class="far fa-question-circle"></i></button>
                 </div>
                 <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                          <div class="modal-content">
+                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="helpTitle">Como escribir mi carta 
-                                  <img src="letter.svg" width="30" height="30">
+                                    <img src="letter.svg" width="30" height="30">
                                 </h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
-                              </button>
+                                </button>
                             </div>
                             <div class="modal-body font-italic">
                                 <p>
@@ -60,13 +60,13 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                              <a class="btn btn-success">Ir a Boletin</a>
-                              <a href="{{route('home')}}" class="btn btn-success">Ir a Pagina Inicio</a>
-                              <a class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</a>
+                                <a class="btn btn-success">Ir a Boletin</a>
+                                <a href="{{route('home')}}" class="btn btn-success">Ir a Pagina Inicio</a>
+                                <a class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</a>
                             </div>
-                          </div>
                         </div>
-                      </div>
+                    </div>
+                </div>
                 @if (session('mensaje'))
                 <div class="alert alert-success mt-2">
                     {{session('mensaje')}}
