@@ -48,9 +48,9 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-success">Ir a Boletin</button>
-                              <button type="button" class="btn btn-success">Ir a Pagina Inicio</button>
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</button>
+                              <a class="btn btn-success">Ir a Boletin</a>
+                              <a href="{{route('home')}}" class="btn btn-success">Ir a Pagina Inicio</a>
+                              <a class="btn btn-secondary" data-dismiss="modal">Cerrar Ayuda</a>
                             </div>
                           </div>
                         </div>
