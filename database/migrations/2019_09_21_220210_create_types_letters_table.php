@@ -17,6 +17,7 @@ class CreateTypesLettersTable extends Migration {
 			$table->increments('id', true);
 			$table->string('name', 20)->unique();
 			$table->smallInteger('urgency');
+			$table->timestamps();
 		});
 	}
 

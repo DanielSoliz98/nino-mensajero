@@ -16,7 +16,7 @@ class CreateInformationGeneratedTable extends Migration {
 		{
 			$table->bigIncrements('id', true);
 			$table->text('content');
-			$table->dateTime('creation_date');
+			$table->timestamps();
 			$table->bigInteger('letter_id');
 			$table->bigInteger('user_id');
 			$table->bigInteger('bulletin_id')->nullable();

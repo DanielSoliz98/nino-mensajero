@@ -17,7 +17,7 @@ class CreateLettersTable extends Migration {
 			$table->bigIncrements('id', true);
 			$table->text('content');
 			$table->ipAddress('ip_address')->nullable();
-			$table->dateTime('send_date');
+			$table->timestamps();
 		});
 	}
 

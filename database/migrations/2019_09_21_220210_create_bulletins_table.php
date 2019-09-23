@@ -16,7 +16,7 @@ class CreateBulletinsTable extends Migration {
 		{
 			$table->bigIncrements('id', true);
 			$table->string('name', 50);
-			$table->dateTime('creation_date');
+			$table->timestamps();
 			$table->date('publication_date')->nullable();
 		});
 	}

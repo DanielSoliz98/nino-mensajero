@@ -17,6 +17,7 @@ class CreateLettersAnalysisTable extends Migration {
 			$table->bigInteger('letter_id');
 			$table->smallInteger('type_letter_id');
 			$table->primary(['letter_id','type_letter_id'], 'letters_analysis_pkey')->unique();
+			$table->timestamps();
 		});
 	}
 
