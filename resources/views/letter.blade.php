@@ -1,3 +1,4 @@
+
 @extends('template')
 @section('section')
     <style>
@@ -63,13 +64,13 @@
                 </div>
             </form>
             @if (session('mensaje'))
-            <div class="alert alert-success">
-                {{session('mensaje')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
+                <div class="alert alert-success">
+                    {{session('mensaje')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
         </div>
     </section>
 @endsection
