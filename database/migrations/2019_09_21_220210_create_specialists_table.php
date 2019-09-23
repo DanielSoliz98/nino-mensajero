@@ -16,6 +16,7 @@ class CreateSpecialistsTable extends Migration {
 		{
 			$table->bigInteger('user_id')->primary('specialist_pkey');
 			$table->string('profession', 20);
+			$table->timestamps();
 		});
 	}
 

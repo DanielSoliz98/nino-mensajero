@@ -17,6 +17,7 @@ class CreateSpecialistsSpecialtiesTable extends Migration {
 			$table->bigInteger('specialist_user_id');
 			$table->integer('specialty_id');
 			$table->primary(['specialist_user_id','specialty_id'], 'specialist_specialty_pkey')->unique();
+			$table->timestamps();
 		});
 	}
 

@@ -16,6 +16,7 @@ class CreateSpecialtiesTable extends Migration {
 		{
 			$table->increments('id', true);
 			$table->string('name', 25)->unique();
+			$table->timestamps();
 		});
 	}
 
