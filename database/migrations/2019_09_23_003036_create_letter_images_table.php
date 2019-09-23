@@ -17,6 +17,7 @@ class CreateLetterImagesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('letter_id');
             $table->string('image_name', 50);
+            $table->integer('size');
             $table->timestamps();
         });
     }
