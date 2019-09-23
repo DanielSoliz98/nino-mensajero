@@ -22,6 +22,14 @@
                 {{ csrf_field() }}
                 <textarea class="form-control text form-rounded border border-primary" rows="14"
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
+                @if ($errors->has('content'))
+                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                        Tu carta esta vacia amiguit@, escribenos algo.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="d-flex flex-row justify-content-center mt-3">
                     <button class="btn btn-primary  btn-lg mr-5" type="button">Anadir imagen <i class="ml-2 far fa-images"></i></button>
                     <button class="btn btn-primary btn-lg ml-5" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
