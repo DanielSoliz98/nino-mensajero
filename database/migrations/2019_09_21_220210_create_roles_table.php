@@ -16,6 +16,7 @@ class CreateRolesTable extends Migration {
 		{
 			$table->smallIncrements('id', true);
 			$table->string('name', 20)->unique();
+			$table->timestamps();
 		});
 	}
 
