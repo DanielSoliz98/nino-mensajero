@@ -37,7 +37,7 @@ class LetterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'content' => 'required'
+            'content' => 'required|max:20000'
         ]);
         $letter = new App\Letter();
         $letter->content = $request->content;

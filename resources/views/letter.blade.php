@@ -1,3 +1,15 @@
+<script src="http://code.jquery.com/jquery-1.5.js"></script>
+<script>
+    function countChar(val) {
+        var len = val.value.length;
+        if (len >= 20000) {
+            val.value = val.value.substring(0, 20000);
+        } else {
+            var char = 20000 - len;
+            $('#charNum').text(char + ' caracteres restantes.');
+        }
+    };
+</script>
 @extends('template')
 @section('section')
     <style>
@@ -20,8 +32,9 @@
             </h1>
             <form action="{{route('letter.post')}}" method="POST">
                 {{ csrf_field() }}
-                <textarea class="form-control text form-rounded border border-primary" rows="14"
+                <textarea maxlength="20000" class="form-control text form-rounded border border-primary" onkeyup="countChar(this)"rows="14"
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
+                <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
                     <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
                         Tu carta esta vacia amiguit@, escribenos algo.
