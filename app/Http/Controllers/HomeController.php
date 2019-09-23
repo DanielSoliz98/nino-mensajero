@@ -6,7 +6,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function writeLetter(){
-        return view('letter');
+    /**
+     * Show the home view.
+     * @return home.blade.php view
+     */
+    public function create(){
+        return view('home');
     }
 }
