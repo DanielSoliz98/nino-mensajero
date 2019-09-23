@@ -56,6 +56,14 @@
                           </div>
                         </div>
                       </div>
+                @if (session('mensaje'))
+                <div class="alert alert-success mt-2">
+                    {{session('mensaje')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                  @endif
                 <textarea class="form-control text form-rounded border border-primary mt-2" rows="14"
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
                 <div class="d-flex flex-row justify-content-center mt-3">
@@ -63,14 +71,6 @@
                     <button class="btn btn-primary btn-lg ml-5" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
                 </div>
             </form>
-            @if (session('mensaje'))
-                <div class="alert alert-success">
-                    {{session('mensaje')}}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
         </div>
     </section>
 @endsection
