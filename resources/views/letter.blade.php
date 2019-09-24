@@ -25,7 +25,7 @@
     </style>
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container">
-            <h2 class="text-center mt-2">
+            <h2 class="text-center">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
                 Carta para Niño Mensajero
             </h2>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2" onkeyup="countChar(this)"rows="14"
+                <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-1" onkeyup="countChar(this)"rows="10"
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
                 <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
