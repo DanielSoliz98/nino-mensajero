@@ -25,3 +25,5 @@ Route::get('/writeLetter', 'LetterController@create')->name('writeLetter');
  * LetterController method store();
  */
 Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
+
+Route::resource('file', 'FileController');
