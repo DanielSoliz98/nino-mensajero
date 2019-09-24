@@ -73,7 +73,7 @@
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
                 <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
-                    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <div class="alert alert-danger mt-2" role="alert">
                         Tu carta esta vacia amiguit@, escribenos algo.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
