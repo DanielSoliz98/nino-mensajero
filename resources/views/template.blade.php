@@ -25,7 +25,7 @@
                 <div class="navbar-nav mr-auto text-center">
                     <a href="{{route('home')}}" class="btn btn-primary">Inicio</a>
                 </div>
-                <div class="d-flex flex-row justify-content-center">
+                <div class="d-flex flex-row justify-content-end">
                     <a href="#" class="btn btn-secondary"> Quienes Somos?</a>
                 </div>
             </div>
