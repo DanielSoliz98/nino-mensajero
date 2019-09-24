@@ -11,6 +11,9 @@
     };
 </script>
 @extends('template')
+@section('css')
+    <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
+@endsection
 @section('section')
     <style>
         .slider{
@@ -55,7 +58,7 @@
                                     como jugar con tus amiguitos, hacer la tarea, ir al parque, etc.
                                 </p>
                                 <p>
-                                    Niño Mensajero te respondera en la seccion "Boletin" que publicamos en la pagina.
+                                    Niño Mensajero te responderá en la seccion "Boletin" que publicamos en la pagina.
                                 </p>
                             </div>
                             <div class="modal-footer">
@@ -86,9 +89,61 @@
                     </div>
                 @endif
                 <div class="d-flex flex-row justify-content-center mt-3">
-                    <button class="btn btn-primary" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
+                    <button type="submit" class="btn btn-primary">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
                 </div>
+
             </form>
+            
+            <div class="panel panel-primary">
+                <div class="panel-body">
+                    {!! Form::open(['route'=> 'file.store', 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
+                    <div class="dz-message" style="height:40px;">
+                        Coloca tus imágenes aquí :)
+                    </div>
+                    <div class="dropzone-previews"></div>
+                    <button type="submit" class="btn btn-success" id="submit">Cargar imagen</button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
         </div>
     </section>
+@endsection
+
+@section('scripts')
+    {!! Html::script('js/dropzone.js'); !!}
+    <script>
+        Dropzone.options.myDropzone = {
+            autoProcessQueue: false,
+            uploadMultiple: true,
+            maxFilezise: 3,
+            maxFiles: 5,
+
+            
+            
+            init: function() {
+                var submitBtn = document.querySelector("#submit");
+                myDropzone = this;
+                
+                submitBtn.addEventListener("click", function(e){
+                    e.preventDefault();
+                    e.stopPropagation();
+                    myDropzone.processQueue();
+                });
+                this.on("addedfile", function(file) {
+                    alert("Imagen cargada");
+                });
+                
+                this.on("complete", function(file) {
+                    myDropzone.removeFile(file);
+                });
+ 
+                this.on("success", 
+                    myDropzone.processQueue.bind(myDropzone)
+                );
+                this.on("error", function(file) {
+                    myDropzone.errorMessage('Número excedido de imágenes');
+                });
+            }
+        };
+    </script>
 @endsection
