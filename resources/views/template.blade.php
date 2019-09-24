@@ -19,7 +19,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <div class="navbar-nav mr-auto text-center ml-auto">
+                <div class="navbar-nav mr-auto text-center">
                     <a href="{{route('home')}}" class="btn btn-primary">Inicio</a>
                 </div>
                 <div class="d-flex flex-row justify-content-center">

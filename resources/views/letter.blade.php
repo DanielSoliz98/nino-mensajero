@@ -25,14 +25,13 @@
      </style>
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container">
-            <h1 class="display-4 text-center mt-2">
+            <h2 class="text-center mt-2">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
                 Carta para Niño Mensajero
-                <img src="letter.svg" width="30" height="30" class="d-inline-block"alt="">
-            </h1>
+            </h2>
             <form action="{{route('letter.post')}}" method="POST">
                 {{ csrf_field() }}
-                <textarea maxlength="20000" class="form-control text form-rounded border border-primary" onkeyup="countChar(this)"rows="14"
+                <textarea maxlength="20000" class="form-control text form-rounded border border-primary" onkeyup="countChar(this)"rows="10"
                 placeholder="Cuentanos tus experiencias..." name="content"></textarea>
                 <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
@@ -43,19 +42,18 @@
                         </button>
                     </div>
                 @endif
+                @if (session('mensaje'))
+                    <div class="alert alert-success mt-2">
+                        {{session('mensaje')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="d-flex flex-row justify-content-center mt-3">
-                    <button class="btn btn-primary  btn-lg mr-5" type="button">Anadir imagen <i class="ml-2 far fa-images"></i></button>
-                    <button class="btn btn-primary btn-lg ml-5" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
+                    <button class="btn btn-primary" type="submit">Enviar mi carta <i class="ml-2 fas fa-envelope-open-text"></i></button>
                 </div>
             </form>
-            @if (session('mensaje'))
-            <div class="alert alert-success">
-                {{session('mensaje')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                       <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        @endif
         </div>
     </section>
 @endsection
