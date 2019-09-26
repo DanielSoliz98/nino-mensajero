@@ -38,8 +38,8 @@
         </div>
         <div class="modal-body">
             <p>Esta pagina es solo para ninos entre seis (6) y trece (13) anos de edad para enviar cartas al Nino Mensajero.</p>
-            <p>No se te pedira informacion personal y el contenido de las cartas enviadas solo la vera Nino Mensajero.</p>
-            <p>Continuando en la pagina, estas de acuerdo con nuestras reglas de privacidad, podras enviar cartas y ver nuestro Boletin.</p>
+            <p>No se te pedira nombre, ni direccion y el contenido de las cartas enviadas solo la vera Nino Mensajero, resguardando asi tu informacion.</p>
+            <p>Haciendo clic en "Continuar en la pagina", estarias de acuerdo con nuestras reglas de privacidad, podras enviar cartas y ver nuestro Boletin.</p>
         </div>
         <div class="modal-footer">
             <button onclick="location.href = 'https://www.google.com';" type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
