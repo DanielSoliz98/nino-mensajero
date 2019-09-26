@@ -14,7 +14,11 @@
 @section('section')
 <script type="text/javascript">
     $(document).ready(function(){
+        var isshow = localStorage.getItem('isshow');
+    if (isshow== null) {
+        localStorage.setItem('isshow', 1);
         $("#termsModal").modal('show');
+    }
     });
 </script>
 <div class="container-fluid backgroud">
