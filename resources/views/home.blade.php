@@ -42,7 +42,7 @@
         </div>
         <div class="modal-footer">
             <button onclick="location.href = 'https://www.google.com';" type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar en Nino Mensajero./button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Continuar en Nino Mensajero.</button>
         </div>
         </div>
     </div>
