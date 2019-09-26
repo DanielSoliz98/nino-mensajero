@@ -3,7 +3,6 @@
     $(document).ready(function(){
         var isshow = localStorage.getItem('isshow');
         if (isshow== null) {
-            localStorage.setItem('isshow', 1);
             $("#termsModal").modal('show');
         }
     });
@@ -34,16 +33,16 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="termsModalAnonymity">Terminos de Uso - Nino Mensajero</h5>
+            <h5 class="modal-title" id="termsModalAnonymity">Terminos de Uso - Niño Mensajero</h5>
         </div>
         <div class="modal-body">
-            <p>Esta pagina es solo para ninos entre seis (6) y trece (13) anos de edad para enviar cartas al Nino Mensajero.</p>
-            <p>No se te pedira nombre, ni direccion y el contenido de las cartas enviadas solo la vera Nino Mensajero, resguardando asi tu informacion.</p>
-            <p>Haciendo clic en "Continuar en la pagina", estarias de acuerdo con nuestras reglas de privacidad, podras enviar cartas y ver nuestro Boletin.</p>
+            <p>La pagina Niño Mensajero es solo para niños entre seis (6) y trece (13) años de edad.</p>
+            <p>Niño Mensajero mantendra en secreto tu informacion personal.</p>
+            <p>Haciendo clic en "Continuar", estarias de acuerdo con nuestras reglas de privacidad, podras enviar cartas y ver nuestro Boletin.</p>
         </div>
         <div class="modal-footer">
             <button onclick="location.href = 'https://www.google.com';" type="button" class="btn btn-secondary" data-dismiss="modal">Salir</button>
-            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="accept()">Continuar en Nino Mensajero.</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="accept()">Continuar</button>
         </div>
         </div>
     </div>
