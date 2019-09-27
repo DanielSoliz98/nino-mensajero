@@ -28,12 +28,12 @@
     <a href="{{route('writeLetter')}}" class="btn btn-primary btn-lg">Escribir mi Carta</a>
     </div>
 </div>
-<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalAnonymity" 
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsUse" 
      aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="termsModalAnonymity">Terminos de Uso - Niño Mensajero</h5>
+        <div class="modal-header bg-primary">
+            <h5 class="modal-title text-white" id="termsUse">Terminos de Uso - Niño Mensajero</h5>
         </div>
         <div class="modal-body">
             <p>La pagina Niño Mensajero es solo para niños entre seis (6) y doce (12) años de edad.</p>
