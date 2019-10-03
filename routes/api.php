@@ -14,7 +14,5 @@ use Illuminate\Http\Request;
 */
 // API Controllers routes
 // Letter
-Route::resource('letters', 'API\LetterAPIController');
-
 	
 Route::resource('file', 'FileController');
