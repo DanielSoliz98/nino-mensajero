@@ -14,9 +14,18 @@ class AddForeignKeysToInformationGeneratedTable extends Migration {
 	{
 		Schema::table('information_generated', function(Blueprint $table)
 		{
-			$table->foreign('bulletin_id', 'information_generated_bulletin_id_fkey')->references('id')->on('bulletins')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('letter_id', 'information_generated_letter_id_fkey')->references('id')->on('letters')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('user_id', 'information_generated_user_id_fkey')->references('id')->on('users')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('bulletin_id', 'information_generated_bulletin_id_fkey')
+				  ->references('id')->on('bulletins')
+				  ->onUpdate('RESTRICT')
+				  ->onDelete('RESTRICT');
+			$table->foreign('letter_id', 'information_generated_letter_id_fkey')
+				  ->references('id')->on('letters')
+				  ->onUpdate('RESTRICT')
+				  ->onDelete('RESTRICT');
+			$table->foreign('user_id', 'information_generated_user_id_fkey')
+				  ->references('id')->on('users')
+				  ->onUpdate('RESTRICT')
+				  ->onDelete('RESTRICT');
 		});
 	}
 

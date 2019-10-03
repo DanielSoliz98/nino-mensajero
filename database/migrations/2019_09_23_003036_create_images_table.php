@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLetterImagesTable extends Migration
+class CreateImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateLetterImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('letter_images', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('letter_id');
-            $table->string('image_name', 50);
-            $table->integer('size');
+            $table->bigInteger('letter_id')->unsigned()->index();
+            $table->string('filename', 100);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateLetterImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('letter_images');
+        Schema::dropIfExists('images');
     }
 }

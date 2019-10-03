@@ -17,9 +17,10 @@ class CreateInformationGeneratedTable extends Migration {
 			$table->bigIncrements('id', true);
 			$table->text('content');
 			$table->timestamps();
-			$table->bigInteger('letter_id');
-			$table->bigInteger('user_id');
-			$table->bigInteger('bulletin_id')->nullable();
+			$table->bigInteger('letter_id')->unsigned()->index();
+			$table->bigInteger('user_id')->unsigned()->index();
+			$table->bigInteger('bulletin_id')->unsigned()->index()->nullable();
+
 		});
 	}
 

@@ -14,8 +14,14 @@ class AddForeignKeysToLetterAnalysisTable extends Migration {
 	{
 		Schema::table('letters_analysis', function(Blueprint $table)
 		{
-			$table->foreign('letter_id', 'letters_analysis_letter_id_fkey')->references('id')->on('letters')->onUpdate('RESTRICT')->onDelete('RESTRICT');
-			$table->foreign('type_letter_id', 'letters_analysis_type_letter_id_fkey')->references('id')->on('types_letters')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+			$table->foreign('letter_id', 'letters_analysis_letter_id_fkey')
+				  ->references('id')->on('letters')
+				  ->onUpdate('RESTRICT')
+				  ->onDelete('RESTRICT');
+			$table->foreign('type_letter_id', 'letters_analysis_type_letter_id_fkey')
+				  ->references('id')->on('types_letters')
+				  ->onUpdate('RESTRICT')
+				  ->onDelete('RESTRICT');
 		});
 	}
 
