@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Letter extends Model
 {
-    protected $fillable = ['content'];
+    protected $fillable = ['content', 'ip_address'];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
 }
