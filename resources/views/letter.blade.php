@@ -13,7 +13,7 @@
             <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header backcolor">
                             <h5 class="modal-title popuptitle" id="helpTitle">Cómo escribir mi carta.
                                 <img src="letter.svg" width="30" height="30">
                             </h5>

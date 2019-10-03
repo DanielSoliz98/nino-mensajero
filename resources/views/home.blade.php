@@ -19,7 +19,7 @@
         </div>
         <div class="modal-footer">
             <button onclick="location.href = 'https://www.google.com';" type="button" class="btn2" data-dismiss="modal">Salir</button>
-            <button type="button" class="btn2" data-dismiss="modal" onclick="accept()">Acepto los terminos.</button>
+            <button type="button" class="btn2" data-dismiss="modal" onclick="accept()">Acepto los terminos</button>
         </div>
         </div>
     </div>
