@@ -7,3 +7,12 @@ function countChar(val) {
         $('#charNum').text(char + ' caracteres restantes.');
     }
 };
+$(document).ready(function(){
+    var isshow = localStorage.getItem('isshow');
+    if (isshow== null) {
+        $("#termsModal").modal('show');
+    }
+});
+function accept(){
+    localStorage.setItem('isshow', 1);
+};

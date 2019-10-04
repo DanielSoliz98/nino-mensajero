@@ -3,6 +3,34 @@
     <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
 @endsection
 @section('section')
+    <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header backcolor-title">
+                    <h5 class="modal-title popuptitle" id="helpTitle">
+                        <img src="letter.svg" width="30" height="30">
+                        Cómo escribir mi carta:
+                    </h5>
+                </div>
+                <div class="modal-body popupcontent">
+                    <p>
+                        ¡Hola Amiguit@..!! Para escribir tu carta al "Niño Mensajero" no es necesario que nos digas tu nombre o dónde vives, 
+                        solo cuéntanos lo que hiciste en el día y cómo te sientes.
+                    </p>
+                    <p>
+                        Si deseas puedes añadir 5 imágenes a tu carta para mostrar mejor las actividades que hiciste: 
+                        como jugar con tus amiguitos, hacer la tarea, ir al parque, etc.
+                    </p>
+                    <p>
+                        Niño Mensajero recibirá tu carta y podrás ver sus futuras publicaciones en nuestra página.
+                    </p>
+                </div>
+                <div class="content d-flex align-items-center justify-content-center modal-footer">
+                    <a class="btn2" data-dismiss="modal"><i class="far fa-smile-beam"></i> Cerrar Ayuda</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2">
             <h2 class="text-center">
@@ -10,34 +38,6 @@
                 Carta para Niño Mensajero
                 <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button> 
             </h2>
-            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title popuptitle" id="helpTitle">
-                                <img src="letter.svg" width="30" height="30">
-                                Cómo escribir mi carta:
-                            </h5>
-                        </div>
-                        <div class="modal-body popupcontent">
-                            <p>
-                                ¡Hola Amiguit@..!! Para escribir tu carta al "Niño Mensajero" no es necesario que nos digas tu nombre o dónde vives, 
-                                solo cuéntanos lo que hiciste en el día y cómo te sientes.
-                            </p>
-                            <p>
-                                Si deseas puedes añadir 5 imágenes a tu carta para mostrar mejor las actividades que hiciste: 
-                                como jugar con tus amiguitos, hacer la tarea, ir al parque, etc.
-                            </p>
-                            <p>
-                                Niño Mensajero recibirá tu carta y podrás ver sus futuras publicaciones en nuestra página.
-                            </p>
-                        </div>
-                        <div class="content d-flex align-items-center justify-content-center modal-footer">
-                            <a class="btn2" data-dismiss="modal"><i class="far fa-smile-beam"></i> Cerrar Ayuda</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <form action="{{route('letter.post')}}" method="POST">
                 {{ csrf_field() }}
                 <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)"rows="8"
@@ -62,9 +62,7 @@
                 <div class="d-flex flex-row justify-content-center mt-3">
                     <button type="submit" class="btn2" type="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
                 </div>
-
             </form>
-            
             <div class="panel panel-primary">
                 <div class="panel-body">
                     {!! Form::open(['route'=> 'file.store', 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
