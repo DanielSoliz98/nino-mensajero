@@ -10,7 +10,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header backcolor">
-            <h5 class="modal-title popuptitle" id="termsUse">Terminos de Uso - Niño Mensajero</h5>
+            <h5 class="modal-title popuptitle" id="termsUse">Bienvenido a Niño Mensajero</h5>
         </div>
         <div class="modal-body popupcontent">
             <p>La pagina Niño Mensajero es solo para niños entre seis (6) y doce (12) años de edad.</p>
