@@ -146,8 +146,7 @@
     justify-content: center;
     background: #ffffe4;
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
-    border-radius: 3px;
-    /* font-family: monospace, sans-serif; */
+    border-radius: 50px;
     font-size: 18px;
     padding: 20px;
     text-align: center;
