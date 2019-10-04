@@ -15,11 +15,11 @@
         <div class="modal-body popupcontent">
             <p>La pagina Niño Mensajero es solo para niños entre seis (6) y doce (12) años de edad.</p>
             <p>Niño Mensajero mantendra en secreto tu informacion personal.</p>
-            <p>Haciendo clic en "Acepto los terminos", estarias de acuerdo con nuestras reglas de privacidad, podras enviar cartas y ver nuestro Boletin.</p>
+            <p>Al dar click en "Acepto", estarias de acuerdo con nuestras reglas de privacidad, de esta forma podras enviar cartas y ver nuestro Boletin.</p>
         </div>
         <div class="modal-footer">
             <button onclick="location.href = 'https://www.google.com';" type="button" class="btn2" data-dismiss="modal">Salir</button>
-            <button type="button" class="btn2" data-dismiss="modal" onclick="accept()">Acepto los terminos</button>
+            <button type="button" class="btn2" data-dismiss="modal" onclick="accept()">Acepto</button>
         </div>
         </div>
     </div>
