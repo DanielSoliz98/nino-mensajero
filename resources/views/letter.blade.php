@@ -13,26 +13,27 @@
             <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-scrollable" role="document">
                     <div class="modal-content">
-                        <div class="modal-header backcolor">
-                            <h5 class="modal-title popuptitle" id="helpTitle">Cómo escribir mi carta.
+                        <div class="modal-header">
+                            <h5 class="modal-title popuptitle" id="helpTitle">
                                 <img src="letter.svg" width="30" height="30">
+                                Cómo escribir mi carta:
                             </h5>
                         </div>
                         <div class="modal-body popupcontent">
                             <p>
-                                Hola Amiguit@..!! Para escribir tu carta al "Niño Mensajero" no es necesario que nos digas tu nombre o la direccion donde vives, 
-                                solo contarnos lo que hiciste en el dia y cómo te sientes.
+                                ¡Hola Amiguit@..!! Para escribir tu carta al "Niño Mensajero" no es necesario que nos digas tu nombre o dónde vives, 
+                                solo cuéntanos lo que hiciste en el día y cómo te sientes.
                             </p>
                             <p>
                                 Si deseas puedes añadir 5 imágenes a tu carta para mostrar mejor las actividades que hiciste: 
                                 como jugar con tus amiguitos, hacer la tarea, ir al parque, etc.
                             </p>
                             <p>
-                                Niño Mensajero leera tu carta. Podras ver sus futuras publicaciones en la nuestra pagina.
+                                Niño Mensajero recibirá tu carta y podrás ver sus futuras publicaciones en nuestra página.
                             </p>
                         </div>
                         <div class="content d-flex align-items-center justify-content-center modal-footer">
-                            <a class="btn2" data-dismiss="modal"><i class="far fa-smile-wink"></i> Cerrar Ayuda</a>
+                            <a class="btn2" data-dismiss="modal"><i class="far fa-smile-beam"></i> Cerrar Ayuda</a>
                         </div>
                     </div>
                 </div>
@@ -40,7 +41,7 @@
             <form action="{{route('letter.post')}}" method="POST">
                 {{ csrf_field() }}
                 <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)"rows="8"
-                placeholder="Cuentanos tus experiencias..." name="content"></textarea>
+                placeholder="Cuéntanos tus experiencias..." name="content"></textarea>
                 <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
                     <div class="alert alert-danger mt-2" role="alert">
@@ -68,7 +69,7 @@
                 <div class="panel-body">
                     {!! Form::open(['route'=> 'file.store', 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
                     <div class="dz-message">
-                        Coloca tus imágenes aquí :)
+                        Coloca tus imágenes aquí <i class="far fa-smile-wink"></i>
                     </div>
                     <div class="dropzone-previews"></div>
                     <button type="submit" class="btn btn-success" id="submit">Cargar imagen</button>
