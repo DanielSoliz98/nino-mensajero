@@ -43,7 +43,7 @@ class LetterController extends Controller
         $letter->content = $request->content;
         $letter->ip_address = $request->getClientIp();
         $letter->save();
-        return back()->with('mensaje', 'Gracias por tu carta amiguit@. Fue enviada al Nino Mensajero.');
+        return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
     /**
