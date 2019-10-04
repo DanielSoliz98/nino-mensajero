@@ -9,13 +9,13 @@
      aria-hidden="true" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-        <div class="modal-header backcolor">
+        <div class="modal-header backcolor-title">
             <h5 class="modal-title popuptitle" id="termsUse">Bienvenido a Niño Mensajero</h5>
         </div>
         <div class="modal-body popupcontent">
-            <p>La pagina Niño Mensajero es solo para niños entre seis (6) y doce (12) años de edad.</p>
-            <p>Niño Mensajero mantendra en secreto tu informacion personal.</p>
-            <p>Al dar click en "Acepto", estarias de acuerdo con nuestras reglas de privacidad, de esta forma podras enviar cartas y ver nuestro Boletin.</p>
+            <p>La página Niño Mensajero es sólo para niños entre seis (6) y doce (12) años de edad.</p>
+            <p>Niño Mensajero mantendrá en secreto tu información personal.</p>
+            <p>Al dar click en "Acepto", estarías de acuerdo con nuestras reglas de privacidad, de esta forma podrás enviar cartas y ver nuestro Boletín.</p>
         </div>
         <div class="modal-footer">
             <button onclick="location.href = 'https://www.google.com';" type="button" class="btn2 mr-4" data-dismiss="modal">Salir</button>
