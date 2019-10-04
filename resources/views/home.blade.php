@@ -18,8 +18,8 @@
             <p>Al dar click en "Acepto", estarias de acuerdo con nuestras reglas de privacidad, de esta forma podras enviar cartas y ver nuestro Boletin.</p>
         </div>
         <div class="modal-footer">
-            <button onclick="location.href = 'https://www.google.com';" type="button" class="btn2" data-dismiss="modal">Salir</button>
-            <button type="button" class="btn2" data-dismiss="modal" onclick="accept()">Acepto</button>
+            <button onclick="location.href = 'https://www.google.com';" type="button" class="btn2 mr-4" data-dismiss="modal">Salir</button>
+            <button type="button" class="btn2 ml-4" data-dismiss="modal" onclick="accept()">Acepto</button>
         </div>
         </div>
     </div>
