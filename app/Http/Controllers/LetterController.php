@@ -43,6 +43,14 @@ class LetterController extends Controller
         $letter->content = $request->content;
         $letter->ip_address = $request->getClientIp();
         $letter->save();
+        $path = public_path().'/storage/';
+        $files = $request->file('file');
+        if($files != NULL){
+            foreach($files as $file){
+                $fileName = time().'_'.$file->getClientOriginalName();
+                $file->move($path, $fileName);
+            }
+        }
         return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
