@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App;
+use App\Letter;
+use App\Image;
 use Illuminate\Http\Request;
 
 class LetterController extends Controller
@@ -39,16 +40,22 @@ class LetterController extends Controller
         $this->validate($request, [
             'content' => 'required|max:20000'
         ]);
-        $letter = new App\Letter();
-        $letter->content = $request->content;
-        $letter->ip_address = $request->getClientIp();
-        $letter->save();
+
+        $letter = Letter::create([
+            'content' => $request->content,
+            'ip_address' => $request->getClientIp()
+        ]);
+
         $path = public_path().'/storage/';
         $files = $request->file('file');
+
         if($files != NULL){
             foreach($files as $file){
-                $fileName = time().'_'.$file->getClientOriginalName();
-                $file->move($path, $fileName);
+                $filename = time().'_'.$file->getClientOriginalName();
+                $file->move($path, $filename);
+                $imageLetter = new Image();
+                $imageLetter->filename = $filename;
+                $letter->images()->save($imageLetter);
             }
         }
         return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
