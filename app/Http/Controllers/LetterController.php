@@ -57,7 +57,7 @@ class LetterController extends Controller
             }
             $letter->save();
         }
-        return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
+            return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
     /**

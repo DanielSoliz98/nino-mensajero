@@ -70,19 +70,16 @@
                     </button>
                 </div>
                 @endif
-                <div class="dropzone mt-1" id="myDropzone">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            <div class="dz-message">
-                                Coloca tus imágenes aquí <i class="far fa-smile-wink"></i>
-                            </div>
-                            <div class="dropzone-previews"></div>
+                <div class="d-flex justify-content-center mt-2 mb-4">
+                    <div class="dropzone mt-1" id="myDropzone">
+                        <div class="dz-message">
+                            Coloca tus imágenes aquí <i class="far fa-smile-wink"></i>
                         </div>
+                        <div class="dropzone-previews"></div>
                     </div>
-                </div>
-                
-                <div class="d-flex flex-row justify-content-center mt-1 mb-4">
-                    <button type="submit" class="btn2" id="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
+                    <div class="d-flex align-items-center ml-4">
+                        <button type="submit" class="btn2" id="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -117,9 +114,6 @@
                 this.on("success",
                     myDropzone.processQueue.bind(myDropzone)
                 );
-                this.on("error", function(file) {
-                    myDropzone.errorMessage('Número excedido de imágenes');
-                });
                 
                 this.on("sendingmultiple", function(data, xhr, formData) {
                     formData.append("content", jQuery("#content").val());
