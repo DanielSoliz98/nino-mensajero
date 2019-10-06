@@ -9,7 +9,7 @@ class Image extends Model
     protected $fillable = ['filename', 'letter_id'];
 
     public function letter(){
-        return $this->belongsTo(Letter::class);
+        return $this->belongsTo(Letter::class, 'letter_id');
     }
     
 }

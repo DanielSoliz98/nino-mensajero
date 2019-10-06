@@ -53,10 +53,9 @@ class LetterController extends Controller
             foreach($files as $file){
                 $filename = time().'_'.$file->getClientOriginalName();
                 $file->move($path, $filename);
-                $imageLetter = new Image();
-                $imageLetter->filename = $filename;
-                $letter->images()->save($imageLetter);
+                $letter->images()->create(['filename' => $filename]);
             }
+            $letter->save();
         }
         return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
