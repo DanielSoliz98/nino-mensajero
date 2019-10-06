@@ -56,7 +56,7 @@
             <h2 class="text-center">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
                 Carta para Niño Mensajero
-                <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
+                <button class="btn1 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
             </h2>
             <form enctype="multipart/form-data" method="POST">
                 {!! csrf_field() !!}
@@ -70,7 +70,7 @@
                     </button>
                 </div>
                 @endif
-                <div class="dropzone" id="myDropzone">
+                <div class="dropzone mt-1" id="myDropzone">
                     <div class="panel panel-primary">
                         <div class="panel-body">
                             <div class="dz-message">
@@ -81,7 +81,7 @@
                     </div>
                 </div>
                 
-                <div class="d-flex flex-row justify-content-center mt-3">
+                <div class="d-flex flex-row justify-content-center mt-1 mb-4">
                     <button type="submit" class="btn2" id="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
                 </div>
             </form>
@@ -97,9 +97,9 @@
             autoProcessQueue: false,
             uploadMultiple: true,
             parallelUploads: 5,
-            maxFilezise: 1,
+            maxFilesize: 1,
             maxFiles: 5,
-            acceptedFiles: 'image/*',
+            acceptedFiles: '.jpeg,.jpg,.png',
             addRemoveLinks: true,
             init: function() {
                 var submitBtn = document.querySelector("#submit");

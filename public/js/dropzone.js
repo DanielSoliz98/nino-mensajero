@@ -174,7 +174,7 @@ var Dropzone = function (_Emitter) {
          * How many file uploads to process in parallel (See the
          * Enqueuing file uploads* documentation section for more info)
          */
-        parallelUploads: 2,
+        parallelUploads: 5,
 
         /**
          * Whether to send multiple files in one request. If
@@ -183,7 +183,7 @@ var Dropzone = function (_Emitter) {
          * also trigger additional events (like `processingmultiple`). See the events
          * documentation section for more information.
          */
-        uploadMultiple: false,
+        uploadMultiple: true,
 
         /**
          * Whether you want files to be uploaded in chunks to your server. This can't be
@@ -225,7 +225,7 @@ var Dropzone = function (_Emitter) {
          * the event `maxfilesexceeded` will be called. The dropzone element gets the
          * class `dz-max-files-reached` accordingly so you can provide visual feedback.
          */
-        maxFilesize: 256,
+        maxFilesize: 1,
 
         /**
          * The name of the file param that gets transferred.
@@ -304,7 +304,7 @@ var Dropzone = function (_Emitter) {
         /**
          * Can be used to limit the maximum number of files that will be handled by this Dropzone
          */
-        maxFiles: null,
+        maxFiles: 5,
 
         /**
          * An optional object to send additional headers to the server. Eg:
@@ -338,7 +338,7 @@ var Dropzone = function (_Emitter) {
          * [`accept`](https://developer.mozilla.org/en-US/docs/HTML/Element/input#attr-accept)
          * parameter on the hidden file input as well.
          */
-        acceptedFiles: null,
+        acceptedFiles: '.jpeg,.jpg,.png',
 
         /**
          * **Deprecated!**
@@ -369,7 +369,7 @@ var Dropzone = function (_Emitter) {
          * already uploading) the file. The `dictCancelUpload`, `dictCancelUploadConfirmation`
          * and `dictRemoveFile` options are used for the wording.
          */
-        addRemoveLinks: false,
+        addRemoveLinks: true,
 
         /**
          * Defines where to display the file previews – if `null` the
@@ -426,7 +426,7 @@ var Dropzone = function (_Emitter) {
         /**
          * The text that replaces the default message text it the browser is not supported.
          */
-        dictFallbackMessage: "Your browser does not support drag'n'drop file uploads.",
+        dictFallbackMessage: "Tu navegador no soporta arrastrar y soltar para subir imágenes.",
 
         /**
          * The text that will be added before the fallback form.
@@ -439,12 +439,12 @@ var Dropzone = function (_Emitter) {
          * If the filesize is too big.
          * `{{filesize}}` and `{{maxFilesize}}` will be replaced with the respective configuration values.
          */
-        dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",
+        dictFileTooBig: "Tu imágen es muy grande ({{filesize}}MiB). Maximo tamaño: {{maxFilesize}}MiB.",
 
         /**
          * If the file doesn't match the file type.
          */
-        dictInvalidFileType: "You can't upload files of this type.",
+        dictInvalidFileType: "Sólo se aceptan archivos tipo imágen (.jpg, .jpeg, .png).",
 
         /**
          * If the server response was invalid.
@@ -470,7 +470,7 @@ var Dropzone = function (_Emitter) {
         /**
          * If `addRemoveLinks` is true, the text to be used to remove a file.
          */
-        dictRemoveFile: "Remove file",
+        dictRemoveFile: "Eliminar imagen",
 
         /**
          * If this is not null, then the user will be prompted before removing a file.
@@ -481,7 +481,7 @@ var Dropzone = function (_Emitter) {
          * Displayed if `maxFiles` is st and exceeded.
          * The string `{{maxFiles}}` will be replaced by the configuration value.
          */
-        dictMaxFilesExceeded: "You can not upload any more files.",
+        dictMaxFilesExceeded: "Lo sentimos, sólo puedes colocar 5 imágenes",
 
         /**
          * Allows you to translate the different units. Starting with `tb` for terabytes and going down to
