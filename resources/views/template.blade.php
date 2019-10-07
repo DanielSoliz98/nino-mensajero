@@ -38,6 +38,7 @@
     <div class="container d-flex align-items-center justify-content-center">
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
             <a href="/"> Niño Mensajero</a>
+            <p>Desarrollado por Delfos Soft S.R.L.</p>
           </div>
     </div>
     
