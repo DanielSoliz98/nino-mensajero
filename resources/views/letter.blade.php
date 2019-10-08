@@ -73,7 +73,9 @@
                 <div class="d-flex justify-content-center mt-2 mb-4">
                     <div class="dropzone mt-1" id="myDropzone">
                         <div class="dz-message">
-                            Coloca tus imágenes aquí <i class="far fa-smile-wink"></i>
+                            Arrastra o haz clic aquí para añadir tus imágenes <i class="far fa-smile-wink"></i>,
+                            <br>
+                            solo se permiten 5
                         </div>
                         <div class="dropzone-previews"></div>
                     </div>
@@ -94,10 +96,15 @@
             autoProcessQueue: false,
             uploadMultiple: true,
             parallelUploads: 5,
-            maxFilesize: 1,
+            maxFilesize: 3,
             maxFiles: 5,
             acceptedFiles: '.jpeg,.jpg,.png',
             addRemoveLinks: true,
+            renameFile: function(file) {
+                var dt = new Date();
+                var time = dt.getTime();
+               return time+file.name;
+            },
             init: function() {
                 var submitBtn = document.querySelector("#submit");
                 myDropzone = this;
