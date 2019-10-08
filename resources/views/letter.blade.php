@@ -32,24 +32,24 @@
         </div>
     </div>
     @if (session('mensaje'))
-    <div class="modal fade" id="homeBackModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header backcolor-title">
-                    <h5 class="modal-title popuptitle" id="helpTitle">
-                        <img src="letter.svg" width="30" height="30">
-                        Envio Correcto.
-                    </h5>
+        <div class="modal fade" id="homeBackModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header backcolor-title">
+                        <h5 class="modal-title popuptitle" id="helpTitle">
+                            <img src="letter.svg" width="30" height="30">
+                            Envio Correcto.
+                        </h5>
+                    </div>
+                    <div class="modal-body popupcontent">
+                        <p>
+                            {{session('mensaje')}}
+                        </p>
+                    </div>
+                    <meta http-equiv="Refresh" content="5 ; URL=/" >
                 </div>
-                <div class="modal-body popupcontent">
-                    <p>
-                        {{session('mensaje')}}
-                    </p>
-                </div>
-                <meta http-equiv="Refresh" content="5 ; URL=/" >
             </div>
         </div>
-    </div>
     @endif
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2">
@@ -63,12 +63,12 @@
                 <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)" rows="8" placeholder="Cuéntanos tus experiencias..." name="content" id="content"></textarea>
                 <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
-                <div class="alert alert-danger mt-2" role="alert">
-                    <i class="fas fa-pen-alt"></i> Tu carta está vacía amiguit@, escríbenos algo.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                    <div class="alert alert-danger mt-2" role="alert">
+                        <i class="fas fa-pen-alt"></i> Tu carta está vacía amiguit@, escríbenos algo.
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                 @endif
                 <div class="d-flex justify-content-center mt-2 mb-4">
                     <div class="dropzone mt-1" id="myDropzone">
@@ -100,11 +100,6 @@
             maxFiles: 5,
             acceptedFiles: '.jpeg,.jpg,.png',
             addRemoveLinks: true,
-            renameFile: function(file) {
-                var dt = new Date();
-                var time = dt.getTime();
-               return time+file.name;
-            },
             init: function() {
                 var submitBtn = document.querySelector("#submit");
                 myDropzone = this;
@@ -128,5 +123,5 @@
                 });
             }
         };
-</script>
+    </script>
 @endsection
