@@ -56,11 +56,11 @@
             <h2 class="text-center">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
                 Carta para Niño Mensajero
-                <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
+                <button class="btn1 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
             </h2>
-            <form action="{{route('letter.post')}}" method="POST">
-                {{ csrf_field() }}
-                <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)" rows="8" placeholder="Cuéntanos tus experiencias..." name="content"></textarea>
+            <form enctype="multipart/form-data" method="POST">
+                {!! csrf_field() !!}
+                <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)" rows="8" placeholder="Cuéntanos tus experiencias..." name="content" id="content"></textarea>
                 <div class="font-italic" id="charNum"></div>
                 @if ($errors->has('content'))
                 <div class="alert alert-danger mt-2" role="alert">
@@ -70,22 +70,20 @@
                     </button>
                 </div>
                 @endif
-
-                <div class="d-flex flex-row justify-content-center mt-3">
-                    <button type="submit" class="btn2" type="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
+                <div class="d-flex justify-content-center mt-2 mb-4">
+                    <div class="dropzone mt-1" id="myDropzone">
+                        <div class="dz-message">
+                            Arrastra o haz clic aquí para añadir tus imágenes <i class="far fa-smile-wink"></i>,
+                            <br>
+                            solo se permiten 5
+                        </div>
+                        <div class="dropzone-previews"></div>
+                    </div>
+                    <div class="d-flex align-items-center ml-4">
+                        <button type="submit" class="btn2" id="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
+                    </div>
                 </div>
             </form>
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    {!! Form::open(['route'=> 'file.store', 'method' => 'POST', 'files'=>'true', 'id' => 'my-dropzone' , 'class' => 'dropzone']) !!}
-                    <div class="dz-message">
-                        Coloca tus imágenes aquí <i class="far fa-smile-wink"></i>
-                    </div>
-                    <div class="dropzone-previews"></div>
-                    <button type="submit" class="btn btn-success" id="submit">Cargar imagen</button>
-                    {!! Form::close() !!}
-                </div>
-            </div>
         </div>
     </section>
 @endsection
@@ -94,32 +92,39 @@
     {!! Html::script('js/dropzone.js'); !!}
     <script>
         Dropzone.options.myDropzone = {
+            url: '{{route('letter.post')}}',
             autoProcessQueue: false,
             uploadMultiple: true,
-            maxFilezise: 3,
+            parallelUploads: 5,
+            maxFilesize: 3,
             maxFiles: 5,
+            acceptedFiles: '.jpeg,.jpg,.png',
+            addRemoveLinks: true,
+            renameFile: function(file) {
+                var dt = new Date();
+                var time = dt.getTime();
+               return time+file.name;
+            },
             init: function() {
                 var submitBtn = document.querySelector("#submit");
                 myDropzone = this;
 
                 submitBtn.addEventListener("click", function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
                     myDropzone.processQueue();
-                });
-                this.on("addedfile", function(file) {
-                    alert("Imagen cargada");
                 });
 
                 this.on("complete", function(file) {
                     myDropzone.removeFile(file);
+                    $('#content').val('');
                 });
 
                 this.on("success",
                     myDropzone.processQueue.bind(myDropzone)
                 );
-                this.on("error", function(file) {
-                    myDropzone.errorMessage('Número excedido de imágenes');
+                
+                this.on("sendingmultiple", function(data, xhr, formData) {
+                    formData.append("content", jQuery("#content").val());
+                    formData.append("_token", "{{ csrf_token() }}");
                 });
             }
         };
