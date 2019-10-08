@@ -75,7 +75,7 @@
                         <div class="dz-message">
                             Arrastra o haz clic aquí para añadir tus imágenes <i class="far fa-smile-wink"></i>,
                             <br>
-                            solo se permiten 5
+                            sólo se permiten 5
                         </div>
                         <div class="dropzone-previews"></div>
                     </div>
