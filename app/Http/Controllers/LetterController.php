@@ -15,7 +15,9 @@ class LetterController extends Controller
      */
     public function index()
     {
-        $letters = \App\Letter::all();
+        $letters = Letter::with(['images' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }])->get();
         return $letters;
     }
 
