@@ -15,9 +15,10 @@ class LetterController extends Controller
      */
     public function index()
     {
-        $letters = Letter::with(['images' => function ($query) {
-            $query->orderBy('created_at', 'desc');
-        }])->get();
+        $letters = Letter::orderBy('created_at', 'desc')
+                        ->with(['images' => function ($query) {
+                            $query->orderBy('created_at', 'desc');
+                        }])->paginate(20);
         return $letters;
     }
 
@@ -48,18 +49,18 @@ class LetterController extends Controller
             'ip_address' => $request->getClientIp()
         ]);
 
-        $path = public_path().'/storage/';
+        $path = public_path() . '/storage/';
         $files = $request->file('file');
 
-        if($files != NULL){
-            foreach($files as $file){
-                $filename = time().'_'.$file->getClientOriginalName();
+        if ($files != NULL) {
+            foreach ($files as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
                 $file->move($path, $filename);
                 $letter->images()->create(['filename' => $filename]);
             }
             $letter->save();
         }
-            return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
+        return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
     /**
