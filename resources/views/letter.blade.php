@@ -46,7 +46,7 @@
                             {{session('mensaje')}}
                         </p>
                     </div>
-                    <meta http-equiv="Refresh" content="5 ; URL=/" >
+                    <meta http-equiv="Refresh" content="2 ; URL=/" >
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@
                 myDropzone = this;
 
                 submitBtn.addEventListener("click", function(e) {
-                    myDropzone.processQueue();
+                    myDropzone.processQueue();console.log('entre');
                 });
 
                 this.on("complete", function(file) {

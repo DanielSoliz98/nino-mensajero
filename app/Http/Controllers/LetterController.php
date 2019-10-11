@@ -37,9 +37,9 @@ class LetterController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'content' => 'required|max:20000'
-        ]);
+        // $this->validate($request, [
+        //     'content' => 'required|max:20000'
+        // ]);
 
         $letter = Letter::create([
             'content' => $request->content,
@@ -49,7 +49,7 @@ class LetterController extends Controller
         $path = public_path().'/storage/';
         $files = $request->file('file');
 
-        if($files != NULL){
+        if($files!=[]){
             foreach($files as $file){
                 $filename = time().'_'.$file->getClientOriginalName();
                 $file->move($path, $filename);
@@ -57,7 +57,7 @@ class LetterController extends Controller
             }
             $letter->save();
         }
-            return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
+        return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
     /**
@@ -70,4 +70,9 @@ class LetterController extends Controller
     {
         //
     }
+
+
+    // public function personalprofiles(){
+    //     return view('personal');
+    // }
 }

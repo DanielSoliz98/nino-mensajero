@@ -25,3 +25,7 @@ Route::get('/writeLetter', 'LetterController@create')->name('writeLetter');
  * LetterController method store();
  */
 Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
+
+
+// Route for show the personal profile
+Route::get('/us', 'PersonalController@profiles')-> name('personal');
