@@ -18,8 +18,8 @@ class LetterController extends Controller
         $letters = Letter::orderBy('created_at', 'desc')
                         ->with(['images' => function ($query) {
                             $query->orderBy('created_at', 'desc');
-                        }])->paginate(20);
-        return $letters;
+                        }])->paginate(10);
+        return view('personal.letters', compact('letters'));
     }
 
     /**
