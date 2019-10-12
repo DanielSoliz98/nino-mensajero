@@ -16,7 +16,7 @@
     <div>
         @include('home.navbar')
     </div>
-    <div>
+    <div class="content-web">
         @section('content')
         @show 
     </div>
