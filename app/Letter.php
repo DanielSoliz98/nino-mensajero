@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Jenssegers\Date\Date;
 use Illuminate\Database\Eloquent\Model;
 
 class Letter extends Model
@@ -11,6 +12,11 @@ class Letter extends Model
     public function images()
     {
         return $this->hasMany(Image::class);
+    }
+
+    public function getCreatedAtAttribute($date)
+    {
+        return new Date($date);
     }
 
 }
