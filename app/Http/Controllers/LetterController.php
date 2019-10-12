@@ -29,7 +29,7 @@ class LetterController extends Controller
      */
     public function create()
     {
-        return view('letter');
+        return view('letter.letter');
     }
 
     /**
