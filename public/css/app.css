@@ -26,6 +26,7 @@
 }
 .color-title-component {
     background-image: linear-gradient(to right, #99b3da, #8dcfcc, #99b3da);
+    border-radius: 5px;
 }
 
 .backcolor-title {
