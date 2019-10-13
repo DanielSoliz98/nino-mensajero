@@ -26,4 +26,6 @@ Route::get('/writeLetter', 'LetterController@create')->name('writeLetter');
  */
 Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
 
-Route::get('/getLetters', 'LetterController@index')->name('letters');   
+Route::get('/readLetters', 'LetterController@index')->name('letters');   
+
+Route::get('/readLetters/{id}', 'LetterController@show')->name('letter.read');  

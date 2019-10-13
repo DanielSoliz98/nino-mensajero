@@ -77,6 +77,9 @@ class LetterController extends Controller
      */
     public function show($id)
     {
-        //
+        $letter = Letter::findOrFail($id);
+        $images = Letter::find($id)->images;
+        $letter->images = $images;
+        return view('personal.letter', compact('letter'));
     }
 }
