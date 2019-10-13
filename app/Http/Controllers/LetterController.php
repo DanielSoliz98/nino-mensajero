@@ -15,11 +15,7 @@ class LetterController extends Controller
      */
     public function index()
     {
-        $letters = Letter::orderBy('created_at', 'desc')
-                        ->with(['images' => function ($query) {
-                            $query->orderBy('created_at', 'desc');
-                        }])->paginate(20);
-        return $letters;
+        //
     }
 
     /**
