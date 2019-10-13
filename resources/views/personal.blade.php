@@ -15,7 +15,6 @@
             <div class="d-flex justify-content-center mt-2 mb-4 table-responsive">
                 <table class="table table-sm table-striped" border="1px">
                     <th>Nombre Completo</th>
-                    <th>Cargo</th>
                     <th>Teléfono</th>
                     <th>Correo</th>
                     <th>CI</th>
@@ -24,7 +23,6 @@
                     @foreach($pers as $key => $data)
                     <tr>  
                         <td>{{$data->complete_name}}</td> 
-                        <td></td>
                         <td>{{$data->password}}</td>  
                         <td>{{$data->email}}</td>  
                         <td>{{$data->id}}</td>
