@@ -37,9 +37,9 @@ class LetterController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'content' => 'required|max:20000'
-        // ]);
+        $this->validate($request, [
+            'content' => 'required|max:20000'
+        ]);
 
         $letter = Letter::create([
             'content' => $request->content,
@@ -70,9 +70,4 @@ class LetterController extends Controller
     {
         //
     }
-
-
-    // public function personalprofiles(){
-    //     return view('personal');
-    // }
 }

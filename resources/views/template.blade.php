@@ -27,7 +27,7 @@
                     <a href="{{route('home')}}" class="btn1"><i class="fas fa-home"></i> Inicio</a>
                 </div>
                 <div class="d-flex flex-row justify-content-end">
-                    <a href="#" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
+                <a href="{{route('team')}}" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
                 </div>
             </div>
         </nav>
@@ -36,7 +36,7 @@
 </body>
 <footer>
     <div class="container d-flex align-items-center justify-content-center">
-        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+        <div class="footer-copyright text-center py-3 foot">© 2019 Copyright:
             <a href="/"> Niño Mensajero</a>
             <p>Desarrollado por Delfos Soft S.R.L.</p>
         </div>

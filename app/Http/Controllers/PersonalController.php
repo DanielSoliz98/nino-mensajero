@@ -82,7 +82,11 @@ class PersonalController extends Controller
         //
     }
 
-    public function profiles(){
-        return view('personal');
+    // public function profiles(){
+    //     return view('personal');
+    // }
+
+    public function us(){
+        return view('team');
     }
 }
