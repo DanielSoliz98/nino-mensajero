@@ -7,16 +7,16 @@ function countChar(val) {
         $('#charNum').text(char + ' caracteres restantes.');
     }
 };
-$(document).ready(function(){
+$(document).ready(function () {
     var isshow = localStorage.getItem('isshow');
-    if (isshow== null) {
+    if (isshow == null) {
         $("#termsModal").modal('show');
     }
 });
-function accept(){
+function accept() {
     localStorage.setItem('isshow', 1);
 };
 
-$(document).ready(function(){
-   $("#homeBackModal").modal('show');
+$(document).ready(function () {
+    $("#homeBackModal").modal('show');
 });
