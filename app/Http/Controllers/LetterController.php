@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Letter;
 use App\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class LetterController extends Controller
 {
@@ -40,10 +42,14 @@ class LetterController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $validator = Validator::make($request->all(), [
             'content' => 'required|max:20000'
         ]);
 
+        if ($validator->fails()) {
+            return back()->with('error', 'Tu carta está vacía amiguit@, escríbenos algo.');
+        }
+        
         $letter = Letter::create([
             'content' => $request->content,
             'ip_address' => $request->getClientIp()
@@ -60,7 +66,7 @@ class LetterController extends Controller
             }
             $letter->save();
         }
-        return back()->with('mensaje', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
+        return redirect('/')->with('success', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
     /**
