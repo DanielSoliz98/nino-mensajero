@@ -7,10 +7,10 @@
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-9">
                                 <p class="card-text">{{ str_limit($item->content, 135) }}</p>
                             </div>
-                            <div class="col-2">
+                            <div class="col-3 d-flex justify-content-end">
                                 <div class="card-text text-muted">
                                     <span class="badge badge-light">{{$item->images->count()}} imágenes</span>
                                     {{$item->created_at->diffForHumans()}}
