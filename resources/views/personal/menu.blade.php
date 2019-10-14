@@ -18,9 +18,9 @@
             <div class="content-fluid">
                 <div class="container-fluid color-title-component text-uppercase text-center">
                     <div class="d-flex justify-content-between align-items-center">
-                        <a class="btn btn-light" id="menu-toggle">Menu</a>
+                        <a class="btn btn-light border border-dark" id="menu-toggle">Menu</a>
                         <h1>@yield('page-title')</h1>
-                        <a href="{{ URL::previous() }}" class="btn btn-light">Atras</a>
+                        <a  class="btn btn-light border border-dark" href="{{ URL::previous() }}">Atras</a>
                     </div>
                 </div>
                 @yield('personal-content')
