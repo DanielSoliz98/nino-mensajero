@@ -231,3 +231,8 @@ div.content {
 .container-fluid{
     background-color: rgb(193, 235, 255);
 }
+
+img { 
+    max-width: 200%; 
+    height: auto; 
+}

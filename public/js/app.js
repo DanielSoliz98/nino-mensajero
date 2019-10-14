@@ -16,7 +16,3 @@ $(document).ready(function () {
 function accept() {
     localStorage.setItem('isshow', 1);
 };
-
-$(document).ready(function () {
-    $("#homeBackModal").modal('show');
-});
