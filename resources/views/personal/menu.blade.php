@@ -1,6 +1,6 @@
 @extends('layout')
-@section('title', 'Inicio-Personal')
 @section('content')
+@include('personal.image')
     <div class="container-fluid">
             <div class="sidebar">
                 <a class="active" href="{{route('letters')}}">Cartas de Niños</a>

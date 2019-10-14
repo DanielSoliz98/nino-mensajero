@@ -1,4 +1,5 @@
 @extends('personal.menu')
+@section('title', 'Carta de Niño')
 @section('page-title', 'Carta de Niño')
 @section('personal-content')
     <div class="card border-dark color-component">
@@ -11,8 +12,10 @@
                 <div class="row">
                         @foreach ($letter->images as $image)
                         <div class="col-lg-4 col-md-4 col-xs-6 mt-2">
-                            <img src="/storage/{{$image->filename}}" class="card-img-top img-fluid img-thumbnail rounded" 
-                            alt="...">
+                            <a>
+                                <img src="/storage/{{$image->filename}}" class="card-img-top img-fluid img-thumbnail rounded" 
+                                alt="">
+                            </a>
                         </div>
                         @endforeach
                 </div>
@@ -22,4 +25,13 @@
                 {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
         </div>
     </div>
+    <script>
+        $(window).load(function(){
+            $('img').on('click', function(){
+                var src = $(this).attr('src');
+                $("#image").attr('src', src);
+                $("#modalImage").modal('show');
+            });
+        });
+    </script>
 @endsection

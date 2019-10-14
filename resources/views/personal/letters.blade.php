@@ -1,4 +1,5 @@
 @extends('personal.menu')
+@section('title', 'Cartas de Niños')
 @section('page-title', 'Cartas de Niños')
 @section('personal-content')
     @if (count($letters) > 0)
