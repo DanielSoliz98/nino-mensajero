@@ -1,11 +1,11 @@
-@extends('template')
+@extends('templateInfo')
 @section('css')
     <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
 @endsection
 
 @section('section')
 
-<section class="container-fluid slider d-flex justify-content-center img-fluid">
+<section class="container-fluid d-flex justify-content-center img-fluid slider2">
     <div class="container mt-2">
         <h2 class="text-center">
             Informacíon del personal
@@ -13,21 +13,26 @@
             
         <form enctype="multipart/form-data" method="POST">
             <div class="d-flex justify-content-center mt-2 mb-4 table-responsive">
-                <table class="table table-sm table-striped" border="1px">
-                    <th>Nombre Completo</th>
-                    <th>Teléfono</th>
-                    <th>Correo</th>
-                    <th>CI</th>
-                    <th>Profesión</th>
-                    <th>Dirección</th>
+                <table class="table table-sm table-striped tablebody-centered" border="1px">
+                    <th>NOMBRE COMPLETO</th>
+                    <th>CORREO</th>
+                    <th>TELÉFONO</th>
+                    <th>C.I.</th>
+                    <th>DIRECCIÓN</th>
+                    <th>USUARIO</th>
+                    <th>CONTRASEÑA</th>
+                    <th>PROFESIÓN</th>
+                    
                     @foreach($pers as $key => $data)
                     <tr>  
-                        <td>{{$data->complete_name}}</td> 
-                        <td>{{$data->password}}</td>  
-                        <td>{{$data->email}}</td>  
+                        <td><a href="/profileAdmin">{{$data->complete_name}}</a></td> 
+                        <td>{{$data->email}}</td>
+                        <td>noneTel</td>
                         <td>{{$data->id}}</td>
-                        <td>{{$data->rol_id}}</td>   
-                        <td></td>           
+                        <td>noneDir</td>
+                        <td>noneUsr</td>
+                        <td>{{$data->password}}</td> 
+                        <td>{{$data->rol_id}}</td>      
                     </tr>
                 @endforeach
                 </table>
