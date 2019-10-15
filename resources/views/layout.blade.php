@@ -24,7 +24,7 @@
 </body>
 <footer>
     <div class="container-fluid backcolor d-flex justify-content-around align-items-center justify-content-center">
-            <div class="row footer-copyright text-center">
+            <div class="row footer-copyright text-center py-3">
                 <div class="col-sm">
                     © 2019 Copyright: <a href="/"> Niño Mensajero</a> 
                 </div>
