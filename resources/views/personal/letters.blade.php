@@ -4,15 +4,15 @@
 @include('personal.menu-personal')
 @section('personal-content')
     @if (count($letters) > 0)
-        <div class="infinite-scroll ml-2 mr-2 mb-2">
+        <div class="infinite-scroll mb-2">
             @foreach($letters as $letter)
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-9">
+                            <div class="col-10">
                                 <p class="card-text">{{ str_limit($letter->content, 135) }}</p>
                             </div>
-                            <div class="col-3 d-flex justify-content-end">
+                            <div class="col-2 d-flex justify-content-end">
                                 <div class="card-text text-muted">
                                     @if(count($letter->images) == 1)
                                         <span class="badge badge-light">{{$letter->images->count()}} imágen</span>

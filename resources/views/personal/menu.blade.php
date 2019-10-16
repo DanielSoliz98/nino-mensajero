@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('personal.layout')
 @section('content')
 @include('personal.image')
     <div class="d-flex" id="wrapper">
