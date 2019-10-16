@@ -9,33 +9,20 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     <script src="/js/app.js"></script>
-    <title>Niño Mensajero</title>
+    <title>@yield('title')</title>
     @yield('css')
 </head>
-<body class="body-content">
-    <section>
-        <nav class="navbar navbar-expand-lg navbar-light bg-info navbar-toggleable-md sticky-top backcolor">
-            <a class= "navbar-brand" href="{{route('home')}}">
-                <img src="letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
-                NIÑO MENSAJERO
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <div class="navbar-nav mr-auto text-center">
-                    <a href="{{route('home')}}" class="btn1"><i class="fas fa-home"></i> Inicio</a>
-                </div>
-                <div class="d-flex flex-row justify-content-end">
-                    <a href="#" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
-                </div>
-            </div>
-        </nav>
-        @yield('section')
-    </section>
+<body>
+    <div>
+        @include('home.navbar')
+    </div>
+    <div>
+        @section('content')
+        @show 
+    </div>
 </body>
 <footer>
-    <div class="container d-flex align-items-center justify-content-center">
+    <div class="container-fluid backcolor d-flex justify-content-around align-items-center justify-content-center">
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
             <a href="/"> Niño Mensajero</a>
             <p>Desarrollado por Delfos Soft S.R.L.</p>
