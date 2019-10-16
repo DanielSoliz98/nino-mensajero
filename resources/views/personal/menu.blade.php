@@ -3,14 +3,9 @@
 @include('personal.image')
     <div class="d-flex" id="wrapper">
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Personal - Menu</div>
+            <div class="sidebar-heading">@yield('title-menu')</div>
             <div class="list-group list-group-flush">
-                <a href="{{route('letters')}}" class="list-group-item list-group-item-action bg-light">Cartas de Niños</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">...</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">...</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">...</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">...</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">...</a>
+                @yield('menu-list')
             </div>
         </div>
 

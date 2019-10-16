@@ -1,9 +1,10 @@
 @extends('personal.menu')
 @section('title', 'Cartas de Niños')
 @section('page-title', 'Cartas de Niños')
+@include('personal.menu-personal')
 @section('personal-content')
     @if (count($letters) > 0)
-        <div class="infinite-scroll">
+        <div class="infinite-scroll ml-2 mr-2 mb-2">
             @foreach($letters as $letter)
                 <div class="card mt-1 color-component">
                     <div class="card-body">

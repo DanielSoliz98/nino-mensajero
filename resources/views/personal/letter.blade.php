@@ -1,8 +1,9 @@
 @extends('personal.menu')
 @section('title', 'Carta de Niño')
 @section('page-title', 'Carta de Niño')
+@include('personal.menu-personal')
 @section('personal-content')
-    <div class="card border-dark color-component">
+    <div class="card border-dark color-component mt-2 ml-2 mr-2 mb-2">
         <div class="card-body">
             <p class="card-text">{{$letter->content}}</p>
         </div>
