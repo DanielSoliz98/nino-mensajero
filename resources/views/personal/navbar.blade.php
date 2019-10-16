@@ -11,7 +11,7 @@
             <a href="{{route('home')}}" class="btn3"><i class="fas fa-home"></i> Inicio</a>
         </div>
         <div class="d-flex flex-row justify-content-center">
-            <a href="#" class="btn3"><i class="fas fa-user-friends"></i> Iniciar Sesion</a>
+          
         </div>
     </div>
 </nav>
