@@ -23,15 +23,11 @@
     </div>
 </body>
 <footer>
-    <div class="container-fluid backcolor d-flex align-items-center justify-content-center">
-            <div class="row footer-copyright text-center py-3">
-                <div class="col-sm">
-                    © 2019 Copyright: <a href="/"> Niño Mensajero</a> 
-                </div>
-                <div class="col-s6">
-                    Desarrollado por Delfos Soft S.R.L.
-                </div>
-            </div>
+    <div class="container-fluid backcolor d-flex justify-content-around align-items-center justify-content-center">
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href="/"> Niño Mensajero</a>
+            <p>Desarrollado por Delfos Soft S.R.L.</p>
+        </div>
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
