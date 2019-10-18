@@ -11,6 +11,6 @@ class HomeController extends Controller
      * @return home.blade.php view
      */
     public function create(){
-        return view('home');
+        return view('home.welcome');
     }
 }

@@ -15,8 +15,7 @@ class LetterController extends Controller
      */
     public function index()
     {
-        $letters = \App\Letter::all();
-        return $letters;
+        //
     }
 
     /**
@@ -26,7 +25,7 @@ class LetterController extends Controller
      */
     public function create()
     {
-        return view('letter');
+        return view('letter.letter');
     }
 
     /**
@@ -46,12 +45,12 @@ class LetterController extends Controller
             'ip_address' => $request->getClientIp()
         ]);
 
-        $path = public_path().'/storage/';
+        $path = public_path() . '/storage/';
         $files = $request->file('file');
 
-        if($files!=[]){
-            foreach($files as $file){
-                $filename = time().'_'.$file->getClientOriginalName();
+        if ($files != NULL) {
+            foreach ($files as $file) {
+                $filename = time() . '_' . $file->getClientOriginalName();
                 $file->move($path, $filename);
                 $letter->images()->create(['filename' => $filename]);
             }
