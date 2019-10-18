@@ -25,7 +25,7 @@
                     
                     @foreach($pers as $key => $data)
                     <tr>  
-                        <td><a href="/profileAdmin">{{$data->complete_name}}</a></td> 
+                        <td><a href="/profileAdmin">{{$data->full_name}}</a></td> 
                         <td>{{$data->email}}</td>
                         <td>noneTel</td>
                         <td>{{$data->id}}</td>

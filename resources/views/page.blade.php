@@ -1,9 +1,9 @@
-@extends('template')
+@extends('layout')
 @section('css')
     <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
 @endsection
 
-@section('section')
+@section('content')
 <section class="container-fluid slider d-flex justify-content-center">
     <div class="container mt-2">
         <h2 class="text-center">
