@@ -27,20 +27,19 @@ Route::get('/writeLetter', 'LetterController@create')->name('writeLetter');
 Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
 
 
-// Route for show the personal profile
-Route::get('/personal', function () {
-    $pers = DB::table('users')->get();
-    return view('personal', ['pers' => $pers]);
-  });
+/**
+ *  Route for show the personal profile
+ */
+Route::get('/personal', 'AdminController@index')-> name('personal');//reireccion a otro!!!
 //
-Route::post('/personal', 'PersonalController@index')-> name('per');
+///Route::post('/personal', 'PersonalController@index')-> name('per');
 
-// Route for show the developers team information
+/**
+* Route for show the developers team information
+*/
 Route::get('/nosotros', 'PersonalController@us')-> name('page');
 
-//Route for show the profile for each personal
-Route::get('/profileAdmin', function () {
-  // $pers = DB::table('users')->get();
-  // return view('profile', ['pers' => $pers]);
-  return view('profileAdmin');
-});
+/**
+*Route for show the profile for each personal
+*/
+Route::get('/profileAdmin', 'AdminController@profile')-> name('persProfile');

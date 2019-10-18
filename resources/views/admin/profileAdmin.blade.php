@@ -22,6 +22,10 @@
                         <td></td>
                     </tr>
                     <tr>
+                        <td>Grado de formación: </td> 
+                        <td></td>
+                    </tr>
+                    <tr>
                         <td>Experiencia profesional: </td>
                         <td></td>
                     </tr> 
@@ -33,7 +37,7 @@
             </div>
         </form>
         <div class="content d-flex align-items-center justify-content-center">
-            <a href="{{route('per')}}" class="btn3"><i class="fas fa-user-friends"></i> Personal</a></td>        
+            <a href="{{route('personal')}}" class="btn3"><i class="fas fa-user-friends"></i> Personal</a></td>        
         </div>
     </div>
 </section>

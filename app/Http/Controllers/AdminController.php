@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PersonalController extends Controller
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+
+
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,14 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        return view('admin.personal');
+        $pers = DB::table('users')->get()->sortBy('full_name');
+        return view('admin.personal', ['pers' => $pers]);
+        //$pers['pers'] = DB::table('users')->get();
+        //return view('admin.personal', $pers);
+    }
+
+    public function showspec(){
+        $persona = users::all()->toArray();
     }
 
     /**
@@ -82,11 +93,9 @@ class PersonalController extends Controller
         //
     }
 
-    // public function profiles(){
-    //     return view('personal');
-    // }
-
-    public function us(){
-        return view('home.page');
+    public function profile(){
+        //$pers = DB::table('users')->get();
+        //return view('profile', ['pers' => $pers]);
+        return view('admin.profileAdmin');
     }
 }
