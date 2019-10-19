@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource
      *
      * @return \Illuminate\Http\Response
      */
@@ -24,7 +24,7 @@ class AdminController extends Controller
     public function showspec(){
         $persona = users::all()->toArray();
     }
-
+gi
     /**
      * Show the form for creating a new resource.
      *
