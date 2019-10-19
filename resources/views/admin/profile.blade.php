@@ -1,4 +1,4 @@
-@extends('templateInfo')
+@extends('template')
 
 
 @section('section')

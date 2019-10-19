@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
+//use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-
+use App;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -17,14 +18,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $pers = DB::table('users')->get()->sortBy('full_name');
-        return view('admin.personal', ['pers' => $pers]);
+        $personals = App\User::all()->sortBy('full_name');
+        return view('admin.personal', compact('personals'));
     }
 
     public function showspec(){
-        $persona = users::all()->toArray();
+        $persona = App\User::all()->toArray();
     }
-gi
+
     /**
      * Show the form for creating a new resource.
      *
@@ -92,6 +93,6 @@ gi
     }
 
     public function profile(){
-        return view('admin.profileAdmin');
+        return view('admin.profile');
     }
 }

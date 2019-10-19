@@ -1,4 +1,4 @@
-@extends('templateInfo')
+@extends('template')
 @section('css')
     <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
 @endsection
@@ -20,21 +20,18 @@
                     <th>C.I.</th>
                     <th>DIRECCIÓN</th>
                     <th>USUARIO</th>
-                    <th>CONTRASEÑA</th>
                     <th>PROFESIÓN</th>
-                    
-                    @foreach($pers as $data)
-                    <tr>  
-                        <td><a href="{{route('persProfile')}}">{{$data->full_name}}</a></td>
-                        <td>{{$data->email}}</td>
-                        <td>{{$data->phone}}</td>
-                        <td>{{$data->id}}</td>
-                        <td>{{$data->direction}}</td>
-                        <td>{{$data->user_name}}</td>
-                        <td>{{$data->password}}</td> 
-                        <td>{{$data->rol_id}}</td> 
-                    </tr>
-                @endforeach
+                    @foreach($personals as $pers)
+                        <tr>  
+                            <td><a href="{{route('persProfile')}}">{{$pers->full_name}}</a></td>
+                            <td>{{$pers->email}}</td>
+                            <td>{{$pers->phone}}</td>
+                            <td>{{$pers->id}}</td>
+                            <td>{{$pers->direction}}</td>
+                            <td>{{$pers->user_name}}</td>
+                            <td>{{$pers->rol_id}}</td> 
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </form>

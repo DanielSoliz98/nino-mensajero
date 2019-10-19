@@ -37,7 +37,7 @@ Route::get('/personal', 'AdminController@index')-> name('personal');
 /**
 * Route for show the developers team information
 */
-Route::get('/nosotros', 'PersonalController@us')-> name('page');
+Route::get('/nosotros', 'HomeController@pageInfo')-> name('page');
 
 /**
 *Route for show the profile for each personal

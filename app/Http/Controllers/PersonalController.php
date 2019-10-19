@@ -13,7 +13,7 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        return view('admin.personal');
+        return view('admin.personal');//
     }
 
     /**
@@ -86,7 +86,5 @@ class PersonalController extends Controller
     //     return view('personal');
     // }
 
-    public function us(){
-        return view('home.page');
-    }
+    
 }
