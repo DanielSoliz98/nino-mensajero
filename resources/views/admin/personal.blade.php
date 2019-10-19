@@ -31,7 +31,7 @@
                         <td>{{$data->email}}</td>
                         <td>{{$data->phone}}</td>
                         <td>{{$data->id}}</td>
-                        <td>{{$data->location}}</td>
+                        <td>{{$data->direction}}</td>
                         <td>{{$data->user_name}}</td>
                         <td>{{$data->password}}</td> 
                         <td>{{$data->rol_id}}</td>      
