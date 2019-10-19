@@ -5,6 +5,26 @@
 @endsection
 @section('content')
     @include('letter.help')
+    @if (session('mensaje'))
+        <div class="modal fade" id="homeBackModal" tabindex="-1" role="dialog" aria-labelledby="helpTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header backcolor-title">
+                        <h5 class="modal-title popuptitle" id="helpTitle">
+                            <img src="letter.svg" width="30" height="30">
+                            Envio Correcto.
+                        </h5>
+                    </div>
+                    <div class="modal-body popupcontent">
+                        <p>
+                            {{session('mensaje')}}
+                        </p>
+                    </div>
+                    <meta http-equiv="Refresh" content="2 ; URL=/" >
+                </div>
+            </div>
+        </div>
+    @endif
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2">
             <h2 class="text-center">
@@ -51,7 +71,7 @@
                 myDropzone = this;
 
                 submitBtn.addEventListener("click", function(e) {
-                    myDropzone.processQueue();
+                    myDropzone.processQueue();console.log('entre');
                 });
 
                 this.on("complete", function(file) {
