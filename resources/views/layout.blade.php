@@ -13,6 +13,7 @@
     @yield('css')
 </head>
 <body>
+    @include('sweetalert::alert')
     <div>
         @include('home.navbar')
     </div>

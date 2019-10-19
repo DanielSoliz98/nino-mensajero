@@ -35,15 +35,7 @@
             <form enctype="multipart/form-data" method="POST">
                 {!! csrf_field() !!}
                 <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)" rows="8" placeholder="Cuéntanos tus experiencias..." name="content" id="content"></textarea>
-                <div class="font-italic" id="charNum"></div>
-                @if ($errors->has('content'))
-                    <div class="alert alert-danger mt-2" role="alert">
-                        <i class="fas fa-pen-alt"></i> Tu carta está vacía amiguit@, escríbenos algo.
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                @endif
+                <div class="font-italic" id="charNum"> 20000 caracteres restantes.</div>
                 <div class="d-flex justify-content-center mt-2 mb-4">
                     <div class="dropzone mt-1" id="myDropzone">
                         <div class="dz-message">
