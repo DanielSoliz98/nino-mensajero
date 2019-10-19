@@ -30,9 +30,9 @@ Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
 /**
  *  Route for show the personal profile
  */
-Route::get('/personal', 'AdminController@index')-> name('personal');//reireccion a otro!!!
+Route::get('/personal', 'AdminController@index')-> name('personal');
 //
-///Route::post('/personal', 'PersonalController@index')-> name('per');
+///Route::post('/personal', 'PersonalController@index')-> name('personal');
 
 /**
 * Route for show the developers team information

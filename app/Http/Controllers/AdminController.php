@@ -19,8 +19,6 @@ class AdminController extends Controller
     {
         $pers = DB::table('users')->get()->sortBy('full_name');
         return view('admin.personal', ['pers' => $pers]);
-        //$pers['pers'] = DB::table('users')->get();
-        //return view('admin.personal', $pers);
     }
 
     public function showspec(){
@@ -94,8 +92,6 @@ class AdminController extends Controller
     }
 
     public function profile(){
-        //$pers = DB::table('users')->get();
-        //return view('profile', ['pers' => $pers]);
         return view('admin.profileAdmin');
     }
 }

@@ -23,10 +23,8 @@
                     <th>CONTRASEÑA</th>
                     <th>PROFESIÓN</th>
                     
-                    {{-- @foreach($pers as $key => $data) --}}
                     @foreach($pers as $data)
                     <tr>  
-                        {{-- <td><a href="/profileAdmin">{{$data->full_name}}</a></td>  --}}
                         <td><a href="{{route('persProfile')}}">{{$data->full_name}}</a></td>
                         <td>{{$data->email}}</td>
                         <td>{{$data->phone}}</td>
