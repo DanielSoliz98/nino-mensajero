@@ -186,7 +186,7 @@
 }
 
 .foot{
-    position: absolute;
+    position: relative;
     bottom: 4px;
     float: none;
 }
