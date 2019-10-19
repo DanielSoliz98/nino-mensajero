@@ -11,7 +11,7 @@
             <a href="{{route('home')}}" class="btn1"><i class="fas fa-home"></i> Inicio</a>
         </div>
         <div class="d-flex flex-row justify-content-center">
-            <a href="{{route('page')}}" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
+            <a href="#" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
         </div>
     </div>
 </nav>
