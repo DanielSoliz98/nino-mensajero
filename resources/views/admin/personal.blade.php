@@ -34,7 +34,7 @@
                         <td>{{$data->direction}}</td>
                         <td>{{$data->user_name}}</td>
                         <td>{{$data->password}}</td> 
-                        <td>{{$data->rol_id}}</td>      
+                        <td>{{$data->rol_id}}</td> 
                     </tr>
                 @endforeach
                 </table>
