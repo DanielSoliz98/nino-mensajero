@@ -1,5 +1,5 @@
 @section('title-menu')
-<h5 class="title-left">MENÚ DE ADMINISTRADOR</h5>
+<h6 class="title-left">MENÚ DE ADMINISTRADOR</h6>
 @endsection
 @section('menu-list')
     <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de Personal</a>
