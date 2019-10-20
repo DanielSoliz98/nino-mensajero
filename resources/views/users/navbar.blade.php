@@ -12,7 +12,7 @@
         </div>
         <div class="navbar-nav ml-auto text-center">
             <a href="#" class="btn3 mr-1"><i class="fas fa-user-circle"></i> Mi perfil</a>
-            <a href="#" class="btn3 ml-1"><i class="fas fa-sign-out-alt"></i> Cerrar Sesion</a>
+            <a href="#" class="btn3 ml-1"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
         </div>
     </div>
 </nav>
