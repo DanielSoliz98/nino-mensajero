@@ -3,5 +3,5 @@
 @section('page-title', 'Cartas de Niños')
 @include('users.personal.menu-list')
 @section('user-content')
-    <h1>Ejmplo de vista de cartas de ninos para personal</h1>
+    <h3 class="content d-flex align-items-center justify-content-center">Ejemplo de vista de cartas de niños para personal</h3>
 @endsection

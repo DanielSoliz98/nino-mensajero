@@ -263,6 +263,10 @@ img {
     height: auto; 
 }
 
+.title-left{
+    color:darkblue;
+}
+
 #sidebar-wrapper {
     min-height: 80vh;
     margin-left: -15rem;
