@@ -28,6 +28,4 @@ Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
 
 Route::get('/personal/letters', 'PersonalController@letters')->name('user.letters');
 
-Route::get('/admin/letters', 'AdminController@letters')->name('admin.letters');
-
 Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal');
