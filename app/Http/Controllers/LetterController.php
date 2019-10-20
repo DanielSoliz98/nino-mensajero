@@ -11,20 +11,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 class LetterController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $letters = Letter::orderBy('created_at', 'desc')
-                        ->with(['images' => function ($query) {
-                            $query->orderBy('created_at', 'desc');
-                        }])->paginate(10);
-        return view('personal.letters', compact('letters'));
-    }
-
-    /**
      * Show the view for write a letter.
      *
      * @return letter.blade.php view
@@ -67,19 +53,5 @@ class LetterController extends Controller
             $letter->save();
         }
         return redirect('/')->with('success', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $letter = Letter::findOrFail($id);
-        $images = Letter::find($id)->images;
-        $letter->images = $images;
-        return view('personal.letter', compact('letter'));
     }
 }

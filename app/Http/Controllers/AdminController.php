@@ -11,8 +11,4 @@ class AdminController extends Controller
         return view('users.admin.personal-information');
     }
 
-    public function letters()
-    {
-        return view('users.admin.letters');
-    }
 }
