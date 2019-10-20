@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-//use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App;
 use App\User;
@@ -22,9 +22,9 @@ class AdminController extends Controller
         return view('admin.personal', compact('personals'));
     }
 
-    public function showspec(){
-        $persona = App\User::all()->toArray();
-    }
+    // public function showspec(){
+    //     $persona = App\User::all()->toArray();
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -92,7 +92,14 @@ class AdminController extends Controller
         //
     }
 
-    public function profile(){
-        return view('admin.profile');
+    public function profiles(){
+        $specialists = App\Specialist::all()->sortBy('profession');
+        return view('admin.profiles', compact('specialists', 'userName'));
+    }
+
+    public function profile($personal){
+        $personals = App\User::findOrFail($personal);
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal)->get();
+        return view('admin.profile', compact('personals', 'queryPersProfile'));
     }
 }

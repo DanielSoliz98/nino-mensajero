@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Faker\Guesser\Name;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'full_name', 'email', 'phone', 'direction', 'user_name', 'password', 'rol_id',
+        'id', 'full_name', 'email', 'phone', 'direction', 'user_name', 'password', 'rol_id',
     ];
 
     /**
@@ -26,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // public static function getName() {
+    //     return value('full_name');////
+    // }
+
+    // public function getNameAttribute($value)
+    // {
+    //     return ucfirst($value);
+    // }
 }

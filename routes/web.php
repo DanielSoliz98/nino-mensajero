@@ -40,6 +40,11 @@ Route::get('/personal', 'AdminController@index')-> name('personal');
 Route::get('/nosotros', 'HomeController@pageInfo')-> name('page');
 
 /**
+*Route for show the Academic profile for all the personals
+*/
+Route::get('/profileAdmin', 'AdminController@profiles')-> name('persProfile');
+
+/**
 *Route for show the profile for each personal
 */
-Route::get('/profileAdmin', 'AdminController@profile')-> name('persProfile');
+Route::get('/{personal}', 'AdminController@profile')-> name('persProfile');

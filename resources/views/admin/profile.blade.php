@@ -1,38 +1,40 @@
 @extends('template')
 
-
 @section('section')
 
 <section class="container-fluid d-flex justify-content-center img-fluid slider2">
     <div class="container mt-2">
-        <h2 class="text-center">
-            Perfil Profesional
-        </h2>
+        <h2 class="text-center">Perfil Profesional</h2>
             
         <form enctype="multipart/form-data" method="POST">
             <div class="d-flex justify-content-center mt-2 mb-4 table-responsive">
-                <table class="table table-sm table-striped tablebody-left" border="1px">
-                    
-                    <tr>  
-                        <td>Nombre: </td> 
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Profesión: </td> 
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Grado de formación: </td> 
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Experiencia profesional: </td>
-                        <td></td>
-                    </tr> 
-                    <tr>
-                        <td>Especialidad: </td>        
-                        <td></td>   
-                    </tr>
+                <table class="table table-sm table-striped tablebody-left" border="1px">  
+                    @foreach ($queryPersProfile as $profile)
+                        <tr>  
+                            <td>Nombre: </td> 
+                            <td>{{$personals->full_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>C.I.</td>
+                            <td>{{$personals->id}}</td>
+                        </tr>
+                        <tr>
+                            <td>Profesión:</td> 
+                            <td>{{$profile->profession}}</td>
+                        </tr>
+                        <tr>
+                            <td>Grado de formación:</td> 
+                            <td>{{$profile->degree}}</td>
+                        </tr>
+                        <tr>
+                            <td>Habilidades: </td>
+                            <td>{{$profile->skills}}</td>
+                        </tr> 
+                        <tr>
+                            <td>Tiempo de experiencia:</td>        
+                            <td>{{$profile->experience}}</td>   
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </form>
@@ -42,3 +44,4 @@
     </div>
 </section>
 @endsection
+

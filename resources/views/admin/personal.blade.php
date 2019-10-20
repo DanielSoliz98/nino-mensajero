@@ -23,7 +23,8 @@
                     <th>PROFESIÓN</th>
                     @foreach($personals as $pers)
                         <tr>  
-                            <td><a href="{{route('persProfile')}}">{{$pers->full_name}}</a></td>
+                            {{-- <td><a href="{{route('persProfile')}}">{{$pers->full_name}}</a></td> --}}
+                            <td><a href="{{route('persProfile', $pers)}}">{{$pers->full_name}}</a></td>
                             <td>{{$pers->email}}</td>
                             <td>{{$pers->phone}}</td>
                             <td>{{$pers->id}}</td>

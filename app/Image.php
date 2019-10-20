@@ -11,5 +11,4 @@ class Image extends Model
     public function letter(){
         return $this->belongsTo(Letter::class, 'letter_id');
     }
-    
 }
