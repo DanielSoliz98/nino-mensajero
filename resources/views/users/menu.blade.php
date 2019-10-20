@@ -5,7 +5,7 @@
 @section('content')
     <div class="d-flex" id="wrapper">
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Menu</div>
+            <div class="sidebar-heading">@yield('title-menu')</div>
             <div class="list-group list-group-flush">
                 @yield('menu-list')
             </div>
