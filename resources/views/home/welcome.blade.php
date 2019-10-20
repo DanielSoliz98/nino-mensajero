@@ -1,4 +1,7 @@
 @extends('layout')
+@section('navbar')
+    @include('home.navbar')
+@endsection
 @section('title', 'Niño Mensajero')
 @section('content')
     @include('home.terms')
@@ -7,4 +10,7 @@
             <a href="{{route('writeLetter')}}" class="btn2"><i class="far fa-envelope"></i> Escribir mi carta</a>
         </div>
     </div>
+@endsection
+@section('footer')
+    @include('home.footer')
 @endsection

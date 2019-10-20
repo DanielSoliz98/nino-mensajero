@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-info navbar-toggleable-md sticky-top backcolor">
+<nav class="navbar navbar-expand-lg navbar-light bg-info navbar-toggleable-md fixed-top backcolor">
     <a class= "navbar-brand" href="{{route('home')}}">
         <img src="letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
         NIÑO MENSAJERO  
@@ -10,8 +10,8 @@
         <div class="navbar-nav mr-auto text-center">
             <a href="{{route('home')}}" class="btn1"><i class="fas fa-home"></i> Inicio</a>
         </div>
-        <div class="d-flex flex-row justify-content-center">
-            <a href="{{route('page')}}" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
+        <div class="navbar-nav ml-auto text-center">
+            <a href="#" class="btn1"><i class="fas fa-user-friends"></i> ¿Quiénes Somos?</a>
         </div>
     </div>
 </nav>

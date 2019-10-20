@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App;
@@ -43,10 +44,16 @@ class AdminController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+=======
+class AdminController extends Controller
+{
+    public function personal()
+>>>>>>> d3cb1c1e2249cc8689f2e74dbb3b101c934c74a9
     {
-        //
+        return view('users.admin.personal-information');
     }
 
+<<<<<<< HEAD
     /**
      * Display the specified resource.
      *
@@ -102,4 +109,6 @@ class AdminController extends Controller
         $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal)->get();
         return view('admin.profile', compact('personals', 'queryPersProfile'));
     }
+=======
+>>>>>>> d3cb1c1e2249cc8689f2e74dbb3b101c934c74a9
 }
