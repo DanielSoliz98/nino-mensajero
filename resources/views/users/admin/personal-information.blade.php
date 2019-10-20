@@ -1,6 +1,6 @@
 @extends('users.menu')
 @section('title', 'Informacion de Personal')
-@section('page-title', 'Personal de Niño Mensajero')
+@section('page-title', 'Informacion de Personal')
 @include('users.admin.menu-list')
 @section('user-content')
 
