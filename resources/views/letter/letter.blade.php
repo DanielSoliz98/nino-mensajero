@@ -3,6 +3,9 @@
 @section('css')
     <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
 @endsection
+@section('navbar')
+    @include('home.navbar')
+@endsection
 @section('content')
     @include('letter.help')
     <section class="container-fluid slider d-flex justify-content-center">
@@ -33,7 +36,9 @@
         </div>
     </section>
 @endsection
-
+@section('footer')
+    @include('home.footer')
+@endsection
 @section('scripts')
     {!! Html::script('js/dropzone.js'); !!}
     <script>
