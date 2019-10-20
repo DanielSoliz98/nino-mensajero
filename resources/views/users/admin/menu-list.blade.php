@@ -1,6 +1,4 @@
-@section('title-menu')
-<h6 class="title-left">MENÚ DE ADMINISTRADOR</h6>
-@endsection
+@section('title-menu', 'MENÚ DE ADMINISTRADOR')
 @section('menu-list')
     <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de Personal</a>
     <a href="{{route('allProfiles')}}" class="list-group-item list-group-item-action bg-light">Informaciones Generadas</a>
