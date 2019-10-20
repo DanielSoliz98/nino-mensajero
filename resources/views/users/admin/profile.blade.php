@@ -27,8 +27,8 @@
                         <td>{{$profile->degree}}</td>
                     </tr>
                     <tr>
-                        <td>Habilidades:</td>
-                        <td>{{$profile->skills}}</td>
+                        <td>Especialidades:</td>
+                        <td>{{$profile->specialties}}</td>
                     </tr> 
                     <tr>
                         <td>Tiempo de experiencia:</td>        
