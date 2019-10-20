@@ -28,13 +28,10 @@ Route::post('/writeLetter', 'LetterController@store')->name('letter.post');
 
 Route::get('/personal/letters', 'PersonalController@letters')->name('user.letters');
 
-<<<<<<< HEAD
 /**
  *  Route for show the personal profile
  */
-Route::get('/personal', 'AdminController@index')-> name('personal');
-//
-///Route::post('/personal', 'PersonalController@index')-> name('personal');
+Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal'); 
 
 /**
 * Route for show the developers team information
@@ -44,12 +41,9 @@ Route::get('/nosotros', 'HomeController@pageInfo')-> name('page');
 /**
 *Route for show the Academic profile for all the personals
 */
-Route::get('/profileAdmin', 'AdminController@profiles')-> name('persProfile');
+Route::get('/admin/all-profiles', 'AdminController@profiles')-> name('allProfiles');
 
 /**
 *Route for show the profile for each personal
 */
-Route::get('/{personal}', 'AdminController@profile')-> name('persProfile');
-=======
-Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal');
->>>>>>> d3cb1c1e2249cc8689f2e74dbb3b101c934c74a9
+Route::get('admin/personal/{personal}', 'AdminController@profile')-> name('persProfile');

@@ -8,8 +8,9 @@ class PersonalController extends Controller
 {
     public function letters()
     {
-<<<<<<< HEAD
-        return view('admin.personal');//
+        //return view('admin.personal');//
+        return view('users.personal.letters');
+    
     }
 
     /**
@@ -81,10 +82,4 @@ class PersonalController extends Controller
     // public function profiles(){
     //     return view('personal');
     // }
-
-    
-=======
-        return view('users.personal.letters');
-    }
->>>>>>> d3cb1c1e2249cc8689f2e74dbb3b101c934c74a9
 }

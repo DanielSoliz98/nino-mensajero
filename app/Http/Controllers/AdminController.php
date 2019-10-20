@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App;
@@ -19,13 +18,15 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $personals = App\User::all()->sortBy('full_name');
-        return view('admin.personal', compact('personals'));
+        //
     }
 
-    // public function showspec(){
-    //     $persona = App\User::all()->toArray();
-    // }
+    public function personal()
+    {
+        $personals = App\User::all()->sortBy('full_name');
+        return view('users.admin.personal-information', compact('personals'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -43,17 +44,9 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-=======
-class AdminController extends Controller
-{
-    public function personal()
->>>>>>> d3cb1c1e2249cc8689f2e74dbb3b101c934c74a9
-    {
-        return view('users.admin.personal-information');
-    }
+    //public function store(Request $request)
 
-<<<<<<< HEAD
+
     /**
      * Display the specified resource.
      *
@@ -101,14 +94,12 @@ class AdminController extends Controller
 
     public function profiles(){
         $specialists = App\Specialist::all()->sortBy('profession');
-        return view('admin.profiles', compact('specialists', 'userName'));
+        return view('users.admin.profiles', compact('specialists', 'userName'));
     }
 
     public function profile($personal){
         $personals = App\User::findOrFail($personal);
         $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal)->get();
-        return view('admin.profile', compact('personals', 'queryPersProfile'));
+        return view('users.admin.profile', compact('personals', 'queryPersProfile'));
     }
-=======
->>>>>>> d3cb1c1e2249cc8689f2e74dbb3b101c934c74a9
 }
