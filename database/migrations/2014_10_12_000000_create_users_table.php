@@ -18,7 +18,6 @@ class CreateUsersTable extends Migration
 			$table->string('full_name', 50);
             $table->string('email', 30)->unique();
             $table->string('phone', 8);
-            $table->string('direction', 30);
             $table->string('user_name', 30);
 			$table->string('password', 20);
 			$table->smallInteger('rol_id');

@@ -14,7 +14,6 @@
                     <th>CORREO</th>
                     <th>TELÉFONO</th>
                     <th>C.I.</th>
-                    <th>DIRECCIÓN</th>
                     <th>USUARIO</th>
                     <th>PROFESIÓN</th>
                 </tr>
@@ -24,7 +23,6 @@
                     <td>{{$pers->email}}</td>
                     <td>{{$pers->phone}}</td>
                     <td>{{$pers->id}}</td>
-                    <td>{{$pers->direction}}</td>
                     <td>{{$pers->user_name}}</td>
                     <td>{{$pers->rol_id}}</td> 
                 </tr>
