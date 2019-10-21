@@ -37,7 +37,9 @@
                 @endforeach
             </table>
         </div>
-        <a class="btn btn-light border border-dark"  href="{{route('home')}}">EDITAR PERFIL</a>
+        <div class="d-flex align-items-center justify-content-center ">
+            <a class="btn btn-light border border-dark" href="{{route('home')}}">Editar perfil</a>
+        </div>
     </form>
 </section>
 @endsection
