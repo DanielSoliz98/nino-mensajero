@@ -1,5 +1,5 @@
 @extends('users.menu')
-@section('title', 'Personal-Cartas de Niños')
+@section('title', 'Cartas de Niños')
 @section('page-title', 'Carta de Niño')
 @include('users.personal.menu-list')
 @include('users.personal.image')
