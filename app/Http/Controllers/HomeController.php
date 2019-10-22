@@ -13,4 +13,8 @@ class HomeController extends Controller
     public function create(){
         return view('home.welcome');
     }
+
+    public function pageInfo(){
+        return view('home.page');
+    }
 }

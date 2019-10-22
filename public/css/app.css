@@ -220,6 +220,12 @@
     color: white;
 }
 
+.foot {
+    position: relative;
+    bottom: 4px;
+    float: none;
+}
+
 .sidebar a:hover:not(.active) {
     background-color: #555;
     color: white;
@@ -256,7 +262,7 @@ div.content {
 }
 
 .container-fluid {
-    background-color: rgb(193, 235, 255);
+    background-color: rgb(220, 237, 245);
 }
 
 img {
@@ -311,4 +317,17 @@ img {
 
 a {
     color: black;
+}
+
+.tablebody {
+    font-size: 1.1rem;
+    border: solid darkcyan;
+    background-color: rgb(233, 248, 255);
+    text-align: center;
+}
+
+.us {
+    font-family: 'trebuchet ms';
+    font-size: 1.4rem;
+    color: #3b1d00;
 }
