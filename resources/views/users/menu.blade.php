@@ -22,7 +22,6 @@
                     <a href="#" class="list-group-item list-group-item-action bg-light">Información Generada</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Notificaciones</a>
                 @endrole
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Notificaciones</a> 
             </div>
         </div>
 
