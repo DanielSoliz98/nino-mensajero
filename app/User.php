@@ -5,10 +5,12 @@ namespace App;
 use Faker\Guesser\Name;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id', 'full_name', 'email', 'phone', 'user_name', 'password', 'rol_id',
+        'id', 'full_name', 'email', 'password'
     ];
 
     /**
@@ -27,13 +29,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    // public static function getName() {
-    //     return value('full_name');////
-    // }
-
-    // public function getNameAttribute($value)
-    // {
-    //     return ucfirst($value);
-    // }
 }
