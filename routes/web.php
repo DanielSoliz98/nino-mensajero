@@ -80,11 +80,6 @@ Route::post('logout', [
 /**
  * Routes for authentification: Register personal.
  */
-Route::get('admin/register', [
-    'as' => 'register',
-    'uses' => 'Auth\RegisterController@showRegistrationForm'
-]);
-Route::post('admin/register', [
-    'as' => '',
-    'uses' => 'Auth\RegisterController@register'
-]);
+Route::get('admin/register', 'RegisterController@createView')->name('register');
+
+Route::post('admin/register', 'RegisterController@register')->name('register.personal');

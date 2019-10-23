@@ -9,7 +9,7 @@
                     <div class="card mt-4">
                         <div class="card-header text-center"><h2>REGISTRAR NUEVO PERSONAL</h2></div>
                         <div class="card-body">
-                            <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                            <form class="form-horizontal" method="POST" action="{{ route('register.personal') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }} row">
                                     <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre Completo</label>

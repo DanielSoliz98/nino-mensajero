@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/personal';
 
     /**
      * Create a new controller instance.
@@ -37,6 +39,14 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware(['auth','isAdmin']);
+    }
+
+    /**
+     * Get view for register new personal.
+     */
+    public function createView()
+    {
+        return view('auth.register');
     }
 
     /**
@@ -69,5 +79,14 @@ class RegisterController extends Controller
         ]);
         $user->assignRole('personal');
         return $user;
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        return redirect('/admin/personal')->with('success', 'Personal Registrado exitosamente.');
     }
 }
