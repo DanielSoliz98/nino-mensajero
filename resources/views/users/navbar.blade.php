@@ -18,19 +18,21 @@
                             <i class="fas fa-user-circle"></i> {{ Auth::user()->full_name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="session">
-                            @role('personal')
-                                <a class="btn btn-lg btn-light" href="#">
-                                    <i class="fas fa-address-card"></i> Ver mi perfil
+                            <div class="d-flex justify-content-center">
+                                @role('personal')
+                                    <a class="btn btn-lg btn-light" href="#">
+                                        <i class="fas fa-address-card"></i> Ver mi perfil
+                                    </a>
+                                @endrole
+                                <a class="btn btn-lg btn-light" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                   <i class="fas fa-sign-out-alt"></i> Cerrar Sesion 
                                 </a>
-                            @endrole
-                            <a class="btn btn-lg btn-light" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                               <i class="fas fa-sign-out-alt"></i> Cerrar Sesion 
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                {{ csrf_field() }}
-                            </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
                         </div>
                       </li>
             @endif
