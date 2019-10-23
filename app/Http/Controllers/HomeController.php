@@ -10,11 +10,13 @@ class HomeController extends Controller
      * Show the home view.
      * @return home.blade.php view
      */
-    public function create(){
+    public function create()
+    {
         return view('home.welcome');
     }
 
-    public function pageInfo(){
+    public function pageInfo()
+    {
         return view('home.page');
     }
 }

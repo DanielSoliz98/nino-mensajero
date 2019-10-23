@@ -47,3 +47,9 @@ Route::get('/admin/all-profiles', 'AdminController@profiles')-> name('allProfile
 *Route for show the profile for each personal
 */
 Route::get('admin/personal/{personal}', 'AdminController@profile')-> name('persProfile');
+
+/**
+ * Router for authentification.
+ */
+Auth::routes();
+
