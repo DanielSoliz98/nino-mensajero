@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Iniciar Sesion')
+@section('title', 'Niño Mensajero-Iniciar Sesion')
 @section('navbar')
     @include('users.navbar')
 @endsection
