@@ -11,15 +11,17 @@
                         <div class="card-body">
                             <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                                 {{ csrf_field() }}
-                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }} row">
-                                    <label for="name" class="col-md-4 control-label d-flex justify-content-end">Nombre Completo</label>
+                                <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }} row">
+                                    <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre Completo</label>
             
                                     <div class="col-md-7">
-                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                        <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
+                                        oninvalid="this.setCustomValidity('Ingrese nombre completo.')" oninput="setCustomValidity('')"required autofocus>
             
-                                        @if ($errors->has('name'))
+                                        @if ($errors->has('full_name'))
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('name') }}</strong>
+                                                <strong>{{ $errors->first('full_name') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -29,7 +31,9 @@
                                     <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo Electrónico</label>
             
                                     <div class="col-md-7">
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Ingrese un correo valido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('email'))
                                             <span class="help-block">
@@ -43,7 +47,9 @@
                                     <label for="password" class="col-md-4 control-label d-flex justify-content-end">Contraseña</label>
             
                                     <div class="col-md-7">
-                                        <input id="password" type="password" class="form-control" name="password" required>
+                                        <input id="password" type="password" class="form-control" name="password" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Contraseña debe tener 6 caracteres minimo.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('password'))
                                             <span class="help-block">
@@ -57,7 +63,9 @@
                                     <label for="password-confirm" class="col-md-4 control-label d-flex justify-content-end">Confirmar Contraseña</label>
             
                                     <div class="col-md-7">
-                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Repita su contraseña.')" oninput="setCustomValidity('')" required>
                                     </div>
                                 </div>
             

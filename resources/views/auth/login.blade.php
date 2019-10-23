@@ -16,13 +16,11 @@
                                     <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo Electrónico</label>
     
                                     <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
-    
-                                        @if ($errors->has('email'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
-                                        @endif
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
+                                        oninvalid="this.setCustomValidity('Ingrese un correo valido.')" oninput="setCustomValidity('')"
+                                        required autofocus>
+                                        
                                     </div>
                                 </div>
     
@@ -30,11 +28,13 @@
                                     <label for="password" class="col-md-4 control-label d-flex justify-content-end">Contraseña</label>
     
                                     <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control" name="password" required>
+                                        <input id="password" type="password" class="form-control" name="password" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
+                                        oninvalid="this.setCustomValidity('Contraseña es un campo requerido.')" oninput="setCustomValidity('')" required>
     
-                                        @if ($errors->has('password'))
+                                        @if ($errors->has('email'))
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('password') }}</strong>
+                                                <strong>{{ $errors->first('email') }}</strong>
                                             </span>
                                         @endif
                                     </div>
