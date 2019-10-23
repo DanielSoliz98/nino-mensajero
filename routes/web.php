@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 /**
  * Route for Home(/), returning view from HomeController: create method.
  */
-Route::get('/','HomeController@create')->name('home');
+Route::get('/', 'HomeController@create')->name('home');
 
 /**
  * Route for Write a Letter(/writeLetter), returning  view from LetterController: create method.
@@ -31,25 +32,46 @@ Route::get('/personal/letters', 'PersonalController@letters')->name('user.letter
 /**
  *  Route for show the personal profile
  */
-Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal'); 
+Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal');
 
 /**
-* Route for show the developers team information
-*/
-Route::get('/nosotros', 'HomeController@pageInfo')-> name('page');
-
-/**
-*Route for show the Academic profile for all the personals
-*/
-Route::get('/admin/all-profiles', 'AdminController@profiles')-> name('allProfiles');
-
-/**
-*Route for show the profile for each personal
-*/
-Route::get('admin/personal/{personal}', 'AdminController@profile')-> name('persProfile');
-
-/**
- * Router for authentification.
+ * Route for show the developers team information
  */
-Auth::routes();
+Route::get('/nosotros', 'HomeController@pageInfo')->name('page');
 
+/**
+ *Route for show the Academic profile for all the personals
+ */
+Route::get('/admin/all-profiles', 'AdminController@profiles')->name('allProfiles');
+
+/**
+ *Route for show the profile for each personal
+ */
+Route::get('admin/personal/{personal}', 'AdminController@profile')->name('persProfile');
+
+/**
+ * Routes for authentification: Login Users.
+ */
+Route::get('login', [
+    'as' => 'login',
+    'uses' => 'Auth\LoginController@showLoginForm'
+]);
+Route::post('login', [
+    'as' => '',
+    'uses' => 'Auth\LoginController@login'
+]);
+Route::post('logout', [
+    'as' => 'logout',
+    'uses' => 'Auth\LoginController@logout'
+]);
+/**
+ * Routes for authentification: Register personal.
+ */
+Route::get('admin/register', [
+    'as' => 'register',
+    'uses' => 'Auth\RegisterController@showRegistrationForm'
+]);
+Route::post('admin/register', [
+    'as' => '',
+    'uses' => 'Auth\RegisterController@register'
+]);
