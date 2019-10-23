@@ -12,9 +12,14 @@
 */
 
 /**
- * Route for Home(/), returning view from HomeController: create method.
+ * Route for Home of Children(/), returning view from HomeController: create method.
  */
-Route::get('/', 'HomeController@create')->name('home');
+Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
+
+/**
+ * Route for Home of Users(/home), returning view from HomeController: create method.
+ */
+Route::get('/home', 'HomeController@createHomeUsers')->name('home');
 
 /**
  * Route for Write a Letter(/writeLetter), returning  view from LetterController: create method.

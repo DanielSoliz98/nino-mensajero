@@ -29,15 +29,15 @@ class UsersRolesAndPermissionsTablesSeeder extends Seeder
 
         $user = User::create([
             'full_name' => 'Personal',
-            'email' => 'personal1@gmail.com',
-            'password' => 'personal123'
+            'email' => 'personal@gmail.com',
+            'password' => bcrypt('personal123'),
         ]);
         $user->assignRole('personal');
         
         $admin = User::create([
             'full_name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => 'admin123'
+            'password' => bcrypt('admin123'),
         ]);
         $admin->assignRole('admin');
     }

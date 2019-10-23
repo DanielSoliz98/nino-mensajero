@@ -10,9 +10,25 @@
         <div class="navbar-nav mr-auto text-center">
             <a href="{{route('home')}}" class="btn3"><i class="fas fa-home"></i> Inicio</a>
         </div>
+        
         <div class="navbar-nav ml-auto text-center">
-            <a href="#" class="btn3 mr-1"><i class="fas fa-user-circle"></i> Mi perfil</a>
-            <a href="#" class="btn3 ml-1"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+            @if (Auth::check())
+                <li class="nav-item dropdown">
+                        <a class="dropdown-toggle btn3" href="#" id="session" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->full_name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="session">
+                            <a class="btn btn-light" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                Cerrar Sesion
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </div>
+                      </li>
+            @endif
         </div>
     </div>
 </nav>
