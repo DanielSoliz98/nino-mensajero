@@ -11,90 +11,20 @@ use App\Specialist;
 
 class AdminController extends Controller
 {
+    /**
+     * Admin controller require authentication of a Admin.
+     */
     public function __construct()
     {
         $this->middleware(['auth','isAdmin']);
     }
-
     /**
-     * Display a listing of the resource
-     *
-     * @return \Illuminate\Http\Response
+     *  Return view of Personal for admin.
      */
-    public function index()
-    {
-        //
-    }
-
     public function personal()
     {
         $personals = User::all()->sortBy('full_name');
         return view('users.admin.personal-information', compact('personals'));
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    //public function store(Request $request)
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
     public function profiles(){

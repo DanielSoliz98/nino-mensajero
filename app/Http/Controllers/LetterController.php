@@ -11,16 +11,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 class LetterController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
      * Show the view for write a letter.
      *
      * @return letter.blade.php view
@@ -63,16 +53,5 @@ class LetterController extends Controller
             $letter->save();
         }
         return redirect('/')->with('success', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 }

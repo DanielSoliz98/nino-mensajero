@@ -220,11 +220,12 @@
     color: white;
 }
 
-.foot{
+.foot {
     position: relative;
     bottom: 4px;
     float: none;
 }
+
 .sidebar a:hover:not(.active) {
     background-color: #555;
     color: white;
@@ -260,7 +261,7 @@ div.content {
     margin-top: 78px;
 }
 
-.container-fluid{
+.container-fluid {
     background-color: rgb(220, 237, 245);
 }
 
@@ -316,16 +317,16 @@ img {
 
 a {
     color: black;
-  }
+}
 
-.tablebody{
+.tablebody {
     font-size: 1.1rem;
     border: solid darkcyan;
     background-color: rgb(233, 248, 255);
     text-align: center;
 }
 
-.us{
+.us {
     font-family: 'trebuchet ms';
     font-size: 1.4rem;
     color: #3b1d00

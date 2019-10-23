@@ -13,7 +13,7 @@
                 @endrole
             </div>
             <div class="list-group list-group-flush">
-                    <a href="{{route('user.letters')}}" class="list-group-item list-group-item-action bg-light">Cartas de Niños</a>
+                    <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Cartas de Niños</a>
                 @role('admin')
                     <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de Personal</a>
                     <a href="{{route('allProfiles')}}" class="list-group-item list-group-item-action bg-light">Informaciones Generadas</a>
