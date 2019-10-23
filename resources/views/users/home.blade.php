@@ -3,34 +3,34 @@
 @section('page-title', 'Cartas de Niños')
 @section('user-content')
     @if (count($letters) > 0)
-    <div class="infinite-scroll mb-2">
-        @foreach($letters as $letter)
-            <div class="card mt-1 color-component">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="card-text">{{ str_limit($letter->content, 135) }}</p>
-                        </div>
-                        <div class="col-3 d-flex justify-content-end">
-                            <div class="card-text text-muted">
-                                @if(count($letter->images) == 1)
-                                    <span class="badge badge-light">{{$letter->images->count()}} imágen</span>
-                                    {{$letter->created_at->diffForHumans()}}
-                                @else
-                                    <span class="badge badge-light">{{$letter->images->count()}} imágenes</span>
-                                    {{$letter->created_at->diffForHumans()}}
-                                @endif
+        <div class="infinite-scroll mb-2">
+            @foreach($letters as $letter)
+                <div class="card mt-1 color-component">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-9">
+                                <p class="card-text">{{ str_limit($letter->content, 125) }}</p>
+                            </div>
+                            <div class="col-3 d-flex justify-content-end">
+                                <div class="card-text text-muted">
+                                    @if(count($letter->images) == 1)
+                                        <span class="badge badge-light">{{$letter->images->count()}} imágen</span>
+                                        {{$letter->created_at->diffForHumans()}}
+                                    @else
+                                        <span class="badge badge-light">{{$letter->images->count()}} imágenes</span>
+                                        {{$letter->created_at->diffForHumans()}}
+                                    @endif
+                                </div>
                             </div>
                         </div>
+                        <a href="{{route('user.letter.read', $letter)}}" class="stretched-link"></a>
                     </div>
-                    <a href="{{route('user.letter.read', $letter)}}" class="stretched-link"></a>
                 </div>
-            </div>
-        @endforeach
-        {{ $letters->links() }}
-    </div>
+            @endforeach
+            {{ $letters->links() }}
+        </div>
     @else
-    <div class="card mt-1 color-component text-center">
+    <div class="no-content card mt-1 color-component text-center">
         <div class="card-body">
             <h5>No hay cartas para leer.</h5>
         </div>
@@ -45,7 +45,7 @@
         $(function() {
             $('.infinite-scroll').jscroll({
                 autoTrigger: true,
-                loadingHtml: '<img class="center-block" src="/loading.gif" "alt="Cargando Imagenes..." />', // MAKE SURE THAT YOU PUT THE CORRECT IMG PATH
+                loadingHtml: '<img class="center" src="/loading.gif" "alt="Cargando Imagenes..." />',
                 padding: 0,
                 nextSelector: '.pagination li.active + li a',
                 contentSelector: 'div.infinite-scroll',
