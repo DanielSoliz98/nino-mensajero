@@ -10,6 +10,7 @@ class HomeController extends Controller
     {
         $this->middleware('auth')->except(['createHomeChildren', 'pageInfo']);
     }
+
     /**
      * Show the home view.
      * @return home.blade.php view
@@ -27,5 +28,10 @@ class HomeController extends Controller
     public function pageInfo()
     {
         return view('home.page');
+    }
+
+    public function unautorized()
+    {
+        return view('401');
     }
 }

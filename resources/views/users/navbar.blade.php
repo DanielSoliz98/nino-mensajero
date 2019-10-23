@@ -15,13 +15,13 @@
             @if (Auth::check())
                 <li class="nav-item dropdown">
                         <a class="dropdown-toggle btn3" href="#" id="session" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->full_name }}
+                            <i class="fas fa-user-circle"></i> {{ Auth::user()->full_name }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="session">
-                            <a class="btn btn-light" href="{{ route('logout') }}"
+                            <a class="btn btn-lg btn-light" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                Cerrar Sesion
+                               <i class="fas fa-sign-out-alt"></i> Cerrar Sesion 
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}

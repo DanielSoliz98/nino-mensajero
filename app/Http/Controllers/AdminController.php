@@ -6,11 +6,16 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App;
 use App\User;
+use App\Specialist;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','isAdmin']);
+    }
+
     /**
      * Display a listing of the resource
      *
@@ -23,7 +28,7 @@ class AdminController extends Controller
 
     public function personal()
     {
-        $personals = App\User::all()->sortBy('full_name');
+        $personals = User::all()->sortBy('full_name');
         return view('users.admin.personal-information', compact('personals'));
     }
 
@@ -93,12 +98,12 @@ class AdminController extends Controller
     }
 
     public function profiles(){
-        $specialists = App\Specialist::all()->sortBy('profession');
+        $specialists = Specialist::all()->sortBy('profession');
         return view('users.admin.profiles', compact('specialists', 'userName'));
     }
 
     public function profile($personal){
-        $personals = App\User::findOrFail($personal);
+        $personals = User::findOrFail($personal);
         $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal)->get();
         return view('users.admin.profile', compact('personals', 'queryPersProfile'));
     }

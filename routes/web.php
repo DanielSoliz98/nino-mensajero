@@ -80,3 +80,8 @@ Route::post('admin/register', [
     'as' => '',
     'uses' => 'Auth\RegisterController@register'
 ]);
+
+/**
+ * Route for Unautorized page.
+ */
+Route::get('/unauthorized', 'HomeController@unautorized')->name('unauthorized');
