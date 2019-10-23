@@ -2,8 +2,8 @@
 @section('title', 'Error 401')
 @section('page-title', 'No Autorizado')
 @section('user-content')
-    <div class="container">
-        <div class="row">
+    <div class="no-content card mt-1 color-component text-center">
+        <div class="card-body">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
                     <h1 class="display-2">Oops!</h1>

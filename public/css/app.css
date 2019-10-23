@@ -281,6 +281,11 @@ div.content {
     min-height: 80vh;
 }
 
+.register {
+    background-color: rgb(220, 237, 245);
+    min-height: 71vh;
+}
+
 .centered {
     position: fixed;
     top: 50%;
