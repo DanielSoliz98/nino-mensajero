@@ -58,6 +58,11 @@ Route::get('/admin/personal/{personal}', 'AdminController@profile')->name('persP
 Route::get('/personal/my-profile', 'PersonalController@myProfile')->name('myProfile');
 
 /**
+ *Route for update the profile for each personal
+ */
+Route::get('/personal/my-profile/update', 'PersonalController@updateProfileView')->name('updateMyProfile');
+
+/**
  * Route for Unautorized page.
  */
 Route::get('/unauthorized', 'HomeController@unautorized')->name('unauthorized');

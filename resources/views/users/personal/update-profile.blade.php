@@ -1,0 +1,89 @@
+@extends('users.menu')
+@section('title', 'Personal-Mi Perfil')
+@section('page-title', 'Mi Perfil')
+@section('user-content')
+    <div class="container-fluid register color-component mt-1">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-12">
+                    <div class="card mt-4">
+                        <div class="card-header text-center"><h2>ACTUALIZAR MI PERFIL PROFESIONAL</h2></div>
+                        <div class="card-body">
+                            <form class="form-horizontal" method="POST" action="{{ route('register.personal') }}">
+                                {{ csrf_field() }}
+                                <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }} row">
+                                    <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre Completo</label>
+            
+                                    <div class="col-md-7">
+                                        <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
+                                        oninvalid="this.setCustomValidity('Ingrese nombre completo.')" oninput="setCustomValidity('')"required autofocus>
+            
+                                        @if ($errors->has('full_name'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('full_name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+            
+                                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row">
+                                    <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo Electrónico</label>
+            
+                                    <div class="col-md-7">
+                                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Ingrese un correo valido.')" oninput="setCustomValidity('')" required>
+            
+                                        @if ($errors->has('email'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('email') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+            
+                                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }} row">
+                                    <label for="password" class="col-md-4 control-label d-flex justify-content-end">Contraseña</label>
+            
+                                    <div class="col-md-7">
+                                        <input id="password" type="password" class="form-control" name="password" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Contraseña debe tener 6 caracteres minimo.')" oninput="setCustomValidity('')" required>
+            
+                                        @if ($errors->has('password'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('password') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+            
+                                <div class="form-group row">
+                                    <label for="password-confirm" class="col-md-4 control-label d-flex justify-content-end">Confirmar Contraseña</label>
+            
+                                    <div class="col-md-7">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Repita su contraseña.')" oninput="setCustomValidity('')" required>
+                                    </div>
+                                </div>
+            
+                                <div class="form-group">
+                                    <div class="col-md-12 col-md-offset-4 d-flex justify-content-center">
+                                        <button type="submit" class="btn3">
+                                            Actualizar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('footer')
+    @include('users.footer')
+@endsection

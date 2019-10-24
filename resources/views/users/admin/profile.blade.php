@@ -61,7 +61,7 @@
             </div>
             @role('personal')
             <div class="d-flex align-items-center justify-content-center ">
-                <a class="btn3" href="#">Actualizar Mi Perfil</a>
+                <a class="btn3" href="{{route('updateMyProfile')}}">Actualizar Mi Perfil</a>
             </div>
             @endrole
         </form>

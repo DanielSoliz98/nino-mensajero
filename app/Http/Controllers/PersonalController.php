@@ -13,12 +13,66 @@ class PersonalController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','isPersonal']);
+        $this->middleware(['auth', 'isPersonal']);
     }
-
-    public function myProfile(){
+    
+    /**
+     * 
+     */
+    public function myProfile()
+    {
         $personal = Auth::user();
         $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal->id)->get();
         return view('users.admin.profile', compact('personal', 'queryPersProfile'));
+    }
+
+    /**
+     * 
+     */
+    public function updateProfileView()
+    { 
+        return view('users.personal.update-profile');
+    }
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validatorProfile(array $data)
+    {
+        return Validator::make($data, [
+            'full_name' => 'required|string|max:100',
+            'email' => 'required|string|email|max:100|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return User
+     */
+    protected function update(array $data)
+    {
+        $user = User::create([
+            'full_name' => $data['full_name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+        $user->assignRole('personal');
+        return $user;
+    }
+    /**
+     * 
+     */
+    public function updateProfile(Request $request)
+    {
+        $this->validatorProfile($request->all())->validate();
+
+        event(new Registered($user = $this->update($request->all())));
+
+        return redirect('/personal/my-profile')->with('success', 'Perfil Profesional Actualizado');
     }
 }
