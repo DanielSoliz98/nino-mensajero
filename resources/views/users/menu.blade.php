@@ -16,7 +16,7 @@
                     <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Cartas de Niños</a>
                 @role('admin')
                     <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de Personal</a>
-                    <a href="{{route('allProfiles')}}" class="list-group-item list-group-item-action bg-light">Informaciones Generadas</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Informaciones Generadas</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Boletines</a>
                 @else
                     <a href="#" class="list-group-item list-group-item-action bg-light">Información Generada</a>

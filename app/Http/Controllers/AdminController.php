@@ -23,13 +23,17 @@ class AdminController extends Controller
      */
     public function personal()
     {
-        $personals = User::all()->sortBy('full_name');
+        //$personals = User::all()->sortBy('full_name');
+        //return view('users.admin.personal-information', compact('personals'));
+        $personals = DB::table('users')
+                    ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
+                    ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
+                    ->leftJoin('specialists', 'users.id', '=', 'specialists.user_id')
+                    ->select('users.id','full_name', 'email', 'roles.name as role', 'phone', 'profession','degree', 'specialties')
+                    ->where('roles.name', '<>', 'admin')
+                    ->orderBy('full_name', 'desc')
+                    ->get();
         return view('users.admin.personal-information', compact('personals'));
-    }
-
-    public function profiles(){
-        $specialists = Specialist::all()->sortBy('profession');
-        return view('users.admin.profiles', compact('specialists', 'userName'));
     }
 
     public function profile($personal){

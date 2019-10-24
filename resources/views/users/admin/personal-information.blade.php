@@ -11,18 +11,21 @@
                         <th>NOMBRE</th>
                         <th>CORREO</th>
                         <th>TELÉFONO</th>
-                        <th>C.I.</th>
-                        <th>USUARIO</th>
                         <th>PROFESIÓN</th>
                     </tr>
                     @foreach($personals as $pers)
-                    <tr>  
-                        <td><a href="{{route('persProfile', $pers)}}">{{$pers->full_name}}</a></td>
-                        <td>{{$pers->email}}</td>
-                        <td>{{$pers->phone}}</td>
-                        <td>{{$pers->id}}</td>
-                        <td>{{$pers->user_name}}</td>
-                        <td>{{$pers->rol_id}}</td> 
+                    <tr>
+                        @if ($pers->phone)
+                            <td><a href="{{route('persProfile', $pers->id)}}">{{$pers->full_name}}</a></td>
+                            <td>{{$pers->email}}</td>
+                            <td>{{$pers->phone}}</td>
+                            <td>{{$pers->profession}}</td>
+                        @else
+                            <td>{{$pers->full_name}}</td>
+                            <td>{{$pers->email}}</td>
+                            <td></td>
+                            <td>Personal aun no lleno sus datos.</td>
+                        @endif
                     </tr>
                     @endforeach
                 </table>

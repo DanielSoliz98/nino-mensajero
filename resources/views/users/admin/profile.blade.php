@@ -3,7 +3,7 @@
 @section('page-title', 'Perfil Profesional')
 @section('user-content')
     <section class="container mt-2">
-        <br>      
+        <br>
         <form enctype="multipart/form-data" method="POST">
             <div class="d-flex mt-2 mb-4 table-responsive">
                 <table class="table table-striped table-md tablebody" border="1px">  
@@ -27,10 +27,6 @@
                         <tr>
                             <td>Especialidades:</td>
                             <td>{{$profile->specialties}}</td>
-                        </tr> 
-                        <tr>
-                            <td>Tiempo de experiencia:</td>        
-                            <td>{{$profile->experience}}</td>   
                         </tr>
                     @endforeach
                 </table>

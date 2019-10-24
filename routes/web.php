@@ -48,11 +48,6 @@ Route::get('/home/letters/{id}', 'HomeController@getLetter')->name('user.letter.
 Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal');
 
 /**
- *Route for show the Academic profile for all the personals
- */
-Route::get('/admin/all-profiles', 'AdminController@profiles')->name('allProfiles');
-
-/**
  *Route for show the profile for each personal
  */
 Route::get('admin/personal/{personal}', 'AdminController@profile')->name('persProfile');
