@@ -20,7 +20,7 @@
                         <div class="dropdown-menu" aria-labelledby="session">
                             <div class="d-flex justify-content-center">
                                 @role('personal')
-                                    <a class="btn btn-lg btn-light" href="#">
+                                    <a class="btn btn-lg btn-light" href="{{ route('myProfile') }}">
                                         <i class="fas fa-address-card"></i> Ver mi perfil
                                     </a>
                                 @endrole
