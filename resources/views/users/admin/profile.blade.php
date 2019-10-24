@@ -2,30 +2,34 @@
 @section('title', 'Perfil Profesional')
 @section('page-title', 'Perfil Profesional')
 @section('user-content')
-    <section class="container mt-2">
+    <section class="container-fluid mt-1 no-content color-component">
         <br>
         <form enctype="multipart/form-data" method="POST">
             <div class="d-flex mt-2 mb-4 table-responsive">
                 <table class="table table-striped table-md tablebody" border="1px">  
                     @foreach ($queryPersProfile as $profile)
                         <tr>  
-                            <td>Nombre:</td> 
+                            <th>Nombre Completo:</th> 
                             <td>{{$personals->full_name}}</td>
                         </tr>
                         <tr>
-                            <td>C.I.</td>
-                            <td>{{$personals->id}}</td>
+                            <th>C.I.:</th>
+                            <td>{{$profile->ci}}</td>
                         </tr>
                         <tr>
-                            <td>Profesión:</td> 
+                            <th>Telefono:</th>
+                            <td>{{$profile->phone}}</td>
+                        </tr>
+                        <tr>
+                            <th>Profesión:</th> 
                             <td>{{$profile->profession}}</td>
                         </tr>
                         <tr>
-                            <td>Grado de formación:</td> 
+                            <th>Grado de formación:</th> 
                             <td>{{$profile->degree}}</td>
                         </tr>
                         <tr>
-                            <td>Especialidades:</td>
+                            <th>Especialidades:</th>
                             <td>{{$profile->specialties}}</td>
                         </tr>
                     @endforeach

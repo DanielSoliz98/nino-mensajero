@@ -2,7 +2,7 @@
 @section('title', 'Informacion de Personal')
 @section('page-title', 'Informacion de Personal')
 @section('user-content')
-    <div class="container mt-2">
+    <div class="container-fluid mt-1 no-content color-component">
         <br>
         <form enctype="multipart/form-data" method="POST">
             <div class="d-flex mt-2 mb-4 table-responsive">
@@ -10,21 +10,21 @@
                     <tr>
                         <th>NOMBRE</th>
                         <th>CORREO</th>
-                        <th>TELÉFONO</th>
+                        <th>C.I.</th>
                         <th>PROFESIÓN</th>
                     </tr>
                     @foreach($personals as $pers)
                     <tr>
-                        @if ($pers->phone)
+                        @if ($pers->ci)
                             <td><a href="{{route('persProfile', $pers->id)}}">{{$pers->full_name}}</a></td>
                             <td>{{$pers->email}}</td>
-                            <td>{{$pers->phone}}</td>
+                            <td>{{$pers->ci}}</td>
                             <td>{{$pers->profession}}</td>
                         @else
                             <td>{{$pers->full_name}}</td>
                             <td>{{$pers->email}}</td>
                             <td></td>
-                            <td>Personal aun no lleno sus datos.</td>
+                            <td><span class="badge badge-warning">Personal aun no lleno sus datos.</span></td>
                         @endif
                     </tr>
                     @endforeach

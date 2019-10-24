@@ -29,7 +29,7 @@ class AdminController extends Controller
                     ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
                     ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
                     ->leftJoin('specialists', 'users.id', '=', 'specialists.user_id')
-                    ->select('users.id','full_name', 'email', 'roles.name as role', 'phone', 'profession','degree', 'specialties')
+                    ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
                     ->where('roles.name', '<>', 'admin')
                     ->orderBy('full_name', 'desc')
                     ->get();

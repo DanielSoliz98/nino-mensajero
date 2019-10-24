@@ -15,6 +15,7 @@
             <div class="list-group list-group-flush">
                     <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Cartas de Niños</a>
                 @role('admin')
+                <a href="{{route('register')}}" class="list-group-item list-group-item-action bg-light">Registrar Nuevo Personal</a>
                     <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de Personal</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Informaciones Generadas</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Boletines</a>
