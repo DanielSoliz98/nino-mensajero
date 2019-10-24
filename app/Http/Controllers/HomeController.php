@@ -60,6 +60,6 @@ class HomeController extends Controller
      */
     public function unautorized()
     {
-        return view('401');
+        return view('users.401');
     }
 }

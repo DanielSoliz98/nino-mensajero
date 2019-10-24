@@ -10,7 +10,7 @@
                     @foreach ($queryPersProfile as $profile)
                         <tr>  
                             <th>Nombre Completo:</th> 
-                            <td>{{$personals->full_name}}</td>
+                            <td>{{$personal->full_name}}</td>
                         </tr>
                         <tr>
                             <th>C.I.:</th>

@@ -11,9 +11,15 @@
                 <div class="d-flex justify-content-center">
                     <h2 class="display-4">401 No Autorizado</h2>
                 </div>
-                <div class="d-flex justify-content-center">
-                    <h3>Acceso permitido solo para administradores.</h3>
-                </div>
+                @role('admin')
+                    <div class="d-flex justify-content-center">
+                        <h3>Acceso permitido solo para personal.</h3>
+                    </div>
+                @else
+                    <div class="d-flex justify-content-center">
+                        <h3>Acceso permitido solo para administradores.</h3>
+                    </div>
+                @endrole
             </div>
         </div>
     </div>
