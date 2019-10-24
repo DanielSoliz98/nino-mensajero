@@ -359,3 +359,9 @@ a {
     font-size: 1.4rem;
     color: #3b1d00
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

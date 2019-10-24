@@ -31,7 +31,16 @@ class PersonalController extends Controller
      */
     public function updateProfileView()
     { 
-        return view('users.personal.update-profile');
+        $profile = DB::table('users')
+                    ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
+                    ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
+                    ->leftJoin('specialists', 'users.id', '=', 'specialists.user_id')
+                    ->select('full_name', 'email', 'ci', 'phone', 'profession', 'degree', 'specialties')
+                    ->where('users.id', Auth::user()->id)
+                    ->orderBy('full_name', 'desc')
+                    ->get();
+        return view('users.personal.update-profile', compact('profile'));
+
     }
     /**
      * Get a validator for an incoming registration request.
