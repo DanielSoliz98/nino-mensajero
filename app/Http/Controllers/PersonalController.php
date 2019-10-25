@@ -99,6 +99,6 @@ class PersonalController extends Controller
 
         $specialist = $this->update($request->all());
 
-        return redirect('/personal/my-profile')->with('success', 'Perfil Profesional Actualizado');
+        return redirect('/personal/my-profile')->with('success', 'Perfil profesional actualizado');
     }
 }

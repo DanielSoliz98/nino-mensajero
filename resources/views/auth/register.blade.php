@@ -1,6 +1,6 @@
 @extends('users.menu')
 @section('title', 'Registrar Personal')
-@section('page-title', 'Administracion de Personal')
+@section('page-title', 'Administración de Personal')
 @section('user-content')
     <div class="container-fluid register color-component mt-1">
         <div class="row justify-content-center">
@@ -12,7 +12,7 @@
                             <form class="form-horizontal" method="POST" action="{{ route('register.personal') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }} row">
-                                    <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre Completo</label>
+                                    <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre completo</label>
             
                                     <div class="col-md-7">
                                         <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" 
@@ -28,12 +28,12 @@
                                 </div>
             
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row">
-                                    <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo Electrónico</label>
+                                    <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo electrónico</label>
             
                                     <div class="col-md-7">
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Ingrese un correo valido.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Ingrese un correo válido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('email'))
                                             <span class="help-block">
@@ -49,7 +49,7 @@
                                     <div class="col-md-7">
                                         <input id="password" type="password" class="form-control" name="password" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Contraseña debe tener 6 caracteres minimo.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Contraseña debe tener 6 caracteres mínimo.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('password'))
                                             <span class="help-block">
@@ -60,7 +60,7 @@
                                 </div>
             
                                 <div class="form-group row">
-                                    <label for="password-confirm" class="col-md-4 control-label d-flex justify-content-end">Confirmar Contraseña</label>
+                                    <label for="password-confirm" class="col-md-4 control-label d-flex justify-content-end">Confirmar contraseña</label>
             
                                     <div class="col-md-7">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"

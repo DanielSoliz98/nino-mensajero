@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', 'Niño Mensajero-Iniciar Sesion')
+@section('title', 'Niño Mensajero-Iniciar Sesión')
 @section('navbar')
     @include('users.navbar')
 @endsection
@@ -8,17 +8,17 @@
             <div class="row justify-content-center">
                 <div class="centered col-md-6">
                     <div class="card">
-                        <div class="card-header text-center"><h2>INICIAR SESION</h2></div>
+                        <div class="card-header text-center"><h2>INICIAR SESIÓN</h2></div>
                         <div class="card-body">
                             <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} row">
-                                    <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo Electrónico</label>
+                                    <label for="email" class="col-md-4 control-label d-flex justify-content-end">Correo electrónico</label>
     
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
-                                        oninvalid="this.setCustomValidity('Ingrese un correo valido.')" oninput="setCustomValidity('')"
+                                        oninvalid="this.setCustomValidity('Ingrese un correo válido.')" oninput="setCustomValidity('')"
                                         required autofocus>
                                         
                                     </div>

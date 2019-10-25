@@ -14,7 +14,7 @@
                             <div class="col-3 d-flex justify-content-end">
                                 <div class="card-text text-muted">
                                     @if(count($letter->images) == 1)
-                                        <span class="badge badge-light">{{$letter->images->count()}} imágen</span>
+                                        <span class="badge badge-light">{{$letter->images->count()}} imagen</span>
                                         {{$letter->created_at->diffForHumans()}}
                                     @else
                                         <span class="badge badge-light">{{$letter->images->count()}} imágenes</span>
@@ -45,7 +45,7 @@
         $(function() {
             $('.infinite-scroll').jscroll({
                 autoTrigger: true,
-                loadingHtml: '<img class="center" src="/loading.gif" "alt="Cargando Imagenes..." />',
+                loadingHtml: '<img class="center" src="/loading.gif" "alt="Cargando Imágenes..." />',
                 padding: 0,
                 nextSelector: '.pagination li.active + li a',
                 contentSelector: 'div.infinite-scroll',

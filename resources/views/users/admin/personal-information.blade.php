@@ -1,6 +1,6 @@
 @extends('users.menu')
-@section('title', 'Informacion de Personal')
-@section('page-title', 'Informacion de Personal')
+@section('title', 'Información de Personal')
+@section('page-title', 'Información de Personal')
 @section('user-content')
     <div class="container-fluid mt-1 no-content color-component">
         <br>
@@ -24,7 +24,7 @@
                             <td>{{$pers->full_name}}</td>
                             <td>{{$pers->email}}</td>
                             <td></td>
-                            <td><span class="badge badge-warning">Personal aun no lleno sus datos.</span></td>
+                            <td><span class="badge badge-warning">Personal aún no llenó sus datos.</span></td>
                         @endif
                     </tr>
                     @endforeach

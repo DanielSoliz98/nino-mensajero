@@ -13,11 +13,11 @@
                 </div>
                 @role('admin')
                     <div class="d-flex justify-content-center">
-                        <h3>Acceso permitido solo para personal.</h3>
+                        <h3>Acceso permitido sólo para personal.</h3>
                     </div>
                 @else
                     <div class="d-flex justify-content-center">
-                        <h3>Acceso permitido solo para administradores.</h3>
+                        <h3>Acceso permitido sólo para administradores.</h3>
                     </div>
                 @endrole
             </div>

@@ -15,11 +15,11 @@
                     @if (count($queryPersProfile)>0)
                         @foreach ($queryPersProfile as $profile)
                             <tr>  
-                                <th>Nombre Completo:</th> 
+                                <th>Nombre completo:</th> 
                                 <td>{{$personal->full_name}}</td>
                             </tr>
                             <tr>  
-                                <th>Correo Electrónico:</th> 
+                                <th>Correo electrónico:</th> 
                                 <td>{{$personal->email}}</td>
                             </tr>
                             <tr>
@@ -27,7 +27,7 @@
                                 <td>{{$profile->ci}}</td>
                             </tr>
                             <tr>
-                                <th>Telefono:</th>
+                                <th>Teléfono:</th>
                                 <td>{{$profile->phone}}</td>
                             </tr>
                             <tr>
@@ -45,15 +45,15 @@
                         @endforeach
                     @else
                         <tr>  
-                            <th>Nombre Completo:</th> 
+                            <th>Nombre completo:</th> 
                             <td>{{$personal->full_name}}</td>
                         </tr>
                         <tr>  
-                            <th>Correo Electrónico:</th> 
+                            <th>Correo electrónico:</th> 
                             <td>{{$personal->email}}</td>
                         </tr>
                         <tr>
-                            <th><span class="badge badge-warning">Perfil Incompleto</span></th>
+                            <th><span class="badge badge-warning">Perfil incompleto</span></th>
                             <td><span class="badge badge-warning">Tiene que actualizar su perfil.</span></td>
                         </tr>
                     @endif 
@@ -61,7 +61,7 @@
             </div>
             @role('personal')
             <div class="d-flex align-items-center justify-content-center ">
-                <a class="btn3" href="{{route('updateMyProfile')}}">Actualizar Mi Perfil</a>
+                <a class="btn3" href="{{route('updateMyProfile')}}">Actualizar mi perfil</a>
             </div>
             @endrole
         </form>

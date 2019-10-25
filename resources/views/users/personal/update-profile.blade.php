@@ -12,26 +12,26 @@
                             <form class="form-horizontal" method="POST" action="{{ route('updateMyProfile') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group row">
-                                    <label for="full_name" class="col-md-4 col-form-label d-flex justify-content-end">Nombre Completo:</label>
+                                    <label for="full_name" class="col-md-4 col-form-label d-flex justify-content-end">Nombre completo:</label>
                                     <div class="col-md-7">
                                         <input type="text" readonly class="form-control-plaintext" id="full_name" value="{{$profile[0]->full_name}}">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label d-flex justify-content-end">Correo Electrónico:</label>
+                                    <label for="email" class="col-md-4 col-form-label d-flex justify-content-end">Correo electrónico:</label>
                                     <div class="col-md-7">
                                         <input type="text" readonly class="form-control-plaintext" id="email" value="{{$profile[0]->email}}">
                                     </div>
                                 </div>                                
             
                                 <div class="form-group{{ $errors->has('ci') ? ' has-error' : '' }} row d-flex align-items-center">
-                                    <label for="ci" class="col-md-4 control-label d-flex justify-content-end">Carnet de Identidad</label>
+                                    <label for="ci" class="col-md-4 control-label d-flex justify-content-end">Carnet de identidad</label>
             
                                     <div class="col-md-7">
                                         <input id="ci" type="number" class="form-control" name="ci" value="{{$profile[0]->ci}}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Ingrese numero de carnet valido.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Ingrese número de carnet válido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('ci'))
                                             <span class="help-block">
@@ -42,12 +42,12 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }} row d-flex align-items-center">
-                                    <label for="phone" class="col-md-4 control-label d-flex justify-content-end">Numero de Telefono</label>
+                                    <label for="phone" class="col-md-4 control-label d-flex justify-content-end">Número de teléfono</label>
             
                                     <div class="col-md-7">
                                         <input id="phone" type="number" class="form-control" name="phone" value="{{$profile[0]->phone}}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Ingrese numero de telefono valido.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Ingrese número de teléfono válido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('phone'))
                                             <span class="help-block">
@@ -58,7 +58,7 @@
                                 </div>
             
                                 <div class="form-group{{ $errors->has('profession') ? ' has-error' : '' }} row d-flex align-items-center">
-                                    <label for="profession" class="col-md-4 control-label d-flex justify-content-end">Profesion</label>
+                                    <label for="profession" class="col-md-4 control-label d-flex justify-content-end">Profesión</label>
             
                                     <div class="col-md-7">
                                         @if ($profile[0]->profession)
@@ -66,7 +66,7 @@
                                         @endif
                                         <select id="profession" name="profession[]" class="form-control selectpicker" multiple 
                                         data-toggle="tooltip" data-placement="top" title="Seleccione una o varias profesiones para agregarlas.">
-                                            <option>Psicologo</option>
+                                            <option>Psicólogo</option>
                                             <option>Pedagogo</option>
                                             <option>Editor</option>
                                             <option>Escritor</option>
@@ -83,7 +83,7 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('degree') ? ' has-error' : '' }} row d-flex align-items-center">
-                                    <label for="degree" class="col-md-4 control-label d-flex justify-content-end">Grado Academico</label>
+                                    <label for="degree" class="col-md-4 control-label d-flex justify-content-end">Grado académico</label>
             
                                     <div class="col-md-7">
                                         @if ($profile[0]->degree)
@@ -113,13 +113,13 @@
                                             @endif
                                             <select id="specialties" name="specialties[]" class="form-control selectpicker" multiple
                                             data-toggle="tooltip" data-placement="top" title="Seleccione una o varias especialidades para agregarlas.">
-                                                <option>Psicologia Familiar</option>
-                                                <option>Psicologia Infantil</option>
+                                                <option>Psicología Familiar</option>
+                                                <option>Psicología Infantil</option>
                                                 <option>Servicio Social</option>
-                                                <option>Psiquiatria Infantil</option>
+                                                <option>Psiquiatría Infantil</option>
                                                 <option>Escritor Infantil</option>
-                                                <option>Educacion Infantil</option>
-                                                <option>Educacion Especial</option>
+                                                <option>Educación Infantil</option>
+                                                <option>Educación Especial</option>
                                                 <option>Otro</option>
                                             </select>
                                             @if ($errors->has('specialties'))
