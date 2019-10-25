@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Specialist;
 
 class PersonalController extends Controller
 {
@@ -15,14 +17,14 @@ class PersonalController extends Controller
     {
         $this->middleware(['auth', 'isPersonal']);
     }
-    
+
     /**
      * 
      */
     public function myProfile()
     {
         $personal = Auth::user();
-        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal->id)->get();
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
         return view('users.admin.profile', compact('personal', 'queryPersProfile'));
     }
 
@@ -30,17 +32,16 @@ class PersonalController extends Controller
      * 
      */
     public function updateProfileView()
-    { 
+    {
         $profile = DB::table('users')
-                    ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
-                    ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
-                    ->leftJoin('specialists', 'users.id', '=', 'specialists.user_id')
-                    ->select('full_name', 'email', 'ci', 'phone', 'profession', 'degree', 'specialties')
-                    ->where('users.id', Auth::user()->id)
-                    ->orderBy('full_name', 'desc')
-                    ->get();
+            ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
+            ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
+            ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
+            ->select('full_name', 'email', 'ci', 'phone', 'profession', 'degree', 'specialties')
+            ->where('users.id', Auth::user()->id)
+            ->orderBy('full_name', 'desc')
+            ->get();
         return view('users.personal.update-profile', compact('profile'));
-
     }
     /**
      * Get a validator for an incoming registration request.
@@ -51,9 +52,13 @@ class PersonalController extends Controller
     protected function validatorProfile(array $data)
     {
         return Validator::make($data, [
-            'full_name' => 'required|string|max:100',
-            'email' => 'required|string|email|max:100|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'ci' => 'required|max:10',
+            'phone' => 'required|max:8',
+            'profession' => 'required|array|min:1',
+            'profession.*' => 'required|string|distinct|max:30',
+            'degree' => 'required|string',
+            'specialties' => 'required|array|min:1',
+            'specialties.*' => 'required|string|distinct|max:30'
         ]);
     }
 
@@ -65,13 +70,25 @@ class PersonalController extends Controller
      */
     protected function update(array $data)
     {
-        $user = User::create([
-            'full_name' => $data['full_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-        $user->assignRole('personal');
-        return $user;
+        $specialist = Specialist::find(Auth::user()->id);
+        if ($specialist) {
+            $specialist->ci = $data['ci'];
+            $specialist->phone = $data['phone'];
+            $specialist->degree = $data['degree'];
+            $specialist->profession = implode(', ', array_values($data['profession']));
+            $specialist->specialties = implode(', ', array_values($data['specialties']));
+            $specialist->save();
+        } else {
+            $specialist = Specialist::create([
+                'id' => Auth::user()->id,
+                'ci' => $data['ci'],
+                'phone' => $data['phone'],
+                'degree' => $data['degree'],
+                'profession' => implode(', ', array_values($data['profession'])),
+                'specialties' => implode(', ', array_values($data['specialties']))
+            ]);
+        }
+        return $specialist;
     }
     /**
      * 
@@ -80,7 +97,7 @@ class PersonalController extends Controller
     {
         $this->validatorProfile($request->all())->validate();
 
-        event(new Registered($user = $this->update($request->all())));
+        $specialist = $this->update($request->all());
 
         return redirect('/personal/my-profile')->with('success', 'Perfil Profesional Actualizado');
     }

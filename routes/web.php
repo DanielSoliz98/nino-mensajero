@@ -60,7 +60,12 @@ Route::get('/personal/my-profile', 'PersonalController@myProfile')->name('myProf
 /**
  *Route for update the profile for each personal
  */
-Route::get('/personal/my-profile/update', 'PersonalController@updateProfileView')->name('updateMyProfile');
+Route::get('/personal/my-profile/update', 'PersonalController@updateProfileView')->name('updateMyProfileView');
+
+/**
+ *Route for update the profile for each personal
+ */
+Route::post('/personal/my-profile/update', 'PersonalController@updateProfile')->name('updateMyProfile');
 
 /**
  * Route for Unautorized page.

@@ -75,7 +75,7 @@ return [
         'array'   => 'El campo :attribute debe tener como máximo :value elementos.',
     ],
     'max'                  => [
-        'numeric' => ':attribute no debe ser mayor a :max.',
+        'numeric' => ':attribute no debe ser mayor a :max digitos.',
         'file'    => ':attribute no debe ser mayor que :max kilobytes.',
         'string'  => ':attribute no debe ser mayor que :max caracteres.',
         'array'   => ':attribute no debe tener más de :max elementos.',
@@ -147,10 +147,14 @@ return [
     */
 
     'attributes' => [
-        'name'                  => 'nombre',
-        'full_name'             => 'nombre completo',
-        'username'              => 'usuario',
-        'email'                 => 'correo electrónico',
+        'name'                  => 'Nombre',
+        'profession'            => 'Profesion',
+        'specialties'           => 'Especialidades',
+        'degree'                => 'Grado Academico',
+        'ci'                    => 'Carnet de Identidad',
+        'full_name'             => 'Nombre Completo',
+        'username'              => 'Usuario',
+        'email'                 => 'Correo Electrónico',
         'first_name'            => 'nombre',
         'last_name'             => 'apellido',
         'password'              => 'contraseña',
@@ -158,7 +162,7 @@ return [
         'city'                  => 'ciudad',
         'country'               => 'país',
         'address'               => 'dirección',
-        'phone'                 => 'teléfono',
+        'phone'                 => 'Teléfono',
         'mobile'                => 'móvil',
         'age'                   => 'edad',
         'sex'                   => 'sexo',

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Specialist extends Model
 {
-    protected $fillable = ['user_id', 'ci', 'phone', 'profession', 'degree', 'specialties'];
+    protected $fillable = ['id', 'ci', 'phone', 'profession', 'degree', 'specialties'];
 
     public function specialist(){
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'id');
     }
 
     

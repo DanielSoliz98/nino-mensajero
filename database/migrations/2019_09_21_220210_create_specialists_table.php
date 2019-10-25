@@ -14,10 +14,10 @@ class CreateSpecialistsTable extends Migration {
 	{
 		Schema::create('specialists', function(Blueprint $table)
 		{
-			$table->bigInteger('user_id')->primary('specialist_pkey');
+			$table->bigInteger('id')->primary('specialist_pkey');
 			$table->string('ci', 10);
             $table->string('phone', 8);
-			$table->string('profession', 20);
+			$table->string('profession', 100);
 			$table->string('degree', 20);
 			$table->string('specialties', 100);
 			$table->timestamps();

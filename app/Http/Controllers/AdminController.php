@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-    use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\User;
-use App\Specialist;
 
 class AdminController extends Controller
 {
@@ -28,7 +25,7 @@ class AdminController extends Controller
         $personals = DB::table('users')
                     ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
                     ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
-                    ->leftJoin('specialists', 'users.id', '=', 'specialists.user_id')
+                    ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
                     ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
                     ->where('roles.name', '<>', 'admin')
                     ->orderBy('full_name', 'desc')
@@ -38,7 +35,7 @@ class AdminController extends Controller
 
     public function profile($personal){
         $personal = User::findOrFail($personal);
-        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal)->get();
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
         return view('users.admin.profile', compact('personal', 'queryPersProfile'));
     }
 }

@@ -64,7 +64,7 @@
                                         @if ($profile[0]->profession)
                                             <input type="text" readonly class="form-control-plaintext" id="professions" value="{{$profile[0]->profession}}">   
                                         @endif
-                                        <select id="profession" name="profession" class="form-control selectpicker" multiple 
+                                        <select id="profession" name="profession[]" class="form-control selectpicker" multiple 
                                         data-toggle="tooltip" data-placement="top" title="Seleccione una o varias profesiones para agregarlas.">
                                             <option>Psicologo</option>
                                             <option>Pedagogo</option>
@@ -81,6 +81,28 @@
                                         @endif
                                     </div>
                                 </div>
+
+                                <div class="form-group{{ $errors->has('degree') ? ' has-error' : '' }} row d-flex align-items-center">
+                                    <label for="degree" class="col-md-4 control-label d-flex justify-content-end">Grado Academico</label>
+            
+                                    <div class="col-md-7">
+                                        @if ($profile[0]->degree)
+                                            <input type="text" readonly class="form-control-plaintext" id="degree" value="{{$profile[0]->degree}}">   
+                                        @endif
+                                        <select id="degree" name="degree" class="form-control selectpicker" 
+                                        data-toggle="tooltip" data-placement="top" title="Seleccione su maximo grado academico.">
+                                            <option>Egresado</option>
+                                            <option>Licenciado</option>
+                                            <option>Magister</option>
+                                            <option>Doctorado</option>
+                                        </select>
+                                        @if ($errors->has('degree'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('degree') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
             
                                 <div class="form-group{{ $errors->has('specialties') ? ' has-error' : '' }} row d-flex align-items-center">
                                         <label for="specialties" class="col-md-4 control-label d-flex justify-content-end">Especialidades</label>
@@ -89,7 +111,7 @@
                                             @if ($profile[0]->specialties)
                                                 <input type="text" readonly class="form-control-plaintext" id="specialties-now" value="{{$profile[0]->specialties}}">   
                                             @endif
-                                            <select id="specialties" name="specialties" class="form-control selectpicker" multiple
+                                            <select id="specialties" name="specialties[]" class="form-control selectpicker" multiple
                                             data-toggle="tooltip" data-placement="top" title="Seleccione una o varias especialidades para agregarlas.">
                                                 <option>Psicologia Familiar</option>
                                                 <option>Psicologia Infantil</option>
