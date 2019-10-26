@@ -1,45 +1,69 @@
 @extends('users.menu')
-@section('title', 'Perfil Profesional')
-@section('page-title', 'Perfil Profesional')
-@include('users.admin.menu-list')
+@role('admin')
+    @section('title', 'Admin-Perfiles Profesionales')
+    @section('page-title', 'Perfil Profesional')
+@else
+    @section('title', 'Personal-Mi Perfil')
+    @section('page-title', 'Mi Perfil Profesional')
+@endrole
 @section('user-content')
-
-<section class="container mt-2">
-    <br>      
-    <form enctype="multipart/form-data" method="POST">
-        <div class="d-flex mt-2 mb-4 table-responsive">
-            <table class="table table-striped table-md tablebody" border="1px">  
-                @foreach ($queryPersProfile as $profile)
-                    <tr>  
-                        <td>Nombre:</td> 
-                        <td>{{$personals->full_name}}</td>
-                    </tr>
-                    <tr>
-                        <td>C.I.</td>
-                        <td>{{$personals->id}}</td>
-                    </tr>
-                    <tr>
-                        <td>Profesión:</td> 
-                        <td>{{$profile->profession}}</td>
-                    </tr>
-                    <tr>
-                        <td>Grado de formación:</td> 
-                        <td>{{$profile->degree}}</td>
-                    </tr>
-                    <tr>
-                        <td>Especialidades:</td>
-                        <td>{{$profile->specialties}}</td>
-                    </tr> 
-                    <tr>
-                        <td>Tiempo de experiencia:</td>        
-                        <td>{{$profile->experience}}</td>   
-                    </tr>
-                @endforeach
-            </table>
-        </div>
-        <div class="d-flex align-items-center justify-content-center ">
-            <a class="btn btn-light border border-dark" href="{{route('home')}}">Editar perfil</a>
-        </div>
-    </form>
-</section>
+    <section class="container-fluid mt-1 no-content color-component">
+        <br>
+        <form enctype="multipart/form-data" method="POST">
+            <div class="d-flex mt-2 mb-4 table-responsive">
+                <table class="table table-striped table-md tablebody" border="1px"> 
+                    @if (count($queryPersProfile)>0)
+                        @foreach ($queryPersProfile as $profile)
+                            <tr>  
+                                <th>Nombre completo:</th> 
+                                <td>{{$personal->full_name}}</td>
+                            </tr>
+                            <tr>  
+                                <th>Correo electrónico:</th> 
+                                <td>{{$personal->email}}</td>
+                            </tr>
+                            <tr>
+                                <th>C.I.:</th>
+                                <td>{{$profile->ci}}</td>
+                            </tr>
+                            <tr>
+                                <th>Teléfono:</th>
+                                <td>{{$profile->phone}}</td>
+                            </tr>
+                            <tr>
+                                <th>Profesión:</th> 
+                                <td>{{$profile->profession}}</td>
+                            </tr>
+                            <tr>
+                                <th>Grado de formación:</th> 
+                                <td>{{$profile->degree}}</td>
+                            </tr>
+                            <tr>
+                                <th>Especialidades:</th>
+                                <td>{{$profile->specialties}}</td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>  
+                            <th>Nombre completo:</th> 
+                            <td>{{$personal->full_name}}</td>
+                        </tr>
+                        <tr>  
+                            <th>Correo electrónico:</th> 
+                            <td>{{$personal->email}}</td>
+                        </tr>
+                        <tr>
+                            <th><span class="badge badge-warning">Perfil incompleto</span></th>
+                            <td><span class="badge badge-warning">Tiene que actualizar su perfil.</span></td>
+                        </tr>
+                    @endif 
+                </table>
+            </div>
+            @role('personal')
+            <div class="d-flex align-items-center justify-content-center ">
+                <a class="btn3" href="{{route('updateMyProfile')}}">Actualizar mi perfil</a>
+            </div>
+            @endrole
+        </form>
+    </section>
 @endsection

@@ -2,104 +2,40 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App;
 use App\User;
 
 class AdminController extends Controller
 {
     /**
-     * Display a listing of the resource
-     *
-     * @return \Illuminate\Http\Response
+     * Admin controller require authentication of a Admin.
      */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware(['auth','isAdmin']);
     }
-
+    /**
+     *  Return view of Personal for admin.
+     */
     public function personal()
     {
-        $personals = App\User::all()->sortBy('full_name');
+        //$personals = User::all()->sortBy('full_name');
+        //return view('users.admin.personal-information', compact('personals'));
+        $personals = DB::table('users')
+                    ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
+                    ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
+                    ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
+                    ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
+                    ->where('roles.name', '<>', 'admin')
+                    ->orderBy('full_name', 'desc')
+                    ->get();
         return view('users.admin.personal-information', compact('personals'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    //public function store(Request $request)
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function profiles(){
-        $specialists = App\Specialist::all()->sortBy('profession');
-        return view('users.admin.profiles', compact('specialists', 'userName'));
-    }
-
     public function profile($personal){
-        $personals = App\User::findOrFail($personal);
-        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('user_id', '=', $personal)->get();
-        return view('users.admin.profile', compact('personals', 'queryPersProfile'));
+        $personal = User::findOrFail($personal);
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
+        return view('users.admin.profile', compact('personal', 'queryPersProfile'));
     }
 }

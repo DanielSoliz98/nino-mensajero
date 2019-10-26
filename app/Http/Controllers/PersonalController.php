@@ -2,95 +2,103 @@
 
 namespace App\Http\Controllers;
 
-use App\Letter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Specialist;
 
 class PersonalController extends Controller
 {
-    public function letters()
+    /**
+     * Personal controller require authentication of a personal.
+     */
+    public function __construct()
     {
-        $letters = Letter::orderBy('created_at', 'desc')
-                        ->with(['images' => function ($query) {
-                            $query->orderBy('created_at', 'desc');
-                        }])->paginate(10);
-        return view('users.personal.letters', compact('letters'));
-    }
-
-    public function getLetter($id)
-    {
-        $letter = Letter::findOrFail($id);
-        $images = Letter::find($id)->images;
-        $letter->images = $images;
-        return view('users.personal.letter', compact('letter'));
+        $this->middleware(['auth', 'isPersonal']);
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * 
      */
-    public function create()
+    public function myProfile()
     {
-        //
+        $personal = Auth::user();
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
+        return view('users.admin.profile', compact('personal', 'queryPersProfile'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * 
      */
-    public function store(Request $request)
+    public function updateProfileView()
     {
-        //
+        $profile = DB::table('users')
+            ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
+            ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
+            ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
+            ->select('full_name', 'email', 'ci', 'phone', 'profession', 'degree', 'specialties')
+            ->where('users.id', Auth::user()->id)
+            ->orderBy('full_name', 'desc')
+            ->get();
+        return view('users.personal.update-profile', compact('profile'));
+    }
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validatorProfile(array $data)
+    {
+        return Validator::make($data, [
+            'ci' => 'required|max:10',
+            'phone' => 'required|max:8',
+            'profession' => 'required|array|min:1',
+            'profession.*' => 'required|string|distinct|max:30',
+            'degree' => 'required|string',
+            'specialties' => 'required|array|min:1',
+            'specialties.*' => 'required|string|distinct|max:30'
+        ]);
     }
 
     /**
-     * Display the specified resource.
+     * Create a new user instance after a valid registration.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  array  $data
+     * @return User
      */
-    public function show($id)
+    protected function update(array $data)
     {
-        //
+        $specialist = Specialist::find(Auth::user()->id);
+        if ($specialist) {
+            $specialist->ci = $data['ci'];
+            $specialist->phone = $data['phone'];
+            $specialist->degree = $data['degree'];
+            $specialist->profession = implode(', ', array_values($data['profession']));
+            $specialist->specialties = implode(', ', array_values($data['specialties']));
+            $specialist->save();
+        } else {
+            $specialist = Specialist::create([
+                'id' => Auth::user()->id,
+                'ci' => $data['ci'],
+                'phone' => $data['phone'],
+                'degree' => $data['degree'],
+                'profession' => implode(', ', array_values($data['profession'])),
+                'specialties' => implode(', ', array_values($data['specialties']))
+            ]);
+        }
+        return $specialist;
     }
-
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * 
      */
-    public function edit($id)
+    public function updateProfile(Request $request)
     {
-        //
-    }
+        $this->validatorProfile($request->all())->validate();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+        $specialist = $this->update($request->all());
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return redirect('/personal/my-profile')->with('success', 'Perfil profesional actualizado');
     }
-
-    // public function profiles(){
-    //     return view('personal');
-    // }
 }

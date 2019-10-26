@@ -14,7 +14,7 @@ class AddForeignKeysToSpecialistsTable extends Migration {
 	{
 		Schema::table('specialists', function(Blueprint $table)
 		{
-			$table->foreign('user_id', 'specialist_user_id_fkey')
+			$table->foreign('id', 'specialist_user_id_fkey')
 				  ->references('id')->on('users')
 				  ->onUpdate('RESTRICT')
 				  ->onDelete('RESTRICT');

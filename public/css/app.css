@@ -167,6 +167,17 @@
     height: 90vh;
 }
 
+.no-content{
+    min-height: 71vh;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
 .slider {
     background: url("../background5.jpg");
     background-position: center;
@@ -258,11 +269,28 @@ div.content {
 }
 
 .content-web {
-    margin-top: 78px;
+    margin-top: 75px;
 }
 
 .container-fluid {
     background-color: rgb(220, 237, 245);
+}
+
+.auth {
+    background-color: rgb(220, 237, 245);
+    min-height: 80vh;
+}
+
+.register {
+    background-color: rgb(220, 237, 245);
+    min-height: 71vh;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 img {
@@ -329,5 +357,11 @@ a {
 .us {
     font-family: 'trebuchet ms';
     font-size: 1.4rem;
-    color: #3b1d00;
+    color: #3b1d00
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title', '¿Quienes Somos?')
+@section('title', '¿Quiénes Somos?')
 @section('navbar')
     @include('home.navbar')
 @endsection

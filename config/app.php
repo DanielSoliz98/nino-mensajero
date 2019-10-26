@@ -170,7 +170,7 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
-
+        Spatie\Permission\PermissionServiceProvider::class,
         /*
          * Application Service Providers...
          */
