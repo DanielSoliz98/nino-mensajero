@@ -38,7 +38,7 @@ return [
     'digits_between'       => ':attribute debe tener entre :min y :max dígitos.',
     'dimensions'           => 'Las dimensiones de la imagen :attribute no son válidas.',
     'distinct'             => 'El campo :attribute contiene un valor duplicado.',
-    'email'                => ':attribute no es un correo válido',
+    'email'                => ':attribute no es un correo válido.',
     'exists'               => ':attribute es inválido.',
     'file'                 => 'El campo :attribute debe ser un archivo.',
     'filled'               => 'El campo :attribute es obligatorio.',
@@ -128,7 +128,7 @@ return [
 
     'custom' => [
         'password' => [
-            'min' => 'La :attribute debe contener más de :min caracteres',
+            'min' => 'La :attribute debe contener :min caracteres mínimo.',
         ],
         'email'    => [
             'unique' => 'El :attribute ya ha sido registrado.',
@@ -148,13 +148,13 @@ return [
 
     'attributes' => [
         'name'                  => 'Nombre',
-        'profession'            => 'Profesion',
+        'profession'            => 'Profesión',
         'specialties'           => 'Especialidades',
-        'degree'                => 'Grado Academico',
-        'ci'                    => 'Carnet de Identidad',
-        'full_name'             => 'Nombre Completo',
+        'degree'                => 'Grado academico',
+        'ci'                    => 'Carnet de identidad',
+        'full_name'             => 'Nombre completo',
         'username'              => 'Usuario',
-        'email'                 => 'Correo Electrónico',
+        'email'                 => 'Correo electrónico',
         'first_name'            => 'nombre',
         'last_name'             => 'apellido',
         'password'              => 'contraseña',
