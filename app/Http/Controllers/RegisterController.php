@@ -87,10 +87,6 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-<<<<<<< HEAD
         return redirect('/admin/personal')->with('success', 'Personal registrado exitosamente.');
-=======
-        return redirect('/admin/personal')->with('success', 'Personal Registrado Exitosamente.');
->>>>>>> c1eb3dc94e2d854131106ee3a19d79986ce1bcd0
     }
 }
