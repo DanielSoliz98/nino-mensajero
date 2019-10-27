@@ -14,7 +14,6 @@
         "realrashid/sweet-alert": "^2.0",
         "spatie/laravel-permission": "^1.18",
         "styde/html": "~1.0",
-        "tsuzukit/laravel-naive-bayes": "0.0.1",
         "php-ai/php-ml": "dev-master"
     },
     "require-dev": {
