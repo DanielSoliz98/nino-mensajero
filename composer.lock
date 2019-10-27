@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "800ad3ea1c91e5ca6a4904d51bff5aca",
+    "content-hash": "670a30918d6fcb37ddb050d4711c4524",
     "packages": [
         {
             "name": "caouecs/laravel-lang",
@@ -1005,6 +1005,55 @@
                 "random"
             ],
             "time": "2019-01-03T20:59:08+00:00"
+        },
+        {
+            "name": "php-ai/php-ml",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atompulse/php-ml-56",
+                "reference": "1bd9f439d268e677e07212bc3d141aeb024d8b7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atompulse/php-ml-56/zipball/1bd9f439d268e677e07212bc3d141aeb024d8b7e",
+                "reference": "1bd9f439d268e677e07212bc3d141aeb024d8b7e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0",
+                "spatie/7to5": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Phpml": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arkadiusz Kondas",
+                    "email": "arkadiusz.kondas@gmail.com"
+                }
+            ],
+            "description": "PHP-ML - Machine Learning library for PHP",
+            "homepage": "https://github.com/php-ai/php-ml",
+            "keywords": [
+                "artificial intelligence",
+                "computational learning theory",
+                "data science",
+                "feature extraction",
+                "machine learning",
+                "neural network",
+                "pattern recognition"
+            ],
+            "time": "2017-06-20T09:34:01+00:00"
         },
         {
             "name": "psr/log",
@@ -2350,6 +2399,46 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2019-10-24T08:53:34+00:00"
+        },
+        {
+            "name": "tsuzukit/laravel-naive-bayes",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tsuzukit/laravel-naive-bayes.git",
+                "reference": "f240fab9c0384dc37fd37b45b395e708462eff63"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tsuzukit/laravel-naive-bayes/zipball/f240fab9c0384dc37fd37b45b395e708462eff63",
+                "reference": "f240fab9c0384dc37fd37b45b395e708462eff63",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Tsuzukit\\NaiveBayes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tomoaki Tsuzuki",
+                    "email": "colorble@gmail.com"
+                }
+            ],
+            "description": "Naive bayes classifier for laravel 5.2",
+            "keywords": [
+                "bayes",
+                "laravel"
+            ],
+            "time": "2016-04-03T16:42:49+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3888,7 +3977,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "php-ai/php-ml": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

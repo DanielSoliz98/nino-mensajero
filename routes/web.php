@@ -14,6 +14,9 @@
 /**
  * Route for Home of Children(/), returning view from HomeController: create method.
  */
+
+use App\Http\Controllers\LetterController;
+
 Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
 
 /**
@@ -93,3 +96,6 @@ Route::post('logout', [
 Route::get('admin/register', 'RegisterController@createView')->name('register');
 
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
+
+Route::get('ej', 'BayesController@index');
+Route::get('funct','BayesController@funct');

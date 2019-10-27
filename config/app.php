@@ -171,6 +171,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+
+        Tsuzukit\NaiveBayes\NaiveBayesServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -232,6 +234,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Date' => Jenssegers\Date\Date::class,
+
+        'NaiveBayes' => Tsuzukit\NaiveBayes\Facade\NaiveBayes::class,
     ],
 
 ];
