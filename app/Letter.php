@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Letter extends Model
 {
-    protected $fillable = ['content', 'ip_address'];
+    protected $fillable = ['content', 'ip_address', 'name'];
 
     public function images()
     {
