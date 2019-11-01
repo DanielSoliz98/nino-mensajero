@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Phpml\Classification\NaiveBayes;
 use Illuminate\Support\Facades\DB;
+use Wamania\Snowball\Spanish;
 
 class ContentController extends Controller
 {
@@ -16,18 +17,6 @@ class ContentController extends Controller
     public function index()
     {
         //
-    }
-
-    public function funct(){
-        // $samples = [[1, 3], [1, 4], [2, 4], [3, 1], [4, 1], [4, 2]];'
-        $samples = [['hola', 'esta', 'es','carta'], ['ayuda', 'es', 'una','prueba'], ['nada','de','nada','ayuda']];
-        // $samples = [["hola","esta","ayuda","carta"], ["esta","es","una","prueba"], ["nada","de","nada","ayuda"]];
-        $labels = ['a', 'b', 'c'];
-        $classifier = new NaiveBayes();
-        $classifier->train($samples, $labels);
-        //dd($classifier);
-        // echo $classifier->predict([2,3]);
-        echo $classifier->predict(['ayuda','da','addyuda','ad']);
     }
 
     /**
@@ -97,24 +86,28 @@ class ContentController extends Controller
     }
 
     public function seek(){
+        $stemmer = new Spanish();
         $letters = DB::table('letters')->select('id','content')->get();
-        /*$letters = DB::table('letters')
-                    ->join('letters_analysis', 'letters.id', '=', 'letters_analysis.letter_id')
-                    ->join('types_letters', 'letters_analysis.type_letter_id', '=', 'types_letters.id')
-                    ->select('letters.id','content', 'ip_address', 'types_letters.name as type', 'urgency')
-                    ->get();
-        echo $letters,"<br/>"; 
-        $cantcartas = count($letters);*/
-
-        $blacklist = array("ayuda", "auxilio","peligroso","golpea","pega","lastima","pelean","golpe","peligro");
+        $blacklist = array("ayud","auxili","alej","alarm","arriesg","amenaz","alert","arriesg","angusti","aficcion",  "aprovech","acech","abandon","apur","agresor","asco","antipat","atac","acuchill","asistent",
+        "asust","alter","acos","accident","atemoriz","asesinat","ahorc","arma","brabucon","bullying",  "cuid","criminal","cautel","cobard","cort","critic","conflict","consuel","conden","dañ",
+        "dolor","desgraci","descar","desesper","descinsider","defend","delit","desagrad","desalent","defens",  "desnud","diabol","disparat","dispar","desahog","destruccion","desproteg","escap","espant","expuest",
+        "extrem","enferm","engañ","escond","encerr","esquiv","evacu","evad","evit","forzos",  "fueg","feo","fugit","fals","fechor","fatal","forceje","fobi","golp","grav",
+        "groser","guerr","huir","horribl","her","involuntari","insegur","indecent","incaut","impruden",  "infest","inconscien","infiel","infel","impon","intimid","lastim","liber","liar","loc",
+        "luch","llor","miser","mat","muert","martiri","mied","mal","maldit","malevol",  "ment","mient","malhechor","malign","manten","monstru","oblig","ofens","obscen","ofend",
+        "peligr","peg","pel","prohib","precaucion","proteccion","pen","puerc","precari","preocup",  "pusilanim","perd","preven","riesg","refugi","rescat","rob","retir","repugn","rencor",
+        "rapt","rebeld","socorr","segur","salv","salvaj","señuel","sust","sobresalt","siniestr",  "suci","sospech","s.o.s","suplic","toxic","tramp","terrorism","terror","tem","tim",
+        "traicion","torp","vam","vigil","violenci","vulner","viol","agred","agresion","destru",  "expon","necesit","neces","pobrez","pobr","proteg","reprob","traidor","quem","golpe",
+        "grit","cuid","agresion","abus","sac","castig","escarment","incendi","molest","irme",  "reneg","renieg","cinturon","pal","insult","irrespons","riñ","fallec","muri","dej");  
         foreach ( $letters as $letter ) {
             $cartas3 = $letter->content;
             $strlow = strtolower($cartas3); 
-            $quit = preg_replace('/[^a-zA-Z0-9]/', " ", $strlow); 
+            $quit = preg_replace ( '/[^a-zA-Z0-9]/', " ", $strlow ); 
             $tok = strtok ($quit, " \n\t ");
-            // echo "tok= $tok<br>";
             echo "<br>",$letter->content,"<br>";
+            
+            $tok = $stemmer->stem($tok);
             while ( $tok !== false ) {
+                $tok = $stemmer->stem($tok);
                 echo "Token = $tok <br />";
                 if ( in_array($tok, $blacklist) ) {
                     $flag = true;

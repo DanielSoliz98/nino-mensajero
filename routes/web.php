@@ -97,7 +97,5 @@ Route::get('admin/register', 'RegisterController@createView')->name('register');
 
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
 
-//Trying to use the library of Bayes(but doesn't work)
-Route::get('funct','ContentController@funct');
 //Route for the recognition of danger or normal letters
 Route::get('content', 'ContentController@seek');

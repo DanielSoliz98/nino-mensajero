@@ -11,10 +11,11 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
+        "php-ai/php-ml": "dev-master",
         "realrashid/sweet-alert": "^2.0",
         "spatie/laravel-permission": "^1.18",
         "styde/html": "~1.0",
-        "php-ai/php-ml": "dev-master"
+        "wamania/php-stemmer": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
