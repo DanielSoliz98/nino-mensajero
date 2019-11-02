@@ -11,7 +11,6 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "5.4.*",
-        "php-ai/php-ml": "dev-master",
         "realrashid/sweet-alert": "^2.0",
         "spatie/laravel-permission": "^1.18",
         "styde/html": "~1.0",
@@ -55,13 +54,5 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-
-    "repositories": [
-        {
-          "type": "vcs",
-          "url": "https://github.com/atompulse/php-ml-56",
-          "no-api": true
-        }
-      ]
+    }
 }

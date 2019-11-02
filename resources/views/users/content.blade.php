@@ -15,10 +15,18 @@
                         </tr>
                         @foreach( $letters as $letter )
                             <tr>
-                            @if (in_array($tok, $blacklist))
+                            @if (in_array($tok, $blacklistA))
                                 <td>{{$letter->id}}</td>
                                 <td>{{$letter->content}}</td>
-                                <td>ATENCION</td>
+                                <td>PELIGRO</td>
+                            @elseif (in_array($tok, $blacklistB))
+                                <td>{{$letter->id}}</td>
+                                <td>{{$letter->content}}</td>
+                                <td>URGENTE</td>
+                            @elseif (in_array($tok, $blacklistC))
+                                <td>{{$letter->id}}</td>
+                                <td>{{$letter->content}}</td>
+                                <td>ALERTA</td> 
                             @else
                                 <td>{{$letter->id}}</td>
                                 <td>{{$letter->content}}</td>
