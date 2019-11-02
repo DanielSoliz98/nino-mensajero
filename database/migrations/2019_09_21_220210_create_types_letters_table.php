@@ -14,9 +14,8 @@ class CreateTypesLettersTable extends Migration {
 	{
 		Schema::create('types_letters', function(Blueprint $table)
 		{
-			$table->increments('id', true);
+			$table->smallIncrements('id', true);
 			$table->string('name', 20)->unique();
-			$table->smallInteger('urgency');
 			$table->timestamps();
 		});
 	}
