@@ -21,7 +21,7 @@ class Letter extends Model
 
     public function typeLetter()
     {
-        return $this->hasOne(TypesLetter::class);
+        return $this->belongsTo(TypesLetter::class);
     }
 
 }

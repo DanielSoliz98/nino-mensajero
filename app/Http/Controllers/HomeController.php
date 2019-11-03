@@ -40,7 +40,9 @@ class HomeController extends Controller
         $letters = Letter::orderBy('created_at', 'desc')
             ->with(['images' => function ($query) {
                 $query->orderBy('created_at', 'desc');
-            }])->paginate(10);
+            }])
+            ->with('typeLetter')
+            ->paginate(10);
         return view('users.home', compact('letters'));
     }
 
