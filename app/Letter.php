@@ -19,4 +19,9 @@ class Letter extends Model
         return new Date($date);
     }
 
+    public function typeLetter()
+    {
+        return $this->hasOne(TypesLetter::class);
+    }
+
 }
