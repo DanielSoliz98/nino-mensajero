@@ -96,6 +96,3 @@ Route::post('logout', [
 Route::get('admin/register', 'RegisterController@createView')->name('register');
 
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
-
-//Route for the recognition of danger or normal letters
-Route::get('content', 'ContentController@seek');
