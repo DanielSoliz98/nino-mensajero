@@ -13,7 +13,7 @@
             <h2 class="text-center">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
                 Carta para Niño Mensajero
-                <button class="btn1 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
+                <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
             </h2>
             <form enctype="multipart/form-data" method="POST">
                 {!! csrf_field() !!}
