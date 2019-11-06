@@ -51,9 +51,7 @@ class HomeController extends Controller
      */
     public function getLetter($id)
     {
-        $letter = Letter::findOrFail($id);
-        $images = Letter::find($id)->images;
-        $letter->images = $images;
+        $letter = Letter::find($id);
         return view('users.letter', compact('letter'));
     }
 

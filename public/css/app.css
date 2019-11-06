@@ -167,7 +167,7 @@
     height: 90vh;
 }
 
-.no-content{
+.no-content {
     min-height: 71vh;
 }
 
@@ -176,7 +176,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-  }
+}
 
 .slider {
     background: url("../background5.jpg");
@@ -286,6 +286,10 @@ div.content {
     min-height: 71vh;
 }
 
+.letter {
+    min-height: 70vh;
+}
+
 .centered {
     position: fixed;
     top: 50%;
@@ -360,8 +364,7 @@ a {
     color: #3b1d00
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
