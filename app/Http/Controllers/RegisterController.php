@@ -38,7 +38,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','isAdmin']);
+        $this->middleware(['auth', 'isAdmin']);
     }
 
     /**
@@ -81,6 +81,9 @@ class RegisterController extends Controller
         return $user;
     }
 
+    /**
+     * Register a new Personal user on database.
+     */
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();

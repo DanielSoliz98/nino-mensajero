@@ -57,6 +57,9 @@ class LetterController extends Controller
         return redirect('/')->with('success', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
+    /**
+     * Analyze the content of a letter and save it on database.
+     */
     protected function analyzeLetter(Letter $letter)
     {
         include 'ListOfWords.php';

@@ -19,7 +19,7 @@ class PersonalController extends Controller
     }
 
     /**
-     * 
+     * Return profile view for Personal.
      */
     public function myProfile()
     {
@@ -29,7 +29,7 @@ class PersonalController extends Controller
     }
 
     /**
-     * 
+     * Return update profile form to Personal.
      */
     public function updateProfileView()
     {
@@ -91,7 +91,7 @@ class PersonalController extends Controller
         return $specialist;
     }
     /**
-     * 
+     * Save the profile of a Personal.
      */
     public function updateProfile(Request $request)
     {

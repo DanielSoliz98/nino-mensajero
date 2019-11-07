@@ -23,5 +23,4 @@ class Letter extends Model
     {
         return $this->belongsTo(TypesLetter::class);
     }
-
 }
