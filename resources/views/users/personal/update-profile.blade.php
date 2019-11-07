@@ -35,8 +35,13 @@
             
                                         @if ($errors->has('ci'))
                                             <span class="help-block">
-                                                <strong>{{ $errors->first('ci') }}</strong>
                                             </span>
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
+                                                <strong>{{ $errors->first('ci') }}</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -50,9 +55,12 @@
                                         oninvalid="this.setCustomValidity('Ingrese número de teléfono válido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('phone'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('phone') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -64,7 +72,7 @@
                                         @if ($profile[0]->profession)
                                             <input type="text" readonly class="form-control-plaintext" id="professions" value="{{$profile[0]->profession}}">   
                                         @endif
-                                        <select id="profession" name="profession[]" class="form-control selectpicker" multiple 
+                                        <select id="profession" name="profession[]" class="form-control selectpicker" multiple required
                                         data-toggle="tooltip" data-placement="top" title="Seleccione una o varias profesiones para agregarlas.">
                                             <option>Psicólogo</option>
                                             <option>Pedagogo</option>
@@ -75,9 +83,12 @@
                                             <option>Otro</option>
                                         </select>
                                         @if ($errors->has('profession'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('profession') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -89,7 +100,7 @@
                                         @if ($profile[0]->degree)
                                             <input type="text" readonly class="form-control-plaintext" id="degree" value="{{$profile[0]->degree}}">   
                                         @endif
-                                        <select id="degree" name="degree" class="form-control selectpicker" 
+                                        <select id="degree" name="degree" class="form-control selectpicker" required 
                                         data-toggle="tooltip" data-placement="top" title="Seleccione su maximo grado academico.">
                                             <option>Egresado</option>
                                             <option>Licenciado</option>
@@ -97,9 +108,12 @@
                                             <option>Doctorado</option>
                                         </select>
                                         @if ($errors->has('degree'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('degree') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -111,7 +125,7 @@
                                             @if ($profile[0]->specialties)
                                                 <input type="text" readonly class="form-control-plaintext" id="specialties-now" value="{{$profile[0]->specialties}}">   
                                             @endif
-                                            <select id="specialties" name="specialties[]" class="form-control selectpicker" multiple
+                                            <select id="specialties" name="specialties[]" class="form-control selectpicker" multiple required
                                             data-toggle="tooltip" data-placement="top" title="Seleccione una o varias especialidades para agregarlas.">
                                                 <option>Psicología Familiar</option>
                                                 <option>Psicología Infantil</option>
@@ -123,9 +137,12 @@
                                                 <option>Otro</option>
                                             </select>
                                             @if ($errors->has('specialties'))
-                                                <span class="help-block">
+                                                <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                     <strong>{{ $errors->first('specialties') }}</strong>
-                                                </span>
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
