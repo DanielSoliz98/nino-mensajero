@@ -24,7 +24,7 @@ class PersonalController extends Controller
     public function myProfile()
     {
         $personal = Auth::user();
-        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->first();
         return view('users.personal.profile', compact('personal', 'queryPersProfile'));
     }
 
@@ -99,6 +99,6 @@ class PersonalController extends Controller
 
         $specialist = $this->update($request->all());
 
-        return redirect('/personal/my-profile')->with('success', 'Perfil profesional actualizado');
+        return redirect('/personal/my-profile')->with('success', 'Perfil actualizado');
     }
 }

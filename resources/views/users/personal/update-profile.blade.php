@@ -7,7 +7,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="col-md-12">
                     <div class="card mt-4 mb-4">
-                        <div class="card-header text-center"><h2>ACTUALIZAR MI PERFIL PROFESIONAL</h2></div>
+                        <div class="card-header text-center"><h2>ACTUALIZAR MI PERFIL</h2></div>
                         <div class="card-body">
                             <form class="form-horizontal" method="POST" action="{{ route('updateMyProfile') }}">
                                 {{ csrf_field() }}
