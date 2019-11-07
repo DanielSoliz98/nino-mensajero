@@ -25,7 +25,7 @@ class PersonalController extends Controller
     {
         $personal = Auth::user();
         $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
-        return view('users.admin.profile', compact('personal', 'queryPersProfile'));
+        return view('users.personal.profile', compact('personal', 'queryPersProfile'));
     }
 
     /**
