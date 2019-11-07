@@ -20,9 +20,12 @@
                                         oninvalid="this.setCustomValidity('Ingrese nombre completo.')" oninput="setCustomValidity('')"required autofocus>
             
                                         @if ($errors->has('full_name'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('full_name') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -36,9 +39,12 @@
                                         oninvalid="this.setCustomValidity('Ingrese un correo válido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('email'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -52,9 +58,12 @@
                                         oninvalid="this.setCustomValidity('Contraseña debe tener 6 caracteres mínimo.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('password'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
