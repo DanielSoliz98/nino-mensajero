@@ -1,7 +1,7 @@
 @extends('users.menu')
 @section('title', 'Cartas de Niños')
 @section('page-title')
-    Carta de Niño - Carta {{$letter->typeLetter['name']}}
+    Carta de Niño - {{$letter->typeLetter['name']}}
 @endsection
 @include('users.image')
 @section('user-content')
