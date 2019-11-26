@@ -16,7 +16,7 @@ class PersonalMiddleware
         
         if (!Auth::user()->hasRole('personal'))
         {
-            return redirect()->route('unauthorized');
+            return redirect()->route('forbidden');
         }
         return $next($request);
     }

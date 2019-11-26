@@ -16,7 +16,7 @@ class AdminMiddleware
         
         if (!Auth::user()->hasRole('admin'))
         {
-            return redirect()->route('unauthorized');
+            return redirect()->route('forbidden');
         }
         return $next($request);
     }

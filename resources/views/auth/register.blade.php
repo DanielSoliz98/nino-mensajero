@@ -17,7 +17,7 @@
                                     <div class="col-md-7">
                                         <input id="full_name" type="text" class="form-control" name="full_name" value="{{ old('full_name') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
-                                        oninvalid="this.setCustomValidity('Ingrese nombre completo.')" oninput="setCustomValidity('')"required autofocus>
+                                        oninvalid="this.setCustomValidity('Nombre completo es un campo requerido.')" oninput="setCustomValidity('')"required autofocus>
             
                                         @if ($errors->has('full_name'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
@@ -36,7 +36,7 @@
                                     <div class="col-md-7">
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Ingrese un correo válido.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Correo electrónico es un campo requerido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('email'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
@@ -55,7 +55,7 @@
                                     <div class="col-md-7">
                                         <input id="password" type="password" class="form-control" name="password" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Contraseña debe tener 6 caracteres mínimo.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Contraseña es un campo requerido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('password'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
@@ -74,7 +74,7 @@
                                     <div class="col-md-7">
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Repita su contraseña.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Confirme su contraseña.')" oninput="setCustomValidity('')" required>
                                     </div>
                                 </div>
             
