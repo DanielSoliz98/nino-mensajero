@@ -31,7 +31,7 @@
                                     <div class="col-md-7">
                                         <input id="ci" type="number" class="form-control" name="ci" value="{{$profile[0]->ci}}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Ingrese número de carnet válido.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Carnet de identidad es un campo requerido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('ci'))
                                             <span class="help-block">
@@ -52,7 +52,7 @@
                                     <div class="col-md-7">
                                         <input id="phone" type="number" class="form-control" name="phone" value="{{$profile[0]->phone}}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                        oninvalid="this.setCustomValidity('Ingrese número de teléfono válido.')" oninput="setCustomValidity('')" required>
+                                        oninvalid="this.setCustomValidity('Número de teléfono es un campo requerido.')" oninput="setCustomValidity('')" required>
             
                                         @if ($errors->has('phone'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
