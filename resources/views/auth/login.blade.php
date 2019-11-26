@@ -18,7 +18,7 @@
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
-                                        oninvalid="this.setCustomValidity('Ingrese un correo válido.')" oninput="setCustomValidity('')"
+                                        oninvalid="this.setCustomValidity('Correo electrónico es un campo requerido.')" oninput="setCustomValidity('')"
                                         required autofocus>
                                         
                                     </div>
