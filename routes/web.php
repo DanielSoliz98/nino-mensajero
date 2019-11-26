@@ -73,7 +73,7 @@ Route::post('/personal/my-profile/update', 'PersonalController@updateProfile')->
 /**
  * Route for Unautorized page.
  */
-Route::get('/unauthorized', 'HomeController@unautorized')->name('unauthorized');
+Route::get('/forbidden', 'HomeController@forbidden')->name('forbidden');
 
 /**
  * Routes for authentification: Login Users.

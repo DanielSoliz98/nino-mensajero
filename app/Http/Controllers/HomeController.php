@@ -58,8 +58,8 @@ class HomeController extends Controller
     /**
      * View for unautorized.
      */
-    public function unautorized()
+    public function forbidden()
     {
-        return view('users.401');
+        return view('users.403');
     }
 }
