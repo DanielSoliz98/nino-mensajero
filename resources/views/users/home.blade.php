@@ -13,14 +13,22 @@
                             </div>
                             <div class="col-3 d-flex justify-content-end">
                                 <div class="card-text text-muted">
+                                    @if ($letter->typeLetter['name'] == 'peligro')
+                                        <span class="badge badge-danger">{{ucfirst($letter->typeLetter['name'])}}</span>
+                                    @elseif ($letter->typeLetter['name'] == 'urgente')
+                                        <span class="badge badge-warning">{{ucfirst($letter->typeLetter['name'])}}</span>
+                                    @elseif ($letter->typeLetter['name']== 'alerta')
+                                        <span class="badge badge-primary">{{ucfirst($letter->typeLetter['name'])}}</span>
+                                    @else
+                                        <span class="badge badge-light">{{ucfirst($letter->typeLetter['name'])}}</span>
+                                    @endif
                                     @if(count($letter->images) == 1)
                                         <span class="badge badge-light">{{$letter->images->count()}} imagen</span>
-                                        {{$letter->created_at->diffForHumans()}}
                                     @else
                                         <span class="badge badge-light">{{$letter->images->count()}} imágenes</span>
-                                        {{$letter->created_at->diffForHumans()}}
                                     @endif
-                                </div>
+                                        {{$letter->created_at->diffForHumans()}}
+                                    </div>
                             </div>
                         </div>
                         <a href="{{route('user.letter.read', $letter)}}" class="stretched-link"></a>

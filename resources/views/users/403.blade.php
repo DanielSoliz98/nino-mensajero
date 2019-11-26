@@ -1,5 +1,5 @@
 @extends('users.menu')
-@section('title', 'Error 401')
+@section('title', 'Error 403')
 @section('page-title', 'No Autorizado')
 @section('user-content')
     <div class="no-content card mt-1 color-component text-center">
@@ -9,7 +9,7 @@
                     <h1 class="display-2">Oops!</h1>
                 </div>
                 <div class="d-flex justify-content-center">
-                    <h2 class="display-4">401 No Autorizado</h2>
+                    <h2 class="display-4">403 Prohibido el acceso</h2>
                 </div>
                 @role('admin')
                     <div class="d-flex justify-content-center">

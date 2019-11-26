@@ -18,7 +18,7 @@
                                     <div class="col-md-6">
                                         <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
-                                        oninvalid="this.setCustomValidity('Ingrese un correo válido.')" oninput="setCustomValidity('')"
+                                        oninvalid="this.setCustomValidity('Correo electrónico es un campo requerido.')" oninput="setCustomValidity('')"
                                         required autofocus>
                                         
                                     </div>
@@ -33,9 +33,12 @@
                                         oninvalid="this.setCustomValidity('Contraseña es un campo requerido.')" oninput="setCustomValidity('')" required>
     
                                         @if ($errors->has('email'))
-                                            <span class="help-block">
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
                                                 <strong>{{ $errors->first('email') }}</strong>
-                                            </span>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>

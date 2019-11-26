@@ -13,29 +13,28 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','isAdmin']);
+        $this->middleware(['auth', 'isAdmin']);
     }
     /**
      *  Return view of Personal for admin.
      */
     public function personal()
     {
-        //$personals = User::all()->sortBy('full_name');
-        //return view('users.admin.personal-information', compact('personals'));
         $personals = DB::table('users')
-                    ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
-                    ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
-                    ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
-                    ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
-                    ->where('roles.name', '<>', 'admin')
-                    ->orderBy('full_name', 'desc')
-                    ->get();
+            ->join('user_has_roles', 'users.id', '=', 'user_has_roles.user_id')
+            ->join('roles', 'user_has_roles.role_id', '=', 'roles.id')
+            ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
+            ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
+            ->where('roles.name', '<>', 'admin')
+            ->orderBy('full_name', 'asc')
+            ->get();
         return view('users.admin.personal-information', compact('personals'));
     }
 
-    public function profile($personal){
+    public function profilePersonal($personal)
+    {
         $personal = User::findOrFail($personal);
-        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->get();
-        return view('users.admin.profile', compact('personal', 'queryPersProfile'));
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->first();
+        return view('users.admin.personal-profile', compact('personal', 'queryPersProfile'));
     }
 }

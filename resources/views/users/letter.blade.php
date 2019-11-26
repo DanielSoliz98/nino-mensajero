@@ -1,9 +1,11 @@
 @extends('users.menu')
 @section('title', 'Cartas de Niños')
-@section('page-title', 'Carta de Niño')
+@section('page-title')
+    Carta de Niño - {{$letter->typeLetter['name']}}
+@endsection
 @include('users.image')
 @section('user-content')
-    <div class="card border-dark color-component mt-2 ml-2 mr-2 mb-2">
+    <div class="card border-dark color-component letter mt-2 ml-2 mr-2 mb-2">
         <div class="card-body">
             <p class="card-text">{{$letter->content}}</p>
         </div>

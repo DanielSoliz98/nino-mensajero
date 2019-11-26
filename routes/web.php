@@ -14,6 +14,9 @@
 /**
  * Route for Home of Children(/), returning view from HomeController: create method.
  */
+
+use App\Http\Controllers\LetterController;
+
 Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
 
 /**
@@ -50,7 +53,7 @@ Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal'
 /**
  *Route for show the profile for each personal
  */
-Route::get('/admin/personal/{personal}', 'AdminController@profile')->name('persProfile');
+Route::get('/admin/personal/{personal}', 'AdminController@profilePersonal')->name('persProfile');
 
 /**
  *Route for show the profile for each personal
@@ -70,7 +73,7 @@ Route::post('/personal/my-profile/update', 'PersonalController@updateProfile')->
 /**
  * Route for Unautorized page.
  */
-Route::get('/unauthorized', 'HomeController@unautorized')->name('unauthorized');
+Route::get('/forbidden', 'HomeController@forbidden')->name('forbidden');
 
 /**
  * Routes for authentification: Login Users.

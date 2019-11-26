@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Letter extends Model
 {
-    protected $fillable = ['content', 'ip_address'];
+    protected $fillable = ['content', 'ip_address', 'type_letter_id'];
 
     public function images()
     {
@@ -19,4 +19,8 @@ class Letter extends Model
         return new Date($date);
     }
 
+    public function typeLetter()
+    {
+        return $this->belongsTo(TypesLetter::class);
+    }
 }

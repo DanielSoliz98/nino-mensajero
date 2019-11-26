@@ -8,7 +8,8 @@ class Image extends Model
 {
     protected $fillable = ['filename', 'letter_id'];
 
-    public function letter(){
+    public function letter()
+    {
         return $this->belongsTo(Letter::class, 'letter_id');
     }
 }

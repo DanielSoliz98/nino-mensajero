@@ -13,14 +13,14 @@
                 @endrole
             </div>
             <div class="list-group list-group-flush">
-                    <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Cartas de Niños</a>
+                    <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Cartas de niños</a>
                 @role('admin')
-                <a href="{{route('register')}}" class="list-group-item list-group-item-action bg-light">Registrar Nuevo Personal</a>
-                    <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de Personal</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Informaciones Generadas</a>
+                    <a href="{{route('register')}}" class="list-group-item list-group-item-action bg-light">Registrar nuevo personal</a>
+                    <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de personal</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Informaciones generadas</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Boletines</a>
                 @else
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Información Generada</a>
+                    <a href="#" class="list-group-item list-group-item-action bg-light">Información generada</a>
                     <a href="#" class="list-group-item list-group-item-action bg-light">Notificaciones</a>
                 @endrole
             </div>
