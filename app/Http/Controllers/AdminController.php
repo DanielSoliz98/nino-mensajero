@@ -26,7 +26,7 @@ class AdminController extends Controller
             ->leftJoin('specialists', 'users.id', '=', 'specialists.id')
             ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
             ->where('roles.name', '<>', 'admin')
-            ->orderBy('full_name', 'desc')
+            ->orderBy('full_name', 'asc')
             ->get();
         return view('users.admin.personal-information', compact('personals'));
     }
