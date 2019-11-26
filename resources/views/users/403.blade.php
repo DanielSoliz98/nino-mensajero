@@ -1,5 +1,5 @@
 @extends('users.menu')
-@section('title', 'Error 401')
+@section('title', 'Error 403')
 @section('page-title', 'No Autorizado')
 @section('user-content')
     <div class="no-content card mt-1 color-component text-center">
