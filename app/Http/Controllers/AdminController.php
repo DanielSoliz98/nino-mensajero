@@ -30,4 +30,11 @@ class AdminController extends Controller
             ->get();
         return view('users.admin.personal-information', compact('personals'));
     }
+
+    public function profilePersonal($personal)
+    {
+        $personal = User::findOrFail($personal);
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->first();
+        return view('users.admin.personal-profile', compact('personal', 'queryPersProfile'));
+    }
 }

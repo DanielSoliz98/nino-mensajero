@@ -53,7 +53,7 @@ Route::get('/admin/personal', 'AdminController@personal')->name('admin.personal'
 /**
  *Route for show the profile for each personal
  */
-Route::get('/admin/personal/{personal}', 'AdminController@profile')->name('persProfile');
+Route::get('/admin/personal/{personal}', 'AdminController@profilePersonal')->name('persProfile');
 
 /**
  *Route for show the profile for each personal
