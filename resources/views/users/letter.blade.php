@@ -8,7 +8,7 @@
     @include('users.admin.ip-information')
     <div class="card border-dark color-component letter mt-2 ml-2 mr-2 mb-2">
         <div class="card-body">
-        <p class="card-text">{{$letter->content}}</p>
+            <p class="card-text">{{$letter->content}}</p>
         </div>
         <div class="container">
             @if(count($letter->images) > 0)
