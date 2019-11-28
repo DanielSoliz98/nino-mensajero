@@ -17,7 +17,7 @@
                                     <div class="col-md-7">
                                         <input id="full_name" type="text" pattern="^[a-zA-Z]*$" class="form-control" name="full_name" value="{{ old('full_name') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
-                                        oninvalid="this.setCustomValidity('Nombre completo es un campo requerido, solo letras.')" oninput="setCustomValidity('')"required autofocus>
+                                        oninvalid="this.setCustomValidity('Nombre completo es un campo requerido, sólo letras.')" oninput="setCustomValidity('')"required autofocus>
             
                                         @if ($errors->has('full_name'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
