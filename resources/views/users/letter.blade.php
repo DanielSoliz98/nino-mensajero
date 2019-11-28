@@ -5,9 +5,10 @@
 @endsection
 @include('users.image')
 @section('user-content')
+    @include('users.admin.ip-information')
     <div class="card border-dark color-component letter mt-2 ml-2 mr-2 mb-2">
         <div class="card-body">
-            <p class="card-text">{{$letter->content}}</p>
+        <p class="card-text">{{$letter->content}}</p>
         </div>
         <div class="container">
             @if(count($letter->images) > 0)
@@ -24,8 +25,17 @@
                 </div>
             @endif
         </div>
-        <div class="card-footer text-muted text-center mt-2">
+        <div class="card-footer text-center mt-2">
+            <div class="d-flex flex-column">
                 {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
+                @role('admin')
+                    <div>
+                        <a class="btn btn-light border border-dark" data-toggle="modal" data-target="#ipInformation">
+                            OBTENER DIRECCION IP
+                        </a>
+                    </div>
+                @endrole
+            </div>
         </div>
     </div>
     <script>

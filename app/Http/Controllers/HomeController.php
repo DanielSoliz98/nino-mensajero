@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Letter;
+use App\Letter; 
+use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
 {
@@ -52,7 +53,8 @@ class HomeController extends Controller
     public function getLetter($id)
     {
         $letter = Letter::find($id);
-        return view('users.letter', compact('letter'));
+        $position = Location::get($letter->ip_address);
+        return view('users.letter', compact('letter', 'position'));
     }
 
     /**
