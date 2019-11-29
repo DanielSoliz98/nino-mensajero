@@ -74,7 +74,7 @@
                                         @endif
                                         <select id="profession" name="profession[]" class="form-control selectpicker" multiple required
                                         data-toggle="tooltip" data-placement="top" title="Seleccione una o varias profesiones para agregarlas.">
-                                            <option>Psicólogo</option>
+                                            <option selected="selected">Psicólogo</option>
                                             <option>Pedagogo</option>
                                             <option>Editor</option>
                                             <option>Escritor</option>
@@ -148,10 +148,15 @@
                                     </div>
             
                                 <div class="form-group">
-                                    <div class="col-md-12 col-md-offset-4 d-flex justify-content-center">
-                                        <button type="submit" class="btn3">
-                                            Actualizar
-                                        </button>
+                                    <div class="container">
+                                        <div class="col-md-12 col-md-offset-8 d-flex justify-content-around">
+                                            <button type="submit" class="btn3">
+                                                Actualizar
+                                            </button>
+                                            <a class="btn3" href="{{ route('myProfile') }}">
+                                                Cancelar
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
