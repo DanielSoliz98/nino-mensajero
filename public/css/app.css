@@ -369,7 +369,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     margin: 0;
 }
 
-.btns{
-    padding right:10%;
-    padding left:10%
+.btns {
+    padding: 0 2rem 0 2rem;
+}
+
+.writPers {
+    font-family: 'trebuchet ms';
+    font-size: 1.4rem;
+    border-radius: 20px;
 }
