@@ -31,9 +31,10 @@
 
     <div class="form-group">
         <div class="col-md-12 col-md-offset-4 d-flex justify-content-center">
-            <button type="submit" class="btn3">
+            {{-- <button type="submit" class="btn3">
                 Recibir
-            </button>
+            </button> --}}
+            <a class="btn3" href="{{route('letterTreatment')}}">Recibir</a>
         </div>
     </div>
     <script>
