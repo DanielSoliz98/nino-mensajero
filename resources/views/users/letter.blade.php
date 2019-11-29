@@ -34,7 +34,7 @@
             {{-- <button type="submit" class="btn3">
                 Recibir
             </button> --}}
-            <a class="btn3" href="{{route('letterTreatment')}}">Recibir</a>
+            <a class="btn3" href="{{route('letterTreatment', $letter->id)}}">Recibir</a>
         </div>
     </div>
     <script>

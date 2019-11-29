@@ -82,13 +82,13 @@ class InformationController extends Controller
         //
     }
 
-    public function generateContent(){
-        return view('users.information');
-    }
-
-    // public function getLetter($id)
-    // {
-    //     $letter = Letter::find($id);
-    //     return view('users.letter', compact('letter'));
+    // public function generateContent(){
+    //     return view('users.information');
     // }
+
+    public function generateContent($id)
+    {
+        // $letter = Letter::find($id); 
+        return view('users.information');//, compact('letter'));
+    }
 }
