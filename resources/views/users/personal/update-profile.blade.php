@@ -69,18 +69,15 @@
                                     <label for="profession" class="col-md-4 control-label d-flex justify-content-end">Profesión</label>
             
                                     <div class="col-md-7">
-                                        @if ($profile[0]->profession)
-                                            <input type="text" readonly class="form-control-plaintext" id="professions" value="{{$profile[0]->profession}}">   
-                                        @endif
                                         <select id="profession" name="profession[]" class="form-control selectpicker" multiple required
                                         data-toggle="tooltip" data-placement="top" title="Seleccione una o varias profesiones para agregarlas.">
-                                            <option selected="selected">Psicólogo</option>
-                                            <option>Pedagogo</option>
-                                            <option>Editor</option>
-                                            <option>Escritor</option>
-                                            <option>Psiquiatra</option>
-                                            <option>Abogado</option>
-                                            <option>Otro</option>
+                                            <option @if ((strpos($profile[0]->profession,"Psicólogo"))!==false)selected @endif>Psicólogo</option>
+                                            <option @if ((strpos($profile[0]->profession,"Pedagogo"))!==false)selected @endif>Pedagogo</option>
+                                            <option @if ((strpos($profile[0]->profession,"Editor"))!==false)selected @endif>Editor</option>
+                                            <option @if ((strpos($profile[0]->profession,"Escritor"))!==false)selected @endif>Escritor</option>
+                                            <option @if ((strpos($profile[0]->profession,"Psiquiatra"))!==false)selected @endif>Psiquiatra</option>
+                                            <option @if ((strpos($profile[0]->profession,"Abogado"))!==false)selected @endif>Abogado</option>
+                                            <option @if ((strpos($profile[0]->profession,"Otro"))!==false)selected @endif>Otro</option>
                                         </select>
                                         @if ($errors->has('profession'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
@@ -97,15 +94,12 @@
                                     <label for="degree" class="col-md-4 control-label d-flex justify-content-end">Grado académico</label>
             
                                     <div class="col-md-7">
-                                        @if ($profile[0]->degree)
-                                            <input type="text" readonly class="form-control-plaintext" id="degree" value="{{$profile[0]->degree}}">   
-                                        @endif
                                         <select id="degree" name="degree" class="form-control selectpicker" required 
                                         data-toggle="tooltip" data-placement="top" title="Seleccione su maximo grado academico.">
-                                            <option>Egresado</option>
-                                            <option>Licenciado</option>
-                                            <option>Magister</option>
-                                            <option>Doctorado</option>
+                                            <option @if ($profile[0]->degree=="Egresado")selected @endif>Egresado</option>
+                                            <option @if ($profile[0]->degree=="Licenciado")selected @endif>Licenciado</option>
+                                            <option @if ($profile[0]->degree=="Magister")selected @endif>Magister</option>
+                                            <option @if ($profile[0]->degree=="Doctorado")selected @endif>Doctorado</option>
                                         </select>
                                         @if ($errors->has('degree'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
@@ -122,19 +116,16 @@
                                         <label for="specialties" class="col-md-4 control-label d-flex justify-content-end">Especialidades</label>
                 
                                         <div class="col-md-7">
-                                            @if ($profile[0]->specialties)
-                                                <input type="text" readonly class="form-control-plaintext" id="specialties-now" value="{{$profile[0]->specialties}}">   
-                                            @endif
                                             <select id="specialties" name="specialties[]" class="form-control selectpicker" multiple required
                                             data-toggle="tooltip" data-placement="top" title="Seleccione una o varias especialidades para agregarlas.">
-                                                <option>Psicología Familiar</option>
-                                                <option>Psicología Infantil</option>
-                                                <option>Servicio Social</option>
-                                                <option>Psiquiatría Infantil</option>
-                                                <option>Escritor Infantil</option>
-                                                <option>Educación Infantil</option>
-                                                <option>Educación Especial</option>
-                                                <option>Otro</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Psicología Familiar"))!==false)selected @endif>Psicología Familiar</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Psicología Infantil"))!==false)selected @endif>Psicología Infantil</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Servicio Social"))!==false)selected @endif>Servicio Social</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Psiquiatría Infantil"))!==false)selected @endif>Psiquiatría Infantil</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Escritor Infantil"))!==false)selected @endif>Escritor Infantil</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Educación Infantil"))!==false)selected @endif>Educación Infantil</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Educación Especial"))!==false)selected @endif>Educación Especial</option>
+                                                <option @if ((strpos($profile[0]->specialties,"Otro"))!==false)selected @endif>Otro</option>
                                             </select>
                                             @if ($errors->has('specialties'))
                                                 <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
