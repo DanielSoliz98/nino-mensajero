@@ -10,21 +10,27 @@
                         <div class="card-header text-center"><h2>ACTUALIZAR MI PERFIL</h2></div>
                         <div class="card-body">
                             <form class="form-horizontal" method="POST" action="{{ route('updateMyProfile') }}">
-                                {{ csrf_field() }}
-                                <div class="form-group row">
-                                    <label for="full_name" class="col-md-4 col-form-label d-flex justify-content-end">Nombre completo:</label>
+                                {{ csrf_field() }}                               
+            
+                                <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }} row">
+                                    <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre completo</label>
+            
                                     <div class="col-md-7">
-                                        <input type="text" readonly class="form-control-plaintext" id="full_name" value="{{$profile[0]->full_name}}">
+                                        <input id="full_name" type="text" pattern="^[a-zA-Z]*$" class="form-control" name="full_name" value="{{Auth::user()->full_name}}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Nombre completo es un campo requerido, sólo letras.')" oninput="setCustomValidity('')"required autofocus>
+            
+                                        @if ($errors->has('full_name'))
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
+                                                <strong>{{ $errors->first('full_name') }}</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
-
-                                <div class="form-group row">
-                                    <label for="email" class="col-md-4 col-form-label d-flex justify-content-end">Correo electrónico:</label>
-                                    <div class="col-md-7">
-                                        <input type="text" readonly class="form-control-plaintext" id="email" value="{{$profile[0]->email}}">
-                                    </div>
-                                </div>                                
-            
+                        
                                 <div class="form-group{{ $errors->has('ci') ? ' has-error' : '' }} row d-flex align-items-center">
                                     <label for="ci" class="col-md-4 control-label d-flex justify-content-end">Carnet de identidad</label>
             

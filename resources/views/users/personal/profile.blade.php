@@ -9,11 +9,11 @@
                 <table class="table table-striped table-md tablebody" border="1px"> 
                     <tr>  
                         <th>Nombre completo:</th> 
-                        <td>{{$personal->full_name}}</td>
+                        <td>{{Auth::user()->full_name}}</td>
                     </tr>
                     <tr>  
                         <th>Correo electrónico:</th> 
-                        <td>{{$personal->email}}</td>
+                        <td>{{Auth::user()->email}}</td>
                     </tr>
                     @if (count($queryPersProfile))
                         <tr>
