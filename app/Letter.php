@@ -23,4 +23,9 @@ class Letter extends Model
     {
         return $this->belongsTo(TypesLetter::class);
     }
+    //
+    public function informationGenerated()
+    {
+        return $this->hasMany(InformationGenerated::class);
+    }
 }

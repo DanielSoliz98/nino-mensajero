@@ -28,12 +28,8 @@
                 {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
         </div>
     </div>
-
     <div class="form-group">
         <div class="col-md-12 col-md-offset-4 d-flex justify-content-center">
-            {{-- <button type="submit" class="btn3">
-                Recibir
-            </button> --}}
             <a class="btn3" href="{{route('letterTreatment', $letter->id)}}">Recibir</a>
         </div>
     </div>

@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Letter;
 use Illuminate\Http\Request;
+use App\InformationGenerated;
+use App\Http\Controllers\Controller;
 
 class InformationController extends Controller
 {
@@ -34,7 +36,16 @@ class InformationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $information = InformationGenerated::create([
+            'content' => $request->content,
+            'letter_id' => $request->letter_id,
+            'user_id' => $request->user_id,
+            'bulletin_id' => $request->bulletin_id,
+         ]);
+        $information->save();
+        // return redirect('/')->with('success', 'Gracias. Tu respuesta fue recibida.');
+        // return view('users.letter')->with('success', 'Información generada');
+        //return redirect('/home/letters/')->with('success', 'Información generada');
     }
 
     /**
@@ -88,7 +99,8 @@ class InformationController extends Controller
 
     public function generateContent($id)
     {
-        // $letter = Letter::find($id); 
-        return view('users.information');//, compact('letter'));
+        $letter = Letter::find($id); 
+        return view('users.information', compact('letter'));
     }
+    
 }
