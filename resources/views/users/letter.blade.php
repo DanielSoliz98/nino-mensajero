@@ -25,14 +25,19 @@
             @endif
         </div>
         <div class="card-footer text-muted text-center mt-2">
-                {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
+            {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
+            <br><br>
+            <div class="d-flex justify-content-center col-md-12 ">
+                <div class="ml-4 btns">
+                    <a class="btn btn-light border border-dark" href="{{route('letterTreatment', $letter->id)}}">Recibir</a>
+                </div>
+                <div class="ml-4 btns">
+                    <a  class="btn btn-light border border-dark" href="{{route('home')}}">Cancelar</a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-md-12 col-md-offset-4 d-flex justify-content-center">
-            <a class="btn3" href="{{route('letterTreatment', $letter->id)}}">Recibir</a>
-        </div>
-    </div>
+    
     <script>
         $(window).load(function(){
             $('img').on('click', function(){
