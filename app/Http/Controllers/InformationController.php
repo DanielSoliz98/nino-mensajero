@@ -1,33 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\GeneratedInformation;
 use App\Letter;
 use Illuminate\Http\Request;
-use App\InformationGenerated;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class InformationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -36,16 +19,22 @@ class InformationController extends Controller
      */
     public function store(Request $request)
     {
-        $information = InformationGenerated::create([
+        $validator = Validator::make($request->all(), [
+            'content' => 'required|max:20000'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('error', 'La informacion generada no puede estar vacia.');
+        }
+
+        $information = GeneratedInformation::create([
             'content' => $request->content,
-            'letter_id' => $request->letter_id,
-            'user_id' => $request->user_id,
-            'bulletin_id' => $request->bulletin_id,
-         ]);
+            'letter_id' =>  $request->letter_id,
+            'user_id' => Auth::user()->id,
+        ]);
         $information->save();
-        // return redirect('/')->with('success', 'Gracias. Tu respuesta fue recibida.');
-        // return view('users.letter')->with('success', 'Información generada');
-        //return redirect('/home/letters/')->with('success', 'Información generada');
+        return redirect()->route('user.letter.read', ['id' => $information->letter_id])
+            ->with('success', 'Información generada guardada.');
     }
 
     /**
@@ -56,51 +45,7 @@ class InformationController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-    // public function generateContent(){
-    //     return view('users.information');
-    // }
-
-    public function generateContent($id)
-    {
-        $letter = Letter::find($id); 
+        $letter = Letter::find($id);
         return view('users.information', compact('letter'));
     }
-    
 }

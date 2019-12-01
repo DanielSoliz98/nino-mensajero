@@ -100,6 +100,10 @@ Route::post('admin/register', 'RegisterController@register')->name('register.per
 
 /** 
  * Route for the generation of information of a letter 
-*/
-Route::get('home/letters/{id}/treatment/', 'InformationController@generateContent')->name('letterTreatment');
-// Route::get('/treatment', 'InformationController@generateContent')->name('letterTreatment');
+ */
+Route::get('letters/generate-information/{id}', 'InformationController@show')->name('generateInformation');
+
+/**
+ * 
+ */
+Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');

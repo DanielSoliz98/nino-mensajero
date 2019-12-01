@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InformationGenerated extends Model
+class GeneratedInformation extends Model
 {
     protected $fillable = ['content', 'letter_id', 'user_id', 'bulletin_id'];
 

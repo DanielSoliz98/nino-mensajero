@@ -29,7 +29,7 @@
             <br><br>
             <div class="d-flex justify-content-center col-md-12 ">
                 <div class="ml-4 btns">
-                    <a class="btn btn-light border border-dark" href="{{route('letterTreatment', $letter->id)}}"><i class="fas fa-check"></i> RECIBIR</a>
+                    <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}"><i class="fas fa-check"></i> RECIBIR</a>
                 </div>
                 <div class="ml-4 btns">
                     <a  class="btn btn-light border border-dark" href="{{route('home')}}"><i class="fas fa-times"></i> CANCELAR</a>
