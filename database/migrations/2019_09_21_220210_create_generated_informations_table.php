@@ -20,6 +20,7 @@ class CreateGeneratedInformationsTable extends Migration
 			$table->bigInteger('letter_id')->unsigned()->index();
 			$table->bigInteger('user_id')->unsigned()->index();
 			$table->bigInteger('bulletin_id')->unsigned()->index()->nullable();
+			$table->unique('letter_id', 'user_id');
 		});
 	}
 
@@ -31,6 +32,6 @@ class CreateGeneratedInformationsTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('information_generated');
+		Schema::drop('generated_informations');
 	}
 }
