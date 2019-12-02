@@ -26,7 +26,7 @@
             @endif
         </div>
         <div class="card-footer text-center mt-2">
-            <div class="d-flex flex-column">
+            <div class="d-flex flex-column mt-2">
                 {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
                 @role('admin')
                     <div>
