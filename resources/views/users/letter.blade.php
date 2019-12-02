@@ -27,9 +27,16 @@
         <div class="card-footer text-muted text-center mt-2">
             {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
             <div class="d-flex flex-column mt-2">
-                <div>
-                    <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}"><i class="far fa-file-alt"></i> GENERAR INFORMACION</a>
-                </div>
+                @if ($information)
+                    <div col-4>
+                        <h5><span class="badge badge-light">Usted ya genero informacion para esta carta.</span></h5>
+                    </div>
+                @else
+                    <div>
+                        <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}">
+                        <i class="far fa-file-alt"></i> GENERAR INFORMACION</a>
+                    </div>
+                @endif
             </div>
 
         </div>

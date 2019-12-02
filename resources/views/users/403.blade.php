@@ -2,7 +2,7 @@
 @section('title', 'Error 403')
 @section('page-title', 'No Autorizado')
 @section('user-content')
-    <div class="no-content card mt-1 color-component text-center">
+    <div class="no-content card color-component text-center mt-2 ml-2 mr-2 mb-2">
         <div class="card-body">
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">

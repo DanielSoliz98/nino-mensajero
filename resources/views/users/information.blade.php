@@ -7,7 +7,7 @@
     <div class="card border-dark color-component letter mt-2 ml-2 mr-2 mb-2 ">
         <form enctype="multipart/form-data" method="POST" action="{{ route('saveInformation') }}">
             {!! csrf_field() !!}
-            <textarea class="container form-control text border-primary mt-2" rows="14" placeholder="Respuesta a carta..." name="content" id="content"></textarea>           
+            <textarea class="container form-control text border-primary mt-5" rows="14" placeholder="Respuesta a carta..." name="content" id="content"></textarea>           
             <input id="letter_id"  name='letter_id' class="form-control" type="text" value="{{$letter->id}}" hidden>
             <br>
             <div class="form-group d-flex justify-content-center col-md-12">
