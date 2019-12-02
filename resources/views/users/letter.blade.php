@@ -5,7 +5,7 @@
 @endsection
 @include('users.image')
 @section('user-content')
-    <div class="card border-dark color-component letter mt-2 ml-2 mr-2 mb-2">
+    <div class="card border-dark color-component letter mt-1 ml-1 mr-1 mb-1">
         <div class="card-body">
             <p class="card-text">{{$letter->content}}</p>
         </div>

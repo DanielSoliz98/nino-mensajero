@@ -2,7 +2,7 @@
 @section('title', 'Registrar Personal')
 @section('page-title', 'Administración de Personal')
 @section('user-content')
-        <div class=" color-component register row justify-content-center mt-2 ml-2 mr-2 mb-2">
+        <div class=" color-component register row justify-content-center mt-1 ml-1 mr-1 mb-1">
             <div class="col-md-8 col-md-offset-2">
                 <div class="col-md-12">
                     <div class="card mt-4">
