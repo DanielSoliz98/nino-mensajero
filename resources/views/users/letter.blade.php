@@ -13,28 +13,25 @@
             @if(count($letter->images) > 0)
                 <h6 class="card-subtitle mb-2 text-center">Imágenes</h6>
                 <div class="row">
-                        @foreach ($letter->images as $image)
-                        <div class="col-lg-4 col-md-4 col-xs-6 mt-2">
-                            <a>
-                                <img src="/storage/{{$image->filename}}" class="card-img-top img-fluid img-thumbnail rounded" 
-                                alt="">
-                            </a>
-                        </div>
-                        @endforeach
+                    @foreach ($letter->images as $image)
+                    <div class="col-lg-4 col-md-4 col-xs-6 mt-2">
+                        <a>
+                            <img src="/storage/{{$image->filename}}" class="card-img-top img-fluid img-thumbnail rounded" 
+                            alt="">
+                        </a>
+                    </div>
+                    @endforeach
                 </div>
             @endif
         </div>
         <div class="card-footer text-muted text-center mt-2">
             {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
-            <br><br>
-            <div class="d-flex justify-content-center col-md-12 ">
-                <div class="ml-4 btns">
-                    <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}"><i class="fas fa-check"></i> RECIBIR</a>
-                </div>
-                <div class="ml-4 btns">
-                    <a  class="btn btn-light border border-dark" href="{{route('home')}}"><i class="fas fa-times"></i> CANCELAR</a>
+            <div class="d-flex flex-column mt-2">
+                <div>
+                    <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}"><i class="far fa-file-alt"></i> GENERAR INFORMACION</a>
                 </div>
             </div>
+
         </div>
     </div>
     
