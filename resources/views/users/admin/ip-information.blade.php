@@ -17,7 +17,7 @@
             @endif
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-light border border-dark" data-dismiss="modal">CERRAR</button>
+            <button type="button" class="btn btn-light border border-dark" data-dismiss="modal"><i class="fas fa-times"></i> CERRAR</button>
         </div>
         </div>
     </div>
