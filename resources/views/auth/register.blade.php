@@ -15,7 +15,7 @@
                                     <label for="full_name" class="col-md-4 control-label d-flex justify-content-end">Nombre completo</label>
             
                                     <div class="col-md-7">
-                                        <input id="full_name" type="text" pattern="^[a-zA-Z]*$" class="form-control" name="full_name" value="{{ old('full_name') }}" 
+                                        <input id="full_name" type="text" pattern="^[a-zA-Z ]*$" class="form-control" name="full_name" value="{{ old('full_name') }}" 
                                         data-toggle="tooltip" data-placement="top" title="Por favor llene este campo." 
                                         oninvalid="this.setCustomValidity('Nombre completo es un campo requerido, sólo letras.')" oninput="setCustomValidity('')"required autofocus>
             
