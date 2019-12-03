@@ -29,13 +29,19 @@
             <div class="d-flex flex-column mt-2">
                 @if ($information)
                     <div col-4>
-                        <h5><span class="badge badge-light">Usted ya genero informacion para esta carta.</span></h5>
+                        <h5><span class="badge badge-light">Usted ya generó información para esta carta.</span></h5>
                     </div>
                 @else
-                    <div>
-                        <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}">
-                        <i class="far fa-file-alt"></i> GENERAR INFORMACION</a>
+                    <div class="form-group d-flex justify-content-center col-md-12">
+                        <div class="ml-4 btns">
+                            <a class="btn btn-light border border-dark" href="{{route('generateInformation', $letter->id)}}">
+                        <i class="far fa-file-alt"></i> GENERAR INFORMACIÓN</a>
+                        </div>
+                        <div class="ml-4 btns">
+                            <a  class="btn btn-light border border-dark" href="{{route('home')}}"><i class="fas fa-times"></i> CANCELAR</a>
+                        </div>
                     </div>
+
                 @endif
             </div>
 
