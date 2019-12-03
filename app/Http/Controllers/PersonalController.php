@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Specialist;
+use App\User;
 
 class PersonalController extends Controller
 {
@@ -23,9 +24,8 @@ class PersonalController extends Controller
      */
     public function myProfile()
     {
-        $personal = Auth::user();
-        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', $personal->id)->first();
-        return view('users.personal.profile', compact('personal', 'queryPersProfile'));
+        $queryPersProfile = DB::table('specialists')->select('specialists.*')->where('id', '=', Auth::user()->id)->first();
+        return view('users.personal.profile', compact('queryPersProfile'));
     }
 
     /**
@@ -52,6 +52,7 @@ class PersonalController extends Controller
     protected function validatorProfile(array $data)
     {
         return Validator::make($data, [
+            'full_name' => 'required|string|max:100',
             'ci' => 'required|max:10',
             'phone' => 'required|max:8',
             'profession' => 'required|array|min:1',
@@ -70,6 +71,10 @@ class PersonalController extends Controller
      */
     protected function update(array $data)
     {
+        $user = User::find(Auth::user()->id);
+        $user->full_name = $data['full_name'];
+        $user->save();
+
         $specialist = Specialist::find(Auth::user()->id);
         if ($specialist) {
             $specialist->ci = $data['ci'];
