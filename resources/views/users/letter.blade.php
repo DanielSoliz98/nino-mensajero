@@ -11,7 +11,7 @@
         </div>
         <div class="container">
             @if(count($letter->images) > 0)
-                <h6 class="card-subtitle mb-2 text-center">Imágenes</h6>
+                <h6 class="card-subtitle mb-1 text-center">Imágenes</h6>
                 <div class="row">
                     @foreach ($letter->images as $image)
                     <div class="col-lg-4 col-md-4 col-xs-6 mt-2">
@@ -27,6 +27,17 @@
         <div class="card-footer text-muted text-center mt-2">
             {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
             <div class="d-flex flex-column mt-2">
+                @if ($letter->generatedInformations()->count() == 1)
+                    <div col-4>
+                        <h5><span class="badge badge-light">Existe {{$letter->generatedInformations()->count()}} información generada de esta carta. </span></h5>
+                    </div>
+                @elseif ($letter->generatedInformations()->count() > 1)
+                    <div col-4>
+                        <h5><span class="badge badge-light">Existe {{$letter->generatedInformations()->count()}} informaciones generadas de esta carta. </span></h5>
+                    </div>
+                @else
+                    <h5><span class="badge badge-light">Esta carta no tiene informaciones generadas asociadas.</span></h5>
+                @endif
                 @if ($information)
                     <div col-4>
                         <h5><span class="badge badge-light">Usted ya generó información para esta carta.</span></h5>
