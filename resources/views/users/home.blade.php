@@ -2,8 +2,8 @@
 @section('title', 'Cartas de Niños')
 @section('page-title', 'Cartas de Niños')
 @section('user-content')
-    @if (count($letters) > 0)
-        <div class="infinite-scroll mb-2">
+    <div class="mt-1 ml-1 mr-1 mb-1">
+        @if (count($letters) > 0)
             @foreach($letters as $letter)
                 <div class="card mt-1 color-component">
                     <div class="card-body">
@@ -35,32 +35,16 @@
                     </div>
                 </div>
             @endforeach
-            {{ $letters->links() }}
+            <div class="d-flex justify-content-center mt-2 ">
+                {{ $letters->links( "pagination::bootstrap-4" ) }}
+            </div>
+        @else
+        <div class="no-content card mt-1 color-component text-center">
+            <div class="card-body">
+                <h5>No hay cartas para leer.</h5>
+            </div>
         </div>
-    @else
-    <div class="no-content card mt-1 color-component text-center">
-        <div class="card-body">
-            <h5>No hay cartas para leer.</h5>
-        </div>
+        @endif
+
     </div>
-    @endif
-@endsection
-@section('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/js/jquery.jscroll.min.js"></script>
-    <script type="text/javascript">
-        $('ul.pagination').hide();
-        $(function() {
-            $('.infinite-scroll').jscroll({
-                autoTrigger: true,
-                loadingHtml: '<img class="center" src="/loading.gif" "alt="Cargando Imágenes..." />',
-                padding: 0,
-                nextSelector: '.pagination li.active + li a',
-                contentSelector: 'div.infinite-scroll',
-                callback: function() {
-                    $('ul.pagination').remove();
-                }
-            });
-        });
-    </script>
 @endsection
