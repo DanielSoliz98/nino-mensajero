@@ -14,28 +14,28 @@
         <div class="navbar-nav ml-auto text-center">
             @if (Auth::check())
                 <li class="nav-item dropdown">
-                        <a class="dropdown-toggle btn3" href="#" id="session" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-user-circle"></i> {{ Auth::user()->full_name }}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="session">
-                            <div class="justify-content-center">
+                        <div class="dropdown">
+                            
+                            <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle"></i> {{ Auth::user()->full_name }}
+                            </a>
+                          
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                 @role('personal')
-                                <a class="btn btn-lg btnlog" href="{{ route('myProfile') }}">
-                                    <i class="fas fa-address-card"></i> Ver mi perfil
-                                </a><hr>
+                                    <a class="dropdown-item" href="{{ route('myProfile') }}">
+                                        <i class="fas fa-address-card"></i> Ver mi perfil
+                                    </a>
+                                    <div class="dropdown-divider"></div>
                                 @endrole
-                            </div>
-                            <div class="justify-content-center">
-                                <a class="btn btn-lg btnlog" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                   <i class="fas fa-sign-out-alt"></i> Cerrar sesión 
+                                <a class="dropdown-item" href="{{ route('logout') }}"onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt"></i> Cerrar sesión 
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
-                        </div>
+                          </div>
                       </li>
             @endif
         </div>
