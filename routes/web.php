@@ -107,3 +107,6 @@ Route::get('letters/generate-information/{id}', 'InformationController@show')->n
  * 
  */
 Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');
+
+
+Route::get('share', 'InformationController@share')->name('shareInformation');
