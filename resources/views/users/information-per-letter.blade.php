@@ -1,7 +1,7 @@
 @extends('users.menu')
-@section('title', 'Informaciones generadas')
+@section('title', 'Seguimiento de carta')
 @section('page-title')
-    Informaciones generadas - Carta {{$letter->id}}
+    Seguimiento - Carta {{$letter->id}}
 @endsection
 @section('user-content')
 <section class="container">
