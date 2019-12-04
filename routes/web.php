@@ -99,14 +99,22 @@ Route::post('admin/register', 'RegisterController@register')->name('register.per
 
 
 /** 
- * Route for the generation of information of a letter 
+ * Route for the generation of information of a letter by enter on a Letter
  */
 Route::get('letters/generate-information/{id}', 'InformationController@show')->name('generateInformation');
 
 /**
- * 
+ * Route for saving the generated information of a letter
  */
 Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');
 
 
-Route::get('share', 'InformationController@share')->name('shareInformation');
+/**
+ * Route for sharing the generated informations of letters to all the personal
+ */
+Route::get('home/share', 'InformationController@share')->name('shareInformation');
+
+/**
+ * Route for showing the specific information generated of a letter
+ */
+Route::get('/home/share/{letter}', 'InformationController@specific')->name('informationSpecified');
