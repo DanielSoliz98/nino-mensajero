@@ -57,11 +57,12 @@ class InformationController extends Controller
             ->leftJoin('users', 'users.id', '=', 'generated_informations.user_id')
             ->select(DB::raw('count(generated_informations.content) as total_info, letter_id'),'letters.content as contlet')
             ->groupBy('generated_informations.letter_id', 'contlet')
+            ->orderBy('letter_id', 'asc')
             ->get();
         return view('users.generated-information',compact('informations'));
     }
 
-    public function specific($letter){ 
+    public function trace($letter){ 
         $letter = Letter::find($letter);
         $specificInfos = DB::table('generated_informations')
             ->join('letters', 'letters.id', '=', 'generated_informations.letter_id')

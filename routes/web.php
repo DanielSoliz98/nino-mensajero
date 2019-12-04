@@ -117,4 +117,4 @@ Route::get('home/share', 'InformationController@share')->name('shareInformation'
 /**
  * Route for showing the specific information generated of a letter
  */
-Route::get('/home/share/{letter}', 'InformationController@specific')->name('informationSpecified');
+Route::get('/home/share/{letter}', 'InformationController@trace')->name('informationSpecified');
