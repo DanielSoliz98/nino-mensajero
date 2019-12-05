@@ -14,7 +14,7 @@
                 @foreach($informations as $info)
                 <tr>
                     <td><a href="{{route('informationSpecified', $info->letter_id)}}" class="btn btn-light border border-dark">{{$info->letter_id}}</a></td>
-                    <td>{{$info->contlet}}</td>
+                    <td>{{str_limit($info->contlet,75)}}</td>
                     <td>{{$info->total_info}}</td>
                 </tr>
                 @endforeach

@@ -5,27 +5,39 @@
 @endsection
 @section('user-content')
 <section>
+    <div class="container">
+        <div class="d-flex table-responsive">
+            <table class="table color-component tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
+                <tr>
+                    <td><b>CARTA:</b></td>
+                    <td>{{$letter->content}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     @if (count($specificInfos) > 0)
         <div class="infinite-scroll mb-2">
-            <div class="row card-header">
-                <div class="col-7">
-                    <b>INFORMACIÓN GENERADA</b>
-                </div>
-                <div class="col-3 d-flex justify-content-end">
-                    <b>PERSONAL</b>
-                </div>
-                <div class="col-2 d-flex justify-content-center">
-                    <b>FECHA</b>
+            <div class="card mt-1 tablebody">
+                <div class="card-body row">
+                    <div class="col-7 d-flex justify-content-begin">
+                        <b>INFORMACIÓN GENERADA</b>
+                    </div>
+                    <div class="col-3 d-flex justify-content-end">
+                        <b>PERSONAL</b>
+                    </div>
+                    <div class="col-2 d-flex justify-content-center">
+                        <b>FECHA</b>
+                    </div>
                 </div>
             </div>
             @foreach($specificInfos as $info)
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-7">
-                                <p class="card-text">{{ str_limit($info->continf, 125) }}</p>
+                            <div class="col-8">
+                                <p class="card-text">{{$info->continf}}</p>
                             </div>
-                            <div class="col-3 d-flex justify-content-end">
+                            <div class="col-2 d-flex justify-content-end">
                                 {{ucfirst($info->full_name)}}
                             </div>
                             <div class="col-2 text-muted">
@@ -37,11 +49,11 @@
             @endforeach
         </div>
     @else
-    <div class="no-content card mt-1 color-component text-center">
-        <div class="card-body">
-            <h5>No hay cartas para leer.</h5>
+        <div class="no-content card mt-1 color-component text-center">
+            <div class="card-body">
+                <h5>No hay cartas para leer.</h5>
+            </div>
         </div>
-    </div>
     @endif
 </section>
 @endsection
