@@ -4,32 +4,44 @@
     Seguimiento - Carta {{$letter->id}}
 @endsection
 @section('user-content')
-<section class="container">
-    <div class="">
-        <form enctype="multipart/form-data" method="POST">
-            <div class="d-flex table-responsive">
-                <table class="table table-striped table-md tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
-                    <tr>
-                        <th>CARTA: </th>
-                        <td>{{$letter->content}}</td>
-                    </tr>
-                </table>
+<section>
+    @if (count($specificInfos) > 0)
+        <div class="infinite-scroll mb-2">
+            <div class="row card-header">
+                <div class="col-7">
+                    <b>INFORMACIÓN GENERADA</b>
+                </div>
+                <div class="col-3 d-flex justify-content-end">
+                    <b>PERSONAL</b>
+                </div>
+                <div class="col-2 d-flex justify-content-center">
+                    <b>FECHA</b>
+                </div>
             </div>
-            <div class="d-flex table-responsive">
-                <table class="table table-striped table-md tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
-                    <tr>
-                        <th>INFORMACIÓN GENERADA</th>
-                        <th>PERSONAL</th>
-                    </tr>
-                    @foreach($specificInfos as $specific)
-                    <tr>
-                        <td>{{$specific->continf}}</td>
-                        <td>{{$specific->full_name}}</td>
-                    </tr>
-                    @endforeach
-                </table>
-            </div>
-        </form>
+            @foreach($specificInfos as $info)
+                <div class="card mt-1 color-component">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-7">
+                                <p class="card-text">{{ str_limit($info->continf, 125) }}</p>
+                            </div>
+                            <div class="col-3 d-flex justify-content-end">
+                                {{ucfirst($info->full_name)}}
+                            </div>
+                            <div class="col-2 text-muted">
+                                {{$info->created_at}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    @else
+    <div class="no-content card mt-1 color-component text-center">
+        <div class="card-body">
+            <h5>No hay cartas para leer.</h5>
+        </div>
     </div>
+    @endif
 </section>
 @endsection
