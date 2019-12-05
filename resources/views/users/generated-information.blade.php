@@ -2,10 +2,10 @@
 @section('title', 'Informaciones generadas')
 @section('page-title', 'Informaciones generadas')
 @section('user-content')
-<section class="container"> 
+<section class="no-content color-component mt-1 ml-1 mr-1 mb-1"> 
     <form enctype="multipart/form-data" method="POST">
-        <div class="d-flex table-responsive">
-            <table class="table table-striped table-md tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
+        <div class="d-flex justify-content-center table-responsive">
+            <table class=" col-10 table table-striped table-md tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
                 <tr>
                     <th>ID CARTA</th>
                     <th>CONTENIDO DE CARTA</th>
