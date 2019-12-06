@@ -371,3 +371,17 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     -webkit-appearance: none;
     margin: 0;
 }
+
+.btns {
+    padding: 0 2rem 0 2rem;
+}
+
+.writPers {
+    font-family: 'trebuchet ms';
+    font-size: 1.4rem;
+    border-radius: 20px;
+}
+
+.btnlog{
+    font-size: 1rem;
+}

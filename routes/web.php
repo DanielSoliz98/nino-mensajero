@@ -96,3 +96,14 @@ Route::post('logout', [
 Route::get('admin/register', 'RegisterController@createView')->name('register');
 
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
+
+
+/** 
+ * Route for the generation of information of a letter 
+ */
+Route::get('letters/generate-information/{id}', 'InformationController@show')->name('generateInformation');
+
+/**
+ * 
+ */
+Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');
