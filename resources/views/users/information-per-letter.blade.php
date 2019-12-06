@@ -31,7 +31,7 @@
                 </div>
             </div>
             @foreach($specificInfos as $info)
-                <div class="card color-component">
+                <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
@@ -51,7 +51,7 @@
     @else
         <div class="no-content card mt-1 color-component text-center">
             <div class="card-body">
-                <h5>No hay cartas para leer.</h5>
+                <h5>No hay informaciones generadas de ésta carta.</h5>
             </div>
         </div>
     @endif
