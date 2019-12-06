@@ -5,8 +5,8 @@
 @endsection
 @section('content')
     <div class="container-fluid auth color-title-component">
-            <div class="row justify-content-center">
-                <div class="centered col-md-6">
+            <div class="row justify-content-center py-5">
+                <div class="col-md-6 py-5">
                     <div class="card">
                         <div class="card-header text-center"><h2>INICIAR SESIÓN</h2></div>
                         <div class="card-body">
