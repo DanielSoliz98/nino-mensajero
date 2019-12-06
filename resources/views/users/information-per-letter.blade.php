@@ -17,9 +17,9 @@
     </div>
     @if (count($specificInfos) > 0)
         <div class="infinite-scroll mb-2">
-            <div class="card mt-1 tablebody">
-                <div class="card-body row">
-                    <div class="col-7 d-flex justify-content-begin">
+            <div class="tablebody">
+                <div class="card-text row">
+                    <div class="col-7 d-flex justify-content-center">
                         <b>INFORMACIÓN GENERADA</b>
                     </div>
                     <div class="col-3 d-flex justify-content-end">
@@ -31,7 +31,7 @@
                 </div>
             </div>
             @foreach($specificInfos as $info)
-                <div class="card mt-1 color-component">
+                <div class="card color-component">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
@@ -40,7 +40,7 @@
                             <div class="col-2 d-flex justify-content-end">
                                 {{ucfirst($info->full_name)}}
                             </div>
-                            <div class="col-2 text-muted">
+                            <div class="col-2 text-muted d-flex justify-content-end">
                                 {{$info->created_at}}
                             </div>
                         </div>
