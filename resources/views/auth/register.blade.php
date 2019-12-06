@@ -2,8 +2,7 @@
 @section('title', 'Registrar Personal')
 @section('page-title', 'Administración de Personal')
 @section('user-content')
-    <div class="container-fluid register color-component mt-1">
-        <div class="row justify-content-center">
+        <div class=" color-component register row justify-content-center mt-1 ml-1 mr-1 mb-1">
             <div class="col-md-8 col-md-offset-2">
                 <div class="col-md-12">
                     <div class="card mt-4">
@@ -81,7 +80,7 @@
                                 <div class="form-group">
                                     <div class="col-md-12 col-md-offset-4 d-flex justify-content-center">
                                         <button type="submit" class="btn3">
-                                            Registrar
+                                                <i class="fas fa-check-double"></i> Registrar
                                         </button>
                                     </div>
                                 </div>
@@ -91,7 +90,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 @section('footer')
     @include('users.footer')

@@ -2,11 +2,10 @@
 @section('title', 'Personal-Mi Perfil')
 @section('page-title', 'Mi Perfil Profesional')
 @section('user-content')
-    <section class="container-fluid mt-1 no-content color-component">
-        <br>
+    <div class="no-content color-component mt-1 ml-1 mr-1 mb-1">
         <form enctype="multipart/form-data" method="POST">
-            <div class="d-flex mt-2 mb-4 table-responsive">
-                <table class="table table-striped table-md tablebody" border="1px"> 
+            <div class="d-flex table-responsive">
+                <table class="table table-striped table-md tablebody  mt-3 ml-2 mr-2 mb-3" border="1px"> 
                     <tr>  
                         <th>Nombre completo:</th> 
                         <td>{{Auth::user()->full_name}}</td>
@@ -46,5 +45,5 @@
                 <a class="btn3" href="{{route('updateMyProfile')}}">Actualizar mi perfil</a>
             </div>
         </form>
-    </section>
+    </div>
 @endsection
