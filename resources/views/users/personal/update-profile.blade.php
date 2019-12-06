@@ -51,24 +51,24 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }} row d-flex align-items-center">
-                                <label for="phone" class="col-md-4 control-label d-flex justify-content-end">Número de teléfono</label>
-        
-                                <div class="col-md-7">
-                                    <input id="phone" type="number" class="form-control" name="phone" value="{{$profile[0]->phone}}" 
-                                    data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                    oninvalid="this.setCustomValidity('Número de teléfono es un campo requerido.')" oninput="setCustomValidity('')" required>
-        
-                                    @if ($errors->has('phone'))
-                                        <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
-                                            <strong>{{ $errors->first('phone') }}</strong>
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    @endif
+                                <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }} row d-flex align-items-center">
+                                    <label for="phone" class="col-md-4 control-label d-flex justify-content-end">Número de teléfono</label>
+            
+                                    <div class="col-md-7">
+                                        <input id="phone" type="number" class="form-control" name="phone" value="{{$profile[0]->phone}}" 
+                                        data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
+                                        oninvalid="this.setCustomValidity('Número de teléfono es un campo requerido.')" oninput="setCustomValidity('')" required>
+            
+                                        @if ($errors->has('phone'))
+                                            <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
+                                                <strong>{{ $errors->first('phone') }}</strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        @endif
+                                    </div>
                                 </div>
             
                                 <div class="form-group{{ $errors->has('profession') ? ' has-error' : '' }} row d-flex align-items-center">
@@ -95,35 +95,9 @@
                                         @endif
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group{{ $errors->has('degree') ? ' has-error' : '' }} row d-flex align-items-center">
-                                <label for="degree" class="col-md-4 control-label d-flex justify-content-end">Grado académico</label>
-        
-                                <div class="col-md-7">
-                                    @if ($profile[0]->degree)
-                                        <input type="text" readonly class="form-control-plaintext" id="degree" value="{{$profile[0]->degree}}">   
-                                    @endif
-                                    <select id="degree" name="degree" class="form-control selectpicker" required 
-                                    data-toggle="tooltip" data-placement="top" title="Seleccione su maximo grado academico.">
-                                        <option>Egresado</option>
-                                        <option>Licenciado</option>
-                                        <option>Magister</option>
-                                        <option>Doctorado</option>
-                                    </select>
-                                    @if ($errors->has('degree'))
-                                        <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
-                                            <strong>{{ $errors->first('degree') }}</strong>
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    @endif
-                                </div>
-                            </div>
-        
-                            <div class="form-group{{ $errors->has('specialties') ? ' has-error' : '' }} row d-flex align-items-center">
-                                    <label for="specialties" class="col-md-4 control-label d-flex justify-content-end">Especialidades</label>
+                                <div class="form-group{{ $errors->has('degree') ? ' has-error' : '' }} row d-flex align-items-center">
+                                    <label for="degree" class="col-md-4 control-label d-flex justify-content-end">Grado académico</label>
             
                                     <div class="col-md-7">
                                         <select id="degree" name="degree" class="form-control selectpicker" required 
@@ -133,9 +107,9 @@
                                             <option @if ($profile[0]->degree=="Magister")selected @endif>Magister</option>
                                             <option @if ($profile[0]->degree=="Doctorado")selected @endif>Doctorado</option>
                                         </select>
-                                        @if ($errors->has('specialties'))
+                                        @if ($errors->has('degree'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
-                                                <strong>{{ $errors->first('specialties') }}</strong>
+                                                <strong>{{ $errors->first('degree') }}</strong>
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -182,9 +156,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>    
+                            </form>
+                        </div>    
+                    </div>
                 </div>
             </div>
         </div>
