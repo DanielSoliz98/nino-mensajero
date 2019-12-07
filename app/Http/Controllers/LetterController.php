@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Letter;
+use App\Notifications\ImportantLetterNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Wamania\Snowball\Spanish;
@@ -83,6 +84,7 @@ class LetterController extends Controller
         if ($danger > 0) {
             $letter->type_letter_id = 1;
             $letter->save();
+           auth()->user()->notify(new ImportantLetterNotification());
         } else if ($urgent > 0) {
             $letter->type_letter_id = 2;
             $letter->save();
