@@ -43,6 +43,7 @@ class ImportantLetterNotification extends Notification
     {
         return [
             //
+            'repliedTime' =>Carbon::now()
         ];
     }
 
@@ -55,7 +56,7 @@ class ImportantLetterNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'repliedTime' =>Carbon::now()
+            //
         ];
     }
 }
