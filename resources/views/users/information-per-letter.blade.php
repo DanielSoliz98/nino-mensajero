@@ -4,7 +4,7 @@
     Seguimiento - Carta {{$letter->id}}
 @endsection
 @section('user-content')
-<section>
+<section class="mt-1 ml-1 mr-1 mb-1">
     <div class="container">
         <div class="d-flex table-responsive">
             <table class="table color-component tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
@@ -18,15 +18,17 @@
     @if (count($specificInfos) > 0)
         <div class="infinite-scroll mb-2">
             <div class="tablebody">
-                <div class="card-text row">
-                    <div class="col-7 d-flex justify-content-center">
-                        <b>INFORMACIÓN GENERADA</b>
-                    </div>
-                    <div class="col-3 d-flex justify-content-end">
-                        <b>PERSONAL</b>
-                    </div>
-                    <div class="col-2 d-flex justify-content-center">
-                        <b>FECHA</b>
+                <div class="card-header"> 
+                    <div class="row">
+                        <div class="col-7 d-flex justify-content-center">
+                            <b>INFORMACIÓN GENERADA</b>
+                        </div>
+                        <div class="col-3 d-flex justify-content-end">
+                            <b>PERSONAL</b>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center">
+                            <b>FECHA</b>
+                        </div>
                     </div>
                 </div>
             </div>
