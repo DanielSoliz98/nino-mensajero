@@ -19,22 +19,27 @@
                 </div>
             </div>
             @foreach($informations as $info)
-                <div class="card mt-1 color-component">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-2 d-flex justify-content-center">
-                                <a href="{{route('informationSpecified', $info->letter_id)}}" class="btn btn-light border-dark"><b>{{$info->letter_id}}</b></a>
-                            </div>
-                            <div class="col-8">
-                                {{str_limit($info->contlet,85)}}
-                            </div>
-                            <div class="col-2 d-flex justify-content-center">
-                                {{$info->total_info}}
+                @if ($info->generatedInformations()->count())
+                    <div class="card mt-1 color-component">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-2 d-flex justi  fy-content-center">
+                                    <a href="{{route('informationSpecified', $info->id)}}" class="btn btn-light border-dark"><b>{{$info->id}}</b></a>
+                                </div>
+                                <div class="col-8">
+                                    {{str_limit($info->content,85)}}
+                                </div>
+                                <div class="col-2 d-flex justify-content-center">
+                                    {{$info->generatedInformations()->count()}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
+            <div class="d-flex justify-content-center mt-2 ">
+                {{ $informations->links( "pagination::bootstrap-4" ) }}
+            </div>
         </div>
     @else
         <div class="no-content card mt-1 color-component text-center">
