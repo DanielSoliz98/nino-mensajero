@@ -107,3 +107,7 @@ Route::get('letters/generate-information/{id}', 'InformationController@show')->n
  * 
  */
 Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');
+
+Route::get('/markAsRead', function () {
+    auth()->user()->unreadNotifications->markAsRead();
+});
