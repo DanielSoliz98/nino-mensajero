@@ -14,6 +14,28 @@
         <div class="navbar-nav ml-auto text-center">
             @if (Auth::check())
                 <li class="nav-item dropdown">
+                        
+                        <div class="dropdown" id="markasread" onclick="markNotificationAsRead('{{count(auth()->user()->unreadNotifications)}}')">
+                                <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-bell">
+                                        </i>Notifications
+                                        <span class="badge">
+                                            {{count(auth()->user()->unreadNotifications)}}
+                                        </span>
+                                </a>
+    
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    @forelse (auth()->user()->unreadNotifications as $notification)
+                                        {{-- <a href="#">{{$notification->type}}</a> --}}
+                                        @include('users.important_letter_notification')
+                                        @empty
+                                            <a href="#">Sin notificaciones</a>
+                                    @endforelse      
+                                    
+                                </ul>
+    
+                        </div>
+
                         <div class="dropdown">
                             
                             <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -12,14 +12,17 @@ class ImportantLetterNotification extends Notification
 {
     use Queueable;
 
+    protected $letter;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($letter)
     {
         //
+        $this->letter=$letter;
     }
 
     /**
@@ -43,7 +46,9 @@ class ImportantLetterNotification extends Notification
     {
         return [
             //
-            'repliedTime'=>Carbon::now()
+            // 'repliedTime'=>Carbon::now()
+            'letter'=>$this->letter,
+            'user'=>auth()->user()  
         ];
     }
 
