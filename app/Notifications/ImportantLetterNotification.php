@@ -43,7 +43,7 @@ class ImportantLetterNotification extends Notification
     {
         return [
             //
-            'repliedTime' =>Carbon::now()
+            'repliedTime'=>Carbon::now()
         ];
     }
 
