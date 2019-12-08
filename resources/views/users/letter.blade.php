@@ -42,6 +42,9 @@
                     <div col-4>
                         <h5><span class="badge badge-light">Usted ya generó información para esta carta.</span></h5>
                     </div>
+                    <div class="btns">
+                        <a  class="btn btn-light border border-dark" href="{{route('home')}}"><i class="fas fa-check"></i> SALIR</a>
+                    </div>
                 @else
                     <div class="form-group d-flex justify-content-center col-md-12">
                         <div class="ml-4 btns">
