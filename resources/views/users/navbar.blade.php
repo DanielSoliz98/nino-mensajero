@@ -27,7 +27,7 @@
                                 <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                                     @forelse (auth()->user()->unreadNotifications as $notification)
                                         {{-- <a href="#">{{$notification->type}}</a> --}}
-                                        @include('users.important_letter_notification')
+                                        @include('users.'.snake_case(class_basename($notification->type)))
                                         @empty
                                             <a href="#">Sin notificaciones</a>
                                     @endforelse      

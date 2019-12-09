@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Letter;
 use App\Notifications\ImportantLetterNotification;
+use App\Notifications\DangerousLetterNotification;
+use App\Notifications\AlertLetterNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
@@ -85,7 +87,7 @@ class LetterController extends Controller
             $token = strtok(" \n\t ");
         }
         if ($danger > 0) {
-            Notification::send($users,new ImportantLetterNotification($letter));
+            Notification::send($users,new DangerousLetterNotification($letter));
             // auth()->user()->notify(new ImportantLetterNotification($letter));
             $letter->type_letter_id = 1;
             $letter->save();
@@ -95,7 +97,7 @@ class LetterController extends Controller
             $letter->type_letter_id = 2;
             $letter->save();
         } else if ($alert > 0) {
-            Notification::send($users,new ImportantLetterNotification($letter));
+            Notification::send($users,new AlertLetterNotification($letter));
             // auth()->user()->notify(new ImportantLetterNotification($letter));
             $letter->type_letter_id = 3;
             $letter->save();
