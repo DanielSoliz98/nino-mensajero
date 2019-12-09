@@ -20,10 +20,8 @@ class CreateGeneratedInformationsTable extends Migration
 			$table->bigInteger('letter_id')->unsigned()->index();
 			$table->bigInteger('user_id')->unsigned()->index();
 			$table->bigInteger('bulletin_id')->unsigned()->index()->nullable();
-			$table->unique('letter_id', 'user_id');
 		});
 	}
-
 
 	/**
 	 * Reverse the migrations.
