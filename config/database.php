@@ -60,7 +60,7 @@ return [
             'port' => env('DB_PORT', '5432'),
             'database' => env('DB_DATABASE', 'delfos_db'),
             'username' => env('DB_USERNAME', 'delfos'),
-            'password' => env('DB_PASSWORD', 'Delfos1234'),
+            'password' => env('DB_PASSWORD', '1234'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
