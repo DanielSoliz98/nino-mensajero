@@ -1,3 +1,3 @@
 <a class="dropdown-item" href={{ route('user.letter.read', $notification->data['letter']['id']) }}>
-    Recibiste una carta de tipo Alerta
+{{substr($notification->data['letter']['content'],0,14)  }}  | URGENTE
 </a>
