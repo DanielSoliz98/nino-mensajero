@@ -24,7 +24,7 @@
                             <b>INFORMACIÓN GENERADA</b>
                         </div>
                         <div class="col-3 d-flex justify-content-end">
-                            <b>PERSONAL</b>
+                            <b>AUTOR</b>
                         </div>
                         <div class="col-2 d-flex justify-content-center">
                             <b>FECHA</b>
