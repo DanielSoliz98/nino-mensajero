@@ -20,9 +20,9 @@
         
         <div class="navbar-nav ml-auto text-center">
             @if (Auth::check())
-                <li class="nav-item dropdown" style="float:left">
+                <li class="nav-item dropdown" >
                         
-                        <div class="dropdown" id="markasread" onclick="markNotificationAsRead()">
+                        <div style="float:left" class="dropdown" id="markasread" onclick="markNotificationAsRead()">
                                 <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-bell">
                                         </i>Notificaciones
@@ -39,7 +39,6 @@
                                         @endforeach      
                                     @endif   
                                 </ul>
-    
                         </div>
 
                         <div class="dropdown" style="float:left">
