@@ -25,7 +25,7 @@ class InformationController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return back()->with('error', 'La nformación generada no puede estar vacía.');
+            return back()->with('error', 'La información generada no puede estar vacía.');
         }
 
         $information = GeneratedInformation::create([
