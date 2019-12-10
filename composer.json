@@ -13,6 +13,7 @@
         "laravelcollective/html": "5.4.*",
         "realrashid/sweet-alert": "^2.0",
         "spatie/laravel-permission": "^1.18",
+        "stevebauman/location": "^5.0",
         "styde/html": "~1.0",
         "wamania/php-stemmer": "^1.2"
     },

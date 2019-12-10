@@ -5,6 +5,7 @@
 @endsection
 @include('users.image')
 @section('user-content')
+    @include('users.admin.ip-information')
     <div class="card border-dark color-component letter mt-1 ml-1 mr-1 mb-1">
         <div class="card-body">
             <p class="card-text">{{$letter->content}}</p>
@@ -24,8 +25,15 @@
                 </div>
             @endif
         </div>
-        <div class="card-footer text-muted text-center mt-2">
+        <div class="card-footer text-center mt-2">
             {{$letter->created_at->diffForHumans()}} - {{$letter->created_at->format('l j \\d\\e F Y h:i:s A')}}
+            @role('admin')
+                <div>
+                    <a class="btn btn-light border border-dark" data-toggle="modal" data-target="#ipInformation">
+                        <i class="fas fa-map-marker-alt"></i> OBTENER DIRECCIÓN IP
+                    </a>
+                </div>
+            @endrole
             <div class="d-flex flex-column mt-2">
                 @if ($letter->generatedInformations()->count() == 1)
                     <div col-4>
@@ -55,7 +63,6 @@
                             <a  class="btn btn-light border border-dark" href="{{route('home')}}"><i class="fas fa-times"></i> CANCELAR</a>
                         </div>
                     </div>
-
                 @endif
             </div>
 

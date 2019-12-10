@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Letter; 
+use Stevebauman\Location\Facades\Location;
 use Illuminate\Support\Facades\Auth;
-use App\Letter;
 
 class HomeController extends Controller
 {
@@ -52,8 +53,9 @@ class HomeController extends Controller
     public function getLetter($id)
     {
         $letter = Letter::find($id);
+        $position = Location::get($letter->ip_address);
         $information = $letter->generatedInformations()->where('user_id', Auth::user()->id)->first();
-        return view('users.letter', compact('letter', 'information'));
+        return view('users.letter', compact('letter', 'position', 'information'));
     }
 
     /**
