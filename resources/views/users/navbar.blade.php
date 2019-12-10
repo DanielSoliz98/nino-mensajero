@@ -1,3 +1,10 @@
+<style>
+    .scrollable-menu {
+      height: auto;
+      max-height: 200px;
+      overflow-x: hidden;
+    }
+  </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info navbar-toggleable-md backcolor-formal">
     <a class= "navbar-brand" href="#">
         <img src="/letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
@@ -18,18 +25,17 @@
                         <div class="dropdown" id="markasread" onclick="markNotificationAsRead('{{count(auth()->user()->unreadNotifications)}}')">
                                 <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-bell">
-                                        </i>Notifications
+                                        </i>Notificaciones
                                         <span class="badge">
                                             {{count(auth()->user()->unreadNotifications)}}
                                         </span>
                                 </a>
     
-                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                    @forelse (auth()->user()->unreadNotifications as $notification)
-                                        {{-- <a href="#">{{$notification->type}}</a> --}}
+                                <ul class="dropdown-menu dropdown-menu-right scrollable-menu" aria-labelledby="dropdownMenuLink">
+                                    @forelse (auth()->user()->notifications as $notification)
                                         @include('users.'.snake_case(class_basename($notification->type)))
                                         @empty
-                                            <a href="#">Sin notificaciones</a>
+                                            <a class="dropdown-item" href="#">Sin notificaciones</a>
                                     @endforelse      
                                     
                                 </ul>
