@@ -20,9 +20,9 @@
         
         <div class="navbar-nav ml-auto text-center">
             @if (Auth::check())
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" style="float:left">
                         
-                        <div class="dropdown" id="markasread" onclick="markNotificationAsRead('{{count(auth()->user()->unreadNotifications)}}')">
+                        <div class="dropdown" id="markasread" onclick="markNotificationAsRead()">
                                 <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-bell">
                                         </i>Notificaciones
@@ -30,19 +30,19 @@
                                             {{count(auth()->user()->unreadNotifications)}}
                                         </span>
                                 </a>
-    
                                 <ul class="dropdown-menu dropdown-menu-right scrollable-menu" aria-labelledby="dropdownMenuLink">
-                                    @forelse (auth()->user()->notifications as $notification)
-                                        @include('users.'.snake_case(class_basename($notification->type)))
-                                        @empty
-                                            <a class="dropdown-item" href="#">Sin notificaciones</a>
-                                    @endforelse      
-                                    
+                                    @if (count(auth()->user()->unreadNotifications) == 0)
+                                        <a class="dropdown-item">Sin notificaciones</a>
+                                    @else
+                                        @foreach (auth()->user()->notifications as $notification)
+                                            @include('users.'.snake_case(class_basename($notification->type)))
+                                        @endforeach      
+                                    @endif   
                                 </ul>
     
                         </div>
 
-                        <div class="dropdown">
+                        <div class="dropdown" style="float:left">
                             
                             <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-circle"></i> {{ Auth::user()->full_name }}
