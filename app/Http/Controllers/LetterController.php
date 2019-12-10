@@ -88,17 +88,14 @@ class LetterController extends Controller
         }
         if ($danger > 0) {
             Notification::send($users,new DangerousLetterNotification($letter));
-            // auth()->user()->notify(new ImportantLetterNotification($letter));
             $letter->type_letter_id = 1;
             $letter->save();
         } else if ($urgent > 0) {
             Notification::send($users,new ImportantLetterNotification($letter));
-            // auth()->user()->notify(new ImportantLetterNotification($letter));
             $letter->type_letter_id = 2;
             $letter->save();
         } else if ($alert > 0) {
             Notification::send($users,new AlertLetterNotification($letter));
-            // auth()->user()->notify(new ImportantLetterNotification($letter));
             $letter->type_letter_id = 3;
             $letter->save();
         } else {

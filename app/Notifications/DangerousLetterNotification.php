@@ -44,8 +44,6 @@ class DangerousLetterNotification extends Notification
     public function toDatabase($notifiable)
     {
         return [
-            //
-            // 'repliedTime'=>Carbon::now()
             'letter'=>$this->letter,
             'user'=>auth()->user()  
         ];
