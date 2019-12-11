@@ -1,3 +1,10 @@
+<style>
+    .scrollable-menu {
+      height: auto;
+      max-height: 200px;
+      overflow-x: hidden;
+    }
+  </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info navbar-toggleable-md backcolor-formal">
     <a class= "navbar-brand" href="#">
         <img src="/letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
@@ -13,8 +20,28 @@
         
         <div class="navbar-nav ml-auto text-center">
             @if (Auth::check())
-                <li class="nav-item dropdown">
-                        <div class="dropdown">
+                <li class="nav-item dropdown" >
+                        
+                        <div style="float:left" class="dropdown" id="markasread" onclick="markNotificationAsRead()">
+                                <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-bell">
+                                        </i>Notificaciones
+                                        <span class="badge">
+                                            {{count(auth()->user()->unreadNotifications)}}
+                                        </span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right scrollable-menu" aria-labelledby="dropdownMenuLink">
+                                    @if (count(auth()->user()->unreadNotifications) == 0)
+                                        <a class="dropdown-item">Sin notificaciones</a>
+                                    @else
+                                        @foreach (auth()->user()->notifications as $notification)
+                                            @include('users.'.snake_case(class_basename($notification->type)))
+                                        @endforeach      
+                                    @endif   
+                                </ul>
+                        </div>
+
+                        <div class="dropdown" style="float:left">
                             
                             <a class="btn3 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-circle"></i> {{ Auth::user()->full_name }}

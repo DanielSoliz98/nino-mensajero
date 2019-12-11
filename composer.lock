@@ -750,6 +750,7 @@
         },
         {
             "name": "league/flysystem",
+<<<<<<< HEAD
             "version": "1.0.61",
             "source": {
                 "type": "git",
@@ -760,6 +761,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4fb13c01784a6c9f165a351e996871488ca2d8c9",
                 "reference": "4fb13c01784a6c9f165a351e996871488ca2d8c9",
+=======
+            "version": "1.0.59",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "1426da21dae81e1f3fe1074a166eb6dd3045f810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/1426da21dae81e1f3fe1074a166eb6dd3045f810",
+                "reference": "1426da21dae81e1f3fe1074a166eb6dd3045f810",
+>>>>>>> 827a2cc348bc09d02a1d2168eb0643314004debf
                 "shasum": ""
             },
             "require": {
@@ -830,6 +843,7 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2019-12-08T21:46:50+00:00"
         },
         {
@@ -934,6 +948,9 @@
             "description": "Internal MaxMind Web Service API",
             "homepage": "https://github.com/maxmind/web-service-common-php",
             "time": "2018-02-12T22:31:54+00:00"
+=======
+            "time": "2019-12-08T12:25:29+00:00"
+>>>>>>> 827a2cc348bc09d02a1d2168eb0643314004debf
         },
         {
             "name": "monolog/monolog",
