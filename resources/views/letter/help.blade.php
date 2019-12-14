@@ -20,7 +20,7 @@
                     Niño Mensajero recibirá tu carta y podrás ver sus futuras publicaciones en nuestra página.
                 </p>
             </div>
-            <div class="content d-flex align-items-center justify-content-center modal-footer">
+            <div class="d-flex align-items-center justify-content-center modal-footer">
                 <a class="btn2" data-dismiss="modal"><i class="far fa-smile-beam"></i> Cerrar Ayuda</a>
             </div>
         </div>
