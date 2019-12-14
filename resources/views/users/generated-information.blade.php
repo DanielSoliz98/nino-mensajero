@@ -14,7 +14,7 @@
                         <b>CONTENIDO DE CARTA</b>
                     </div>
                     <div class="col-2 d-flex justify-content-center">
-                        <b>CANTIDAD DE<br>RESPUESTAS</b>
+                        <b>CANTIDAD DE INFORMACIONES</b>
                     </div>
                 </div>
             </div>
