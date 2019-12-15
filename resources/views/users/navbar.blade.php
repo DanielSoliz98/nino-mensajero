@@ -6,7 +6,7 @@
     }
   </style>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-info navbar-toggleable-md backcolor-formal">
-    <a class= "navbar-brand" href="#">
+    <a class= "navbar-brand" href="{{route('home')}}">
         <img src="/letter.svg" width="30" height="30" class="d-inline-block align-top"alt="">
         NIÑO MENSAJERO
     </a>

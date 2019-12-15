@@ -3,7 +3,7 @@
 @section('page-title', 'Informaciones generadas')
 @section('user-content')
 <section class="mt-1 ml-1 mr-1 mb-1"> 
-    @if ( count($informations) > 0 )
+    @if (count($informations) > 0)
         <div class="tablebody">
             <div class="card-header">
                 <div class="row">
@@ -14,7 +14,7 @@
                         <b>CONTENIDO DE CARTA</b>
                     </div>
                     <div class="col-2 d-flex justify-content-center">
-                        <b>CANTIDAD DE<br>RESPUESTAS</b>
+                        <b>CANTIDAD DE INFORMACIONES</b>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-2 d-flex justify-content-center">
-                                <a href="{{route('informationSpecified', $info->id)}}" class="btn btn-light border-dark"><b>{{$info->id}}</b></a>
+                                <a href="{{route('informationSpecified', $info->id)}}"><b>{{$info->id}}</b></a>
                             </div>
                             <div class="col-8">
                                 {{str_limit($info->content, 85)}}
@@ -34,6 +34,7 @@
                                 {{$info->generatedInformations()->count()}}
                             </div>
                         </div>
+                        <a href="{{route('informationSpecified', $info->id)}}" class="stretched-link"></a>
                     </div>
                 </div>
             @endif
