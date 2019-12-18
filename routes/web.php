@@ -16,6 +16,7 @@
  */
 
 use App\Http\Controllers\LetterController;
+use App\Providers\RouteServiceProvider;
 
 Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
 
@@ -121,3 +122,6 @@ Route::get('/home/share/{letter}', 'InformationController@trace')->name('informa
 Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
+
+//
+Route::get('/categories', 'LetterController@classify')->name('classifiedLetters');

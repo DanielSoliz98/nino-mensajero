@@ -103,4 +103,8 @@ class LetterController extends Controller
             $letter->save();
         }
     }
+
+    public function classify(){
+        return(view('users/letters-classification/danger-letters'));
+    }
 }
