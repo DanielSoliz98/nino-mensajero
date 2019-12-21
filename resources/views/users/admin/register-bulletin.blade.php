@@ -1,6 +1,6 @@
 @extends('users.menu')
-@section('title', 'Admin-Informacion de Personal')
-@section('page-title', 'Perfil Profesional')
+@section('title', 'Admin-Registrar Boletin')
+@section('page-title', 'ADMINISTRACION DE BOLETIN')
 @section('user-content')
     <div class=" color-component register row justify-content-center mt-1 ml-1 mr-1 mb-1">
         <div class="col-md-8 col-md-offset-2">
@@ -33,7 +33,7 @@
                                 <label for="description" class="col-md-4 control-label d-flex justify-content-end">Descripción</label>
         
                                 <div class="col-md-7">
-                                    <textarea class="form-control" name="description" id="description" rows="6" value="{{ old('description') }}"
+                                    <textarea maxlength="20000" class="form-control" name="description" id="description" rows="6" value="{{ old('description') }}"
                                     data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
                                     oninvalid="this.setCustomValidity('Descripción es un campo requerido.')" oninput="setCustomValidity('')" required></textarea>
 

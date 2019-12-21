@@ -33,7 +33,7 @@ class BulletinController extends Controller
 
         $bulletin = $this->create($request->all());
 
-        return redirect('/home')->with('success', 'Boletin registrado exitosamente.');
+        return redirect('/admin/bulletins')->with('success', 'Boletin registrado exitosamente.');
     }
 
     /**
@@ -68,5 +68,12 @@ class BulletinController extends Controller
         $bulletin->save();
 
         return $bulletin;
+    }
+
+    /**
+     * Return view of bulletins.
+     */
+    public function view(){
+        return view('users.admin.bulletins');
     }
 }

@@ -19,7 +19,7 @@
                     <a href="{{route('admin.personal')}}" class="list-group-item list-group-item-action bg-light">Información de personal</a>
                     <a href="{{route('shareInformation')}}" class="list-group-item list-group-item-action bg-light">Informaciones generadas</a>
                     <a href="{{route('register.bulletin')}}" class="list-group-item list-group-item-action bg-light">Registrar nuevo boletin</a>
-                    <a href="#" class="list-group-item list-group-item-action bg-light">Boletines</a>
+                    <a href="{{route('bulletins')}}" class="list-group-item list-group-item-action bg-light">Boletines</a>
                 @else
                     <a href="{{route('shareInformation')}}" class="list-group-item list-group-item-action bg-light">Informaciones generadas</a>
                 @endrole
