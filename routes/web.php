@@ -90,13 +90,16 @@ Route::post('logout', [
     'as' => 'logout',
     'uses' => 'Auth\LoginController@logout'
 ]);
+
 /**
  * Routes for authentification: Register personal.
  */
 Route::get('admin/register', 'RegisterController@createView')->name('register');
 
+/**
+ * Route for register new personal
+ */
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
-
 
 /** 
  * Route for the generation of information of a letter by enter on a Letter
@@ -118,6 +121,20 @@ Route::get('home/share', 'InformationController@share')->name('shareInformation'
  * Route for showing the specific information generated of a letter
  */
 Route::get('/home/share/{letter}', 'InformationController@trace')->name('informationSpecified');
+
+/**
+ * 
+ */
 Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
+
+/**
+ * Route for get view for new bulletin.
+ */
+Route::get('admin/bulletin/register', 'BulletinController@registerView')->name('register.bulletin');
+
+/**
+ * Route for register new bulletin form.
+ */
+Route::post('admin/bulletin/register', 'BulletinController@register')->name('register.bulletin');
