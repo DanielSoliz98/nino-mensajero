@@ -52,9 +52,9 @@
                                 <label for="publication_date" class="col-md-4 control-label d-flex justify-content-end">Fecha publición</label>
         
                                 <div class="col-md-7">
-                                    <input id="publication_date" type="date" class="form-control" name="publication_date" 
+                                    <input id="publication_date" type="date" class="form-control" name="publication_date" value="{{ old('publication_date') }}"
                                     data-toggle="tooltip" data-placement="top" title="Por favor llene este campo."
-                                    oninvalid="this.setCustomValidity('Fecha publición es un campo requerido.')" oninput="setCustomValidity('')" required>
+                                    oninvalid="this.setCustomValidity('Fecha publicación es un campo requerido.')" oninput="setCustomValidity('')" required>
         
                                     @if ($errors->has('publication_date'))
                                         <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
