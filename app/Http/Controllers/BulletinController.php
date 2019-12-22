@@ -63,6 +63,7 @@ class BulletinController extends Controller
             'name' => $data['name'],
             'description' => $data['description'],
             'publication_date' => $data['publication_date'],
+            'is_published' => false,
         ]);
 
         $bulletin->save();
