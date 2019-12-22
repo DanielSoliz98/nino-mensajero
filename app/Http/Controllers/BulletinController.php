@@ -45,8 +45,8 @@ class BulletinController extends Controller
     protected function validatorBulletin(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:50',
-            'description' => 'required|string|max:200',
+            'name' => 'required|string|min:10|max:50',
+            'description' => 'required|string|min:10|max:200',
             'publication_date' => 'required|date'
         ]);
     }
