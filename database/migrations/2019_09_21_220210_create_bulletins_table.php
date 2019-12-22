@@ -18,6 +18,7 @@ class CreateBulletinsTable extends Migration {
 			$table->string('name', 50);
 			$table->string('description', 200);
 			$table->date('publication_date');
+			$table->boolean('is_publish');
 			$table->timestamps();
 		});
 	}
