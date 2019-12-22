@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bulletin extends Model
 {
-    protected $fillable = ['name', 'description', 'publication_date'];
+    protected $fillable = ['name', 'description', 'publication_date', 'is_published'];
 
     public function generatedInformations()
     {
