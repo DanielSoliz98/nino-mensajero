@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Letter;
 use App\Notifications\ImportantLetterNotification;
 use App\Notifications\DangerousLetterNotification;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Wamania\Snowball\Spanish;
 use App\User;
+
+use Illuminate\Support\Facades\DB;
 
 class LetterController extends Controller
 {
@@ -105,6 +108,85 @@ class LetterController extends Controller
     }
 
     public function classify(){
-        return(view('users/letters-classification/danger-letters'));
+        $types = DB::table('letters')
+            // ->join('types_letters', 'letters.type_letter_id', '=', 'types_letters.id')
+            // ->join('images', 'letters.id', '=', 'images.letter_id')
+            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
+            // ->select('letters.type_letter_id', 'letters.created_at', 'letters.content', 'images.filename')
+            // ->where('types_letters.name', '=', 'peligro')
+            ->where('letters.type_letter_id', '=', '1')
+            ->get();
+        return(view('users/letters-classification/danger-letters', compact('types')));
+
+        /*$types = Letter::orderBy('created_at', 'desc')
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')
+            ->paginate(10);
+        return view('users.letters-classification/danger-letters', compact('types'));*/
+
+        // $types= Letter::select('type_letter_id')->get();
+        // return view('users.letters-classification/danger-letters', compact('types'));
+    }
+
+    public function danger(){
+        $types = DB::table('letters')
+            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
+            ->where('letters.type_letter_id', '=', '1')
+            ->get();
+        return(view('users/letters-classification/danger-letters', compact('types')));
+
+        /*$types = Letter::orderBy('created_at', 'desc')
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')
+            ->paginate(10);
+        return view('users.letters-classification/danger-letters', compact('types'));*/
+
+        // $types= Letter::select('type_letter_id')->get();
+        // return view('users.letters-classification/danger-letters', compact('types'));
+    }
+
+    public function urgent(){
+        $types = DB::table('letters')
+            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
+            ->where('letters.type_letter_id', '=', '2')
+            ->get();
+        return(view('users/letters-classification/urgent-letters', compact('types')));
+    }
+
+    public function alert(){
+        $types = Letter::orderBy('created_at', 'desc')
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')->where('type_letter_id' , '=', '3')
+            ->paginate(10);
+        // $query = $letters->type_letter_id->where('type_letter_id', '=', '3')->get();
+        // $types2 = DB::table('letters')
+        //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
+        //     ->where('letters.type_letter_id', '=', '3')
+        //     ->get();
+            /*if($this->$types->type_letter_id == 3){
+                return view('users/letters-classification/alert-letters', compact('types'));
+            }*/
+            // if(count($types->type_letter_id == "3") > 0){
+                return view('users/letters-classification/alert-letters', compact('types'));
+            // }
+        // return view('users/letters-classification/alert-letters', compact('types'));
+    }
+
+    public function normal(){
+        $images = Image::all();
+        $types = DB::table('letters')
+            ->join('types_letters', 'letters.type_letter_id', '=', 'types_letters.id')
+            ->leftJoin('images', 'letters.id', '=', 'images.letter_id')
+            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content', 'images.filename')
+            ->where('letters.type_letter_id', '=', '4')
+            ->orderBy('created_at', 'desc')
+            ->get();
+        return(view('users/letters-classification/normal-letters', compact('types','images')));
     }
 }

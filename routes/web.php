@@ -125,3 +125,8 @@ Route::get('/markAsRead', function () {
 
 //
 Route::get('/categories', 'LetterController@classify')->name('classifiedLetters');
+
+Route::get('/categories/danger', 'LetterController@danger')->name('classifiedLettersDanger');
+Route::get('/categories/urgent', 'LetterController@urgent')->name('classifiedLettersUrgent');
+Route::get('/categories/alert', 'LetterController@alert')->name('classifiedLettersAlert');
+Route::get('/categories/normal', 'LetterController@normal')->name('classifiedLettersNormal');
