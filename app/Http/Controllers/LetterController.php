@@ -131,29 +131,21 @@ class LetterController extends Controller
     }
 
     public function danger(){
-        $types = DB::table('letters')
-            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
-            ->where('letters.type_letter_id', '=', '1')
-            ->get();
-        return(view('users/letters-classification/danger-letters', compact('types')));
-
-        /*$types = Letter::orderBy('created_at', 'desc')
-            ->with(['images' => function ($query) {
-                $query->orderBy('created_at', 'desc');
-            }])
-            ->with('typeLetter')
-            ->paginate(10);
-        return view('users.letters-classification/danger-letters', compact('types'));*/
-
-        // $types= Letter::select('type_letter_id')->get();
-        // return view('users.letters-classification/danger-letters', compact('types'));
+        // $types = DB::table('letters')
+        //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
+        //     ->where('letters.type_letter_id', '=', '1')
+        //     ->get();
+        // return(view('users/letters-classification/danger-letters', compact('types')));
+        $dangers = Letter::orderBy('created_at', 'desc')
+        ->with(['images' => function ($query) {
+            $query->orderBy('created_at', 'desc');
+        }])
+        ->with('typeLetter')->where('type_letter_id' , '=', '1')
+        ->paginate(10);
+    return(view('users/letters-classification/danger-letters', compact('dangers')));
     }
 
     public function urgent(){
-        // $types = DB::table('letters')
-        //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
-        //     ->where('letters.type_letter_id', '=', '2')
-        //     ->get();
         $urgents = Letter::orderBy('created_at', 'desc')
             ->with(['images' => function ($query) {
                 $query->orderBy('created_at', 'desc');
@@ -164,21 +156,13 @@ class LetterController extends Controller
     }
 
     public function alert(){
-        $types = Letter::orderBy('created_at', 'desc')
+        $alerts = Letter::orderBy('created_at', 'desc')
             ->with(['images' => function ($query) {
                 $query->orderBy('created_at', 'desc');
             }])
             ->with('typeLetter')->where('type_letter_id' , '=', '3')
-            ->paginate(10);
-        
-        // $types2 = DB::table('letters')
-        //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
-        //     ->where('letters.type_letter_id', '=', '3')
-        //     ->get();
-            // if(count($types->type_letter_id == "3") > 0){
-                return view('users/letters-classification/alert-letters', compact('types'));
-            // }
-        // return view('users/letters-classification/alert-letters', compact('types'));
+            ->paginate(10);            
+        return view('users/letters-classification/alert-letters', compact('alerts'));
     }
 
     public function normal(){
