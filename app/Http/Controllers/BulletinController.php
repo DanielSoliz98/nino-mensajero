@@ -74,7 +74,21 @@ class BulletinController extends Controller
     /**
      * Return view of bulletins.
      */
-    public function view(){
-        return view('users.admin.bulletins');
+    public function view()
+    {
+        $bulletins = Bulletin::orderBy('publication_date', 'desc')
+            ->paginate(10);
+        return view('users.admin.bulletins', compact('bulletins'));
+    }
+
+    /**
+     * Publish a bulletin.
+     */
+    public function publish($id)
+    {
+        $bulletin = Bulletin::find($id);
+        $bulletin->is_published = true;
+        $bulletin->save();
+        return redirect('/admin/bulletins')->with('success', 'Boletin publicado exitosamente.');
     }
 }

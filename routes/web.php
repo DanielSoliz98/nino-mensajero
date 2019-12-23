@@ -135,7 +135,7 @@ Route::get('/markAsRead', function () {
 Route::get('admin/bulletins/register', 'BulletinController@registerView')->name('register.bulletin');
 
 /**
- * Route for register new bulletin form.
+ * Route for register new bulletin.
  */
 Route::post('admin/bulletins/register', 'BulletinController@register')->name('register.bulletin');
 
@@ -143,3 +143,8 @@ Route::post('admin/bulletins/register', 'BulletinController@register')->name('re
  * Route for get view of bulletins.
  */
 Route::get('admin/bulletins', 'BulletinController@view')->name('bulletins');
+
+/**
+ * Route for publish a bulletin.
+ */
+Route::post('admin/bulletins/{id}', 'BulletinController@publish')->name('publish.bulletin');
