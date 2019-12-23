@@ -4,9 +4,9 @@
 @section('user-content')
 <section class="mt-1 ml-1 mr-1 mb-1"> 
     <div class="mt-1 ml-1 mr-1 mb-1">
-        @if (count($types) > 0 && count($types->type_letter_id=="3") > 0)
+        @if (count($types) > 0)
             @foreach($types as $letter)
-                @if($letter->type_letter_id == "3" && count($types->type_letter_id=="3") > 0)
+                @if($letter->type_letter_id == "3" && count($letter->type_letter_id !== "3") <> 0)
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">

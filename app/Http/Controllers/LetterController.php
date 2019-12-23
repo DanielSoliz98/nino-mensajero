@@ -150,11 +150,17 @@ class LetterController extends Controller
     }
 
     public function urgent(){
-        $types = DB::table('letters')
-            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
-            ->where('letters.type_letter_id', '=', '2')
-            ->get();
-        return(view('users/letters-classification/urgent-letters', compact('types')));
+        // $types = DB::table('letters')
+        //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
+        //     ->where('letters.type_letter_id', '=', '2')
+        //     ->get();
+        $urgents = Letter::orderBy('created_at', 'desc')
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')->where('type_letter_id' , '=', '2')
+            ->paginate(10);
+        return(view('users/letters-classification/urgent-letters', compact('urgents')));
     }
 
     public function alert(){
@@ -164,14 +170,11 @@ class LetterController extends Controller
             }])
             ->with('typeLetter')->where('type_letter_id' , '=', '3')
             ->paginate(10);
-        // $query = $letters->type_letter_id->where('type_letter_id', '=', '3')->get();
+        
         // $types2 = DB::table('letters')
         //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
         //     ->where('letters.type_letter_id', '=', '3')
         //     ->get();
-            /*if($this->$types->type_letter_id == 3){
-                return view('users/letters-classification/alert-letters', compact('types'));
-            }*/
             // if(count($types->type_letter_id == "3") > 0){
                 return view('users/letters-classification/alert-letters', compact('types'));
             // }
@@ -179,14 +182,12 @@ class LetterController extends Controller
     }
 
     public function normal(){
-        $images = Image::all();
-        $types = DB::table('letters')
-            ->join('types_letters', 'letters.type_letter_id', '=', 'types_letters.id')
-            ->leftJoin('images', 'letters.id', '=', 'images.letter_id')
-            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content', 'images.filename')
-            ->where('letters.type_letter_id', '=', '4')
-            ->orderBy('created_at', 'desc')
-            ->get();
-        return(view('users/letters-classification/normal-letters', compact('types','images')));
+        $normals = Letter::orderBy('created_at', 'desc')
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')->where('type_letter_id' , '=', '4')
+            ->paginate(10);
+        return(view('users/letters-classification/normal-letters', compact('normals')));
     }
 }
