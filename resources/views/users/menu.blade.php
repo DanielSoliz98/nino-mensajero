@@ -21,7 +21,12 @@
                     <a href="#" class="list-group-item list-group-item-action bg-light">Boletines</a>
                 @else
                     <a href="{{route('shareInformation')}}" class="list-group-item list-group-item-action bg-light">Informaciones generadas</a>
-                @endrole
+                @endrole<hr>
+                <div class="sidebar-heading title-left">CATEGORÍAS</div>
+                <a href="{{route('classifiedLettersDanger')}}" class="list-group-item list-group-item-action bg-light">Cartas de peligro</a>
+                <a href="{{route('classifiedLettersUrgent')}}" class="list-group-item list-group-item-action bg-light">Cartas de urgencia</a>
+                <a href="{{route('classifiedLettersAlert')}}" class="list-group-item list-group-item-action bg-light">Cartas de atención</a>
+                <a href="{{route('classifiedLettersNormal')}}" class="list-group-item list-group-item-action bg-light">Cartas normales</a>
             </div>
         </div>
 
