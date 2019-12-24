@@ -1,6 +1,6 @@
 @extends('users.menu')
-@section('title', 'Cartas de peligro')
-@section('page-title', 'Cartas de peligro')
+@section('title', 'Cartas normales')
+@section('page-title', 'Cartas normales')
 @section('user-content')
 <section class="mt-1 ml-1 mr-1 mb-1"> 
     <div class="mt-1 ml-1 mr-1 mb-1">
