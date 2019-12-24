@@ -10,7 +10,7 @@
             <table class="table color-component tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
                 <tr>
                     <td><b>CARTA:</b></td>
-                    <td>{{$letter->content}}</td>
+                    <td><a href="{{route('user.letter.read', $letter)}}">{{$letter->content}}</a></td>
                 </tr>
             </table>
         </div>

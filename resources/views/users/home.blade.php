@@ -8,7 +8,7 @@
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-9">
+                            <div class="col-8">
                                 <p class="card-text">{{ str_limit($letter->content, 125) }}</p>
                             </div>
                             <div class="col-3 d-flex justify-content-end">
@@ -27,8 +27,13 @@
                                     @else
                                         <span class="badge badge-light">{{$letter->images->count()}} imágenes</span>
                                     @endif
-                                        {{$letter->created_at->diffForHumans()}}
-                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="col-1 d-flex justify-content-end">
+                                <div class="card-text text-muted">
+                                    {{$letter->created_at->diffForHumans()}}
+                                </div>
                             </div>
                         </div>
                         <a href="{{route('user.letter.read', $letter)}}" class="stretched-link"></a>
