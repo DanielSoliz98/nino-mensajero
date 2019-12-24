@@ -119,14 +119,15 @@ Route::get('home/share', 'InformationController@share')->name('shareInformation'
  * Route for showing the specific information generated of a letter
  */
 Route::get('/home/share/{letter}', 'InformationController@trace')->name('informationSpecified');
+
+/**
+ * Route for showing the notifications of the letters of Danger, Urgent and Alert.
+ */
 Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
 
-//
-Route::get('/categories', 'LetterController@classify')->name('classifiedLetters');
-
-Route::get('/home/categories/danger', 'LetterController@danger')->name('classifiedLettersDanger');
-Route::get('/home/categories/urgent', 'LetterController@urgent')->name('classifiedLettersUrgent');
-Route::get('/home/categories/alert', 'LetterController@alert')->name('classifiedLettersAlert');
-Route::get('/home/categories/normal', 'LetterController@normal')->name('classifiedLettersNormal');
+/**
+ * Route for showing the letters by categories.
+ */
+Route::get('/home/categories/{type}', 'LetterController@classify')->name('classifiedLetters');

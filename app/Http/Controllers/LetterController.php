@@ -14,6 +14,7 @@ use Wamania\Snowball\Spanish;
 use App\User;
 
 use Illuminate\Support\Facades\DB;
+use App\TypesLetter;
 
 class LetterController extends Controller
 {
@@ -110,43 +111,16 @@ class LetterController extends Controller
     /**
      * Separation of the letters by its classification.
      */
-    public function danger(){
-        $dangers = Letter::orderBy('created_at', 'desc')
+    public function classify($type)
+    {
+        $types = TypesLetter::find($type);
+        $letters = Letter::orderBy('created_at', 'desc')
         ->with(['images' => function ($query) {
             $query->orderBy('created_at', 'desc');
         }])
-        ->with('typeLetter')->where('type_letter_id' , '=', '1')
+        ->with('typeLetter')
+        ->where('type_letter_id' , '=', $types->id)
         ->paginate(10);
-    return(view('users/letters-classification/danger-letters', compact('dangers')));
-    }
-
-    public function urgent(){
-        $urgents = Letter::orderBy('created_at', 'desc')
-            ->with(['images' => function ($query) {
-                $query->orderBy('created_at', 'desc');
-            }])
-            ->with('typeLetter')->where('type_letter_id' , '=', '2')
-            ->paginate(10);
-        return(view('users/letters-classification/urgent-letters', compact('urgents')));
-    }
-
-    public function alert(){
-        $alerts = Letter::orderBy('created_at', 'desc')
-            ->with(['images' => function ($query) {
-                $query->orderBy('created_at', 'desc');
-            }])
-            ->with('typeLetter')->where('type_letter_id' , '=', '3')
-            ->paginate(10);            
-        return view('users/letters-classification/alert-letters', compact('alerts'));
-    }
-
-    public function normal(){
-        $normals = Letter::orderBy('created_at', 'desc')
-            ->with(['images' => function ($query) {
-                $query->orderBy('created_at', 'desc');
-            }])
-            ->with('typeLetter')->where('type_letter_id' , '=', '4')
-            ->paginate(10);
-        return(view('users/letters-classification/normal-letters', compact('normals')));
+    return(view('users/letters-classification', compact('letters', 'types')));
     }
 }
