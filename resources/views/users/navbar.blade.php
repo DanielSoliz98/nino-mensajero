@@ -35,7 +35,7 @@
                                         <a class="dropdown-item">Sin notificaciones</a>
                                     @else
                                         @foreach (auth()->user()->notifications as $notification)
-                                            @include('users.'.snake_case(class_basename($notification->type)))
+                                            @include('users.letters-notification.'.kebab_case(class_basename($notification->type)))
                                         @endforeach      
                                     @endif   
                                 </ul>
