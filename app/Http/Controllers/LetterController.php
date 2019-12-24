@@ -107,35 +107,10 @@ class LetterController extends Controller
         }
     }
 
-    public function classify(){
-        $types = DB::table('letters')
-            // ->join('types_letters', 'letters.type_letter_id', '=', 'types_letters.id')
-            // ->join('images', 'letters.id', '=', 'images.letter_id')
-            ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
-            // ->select('letters.type_letter_id', 'letters.created_at', 'letters.content', 'images.filename')
-            // ->where('types_letters.name', '=', 'peligro')
-            ->where('letters.type_letter_id', '=', '1')
-            ->get();
-        return(view('users/letters-classification/danger-letters', compact('types')));
-
-        /*$types = Letter::orderBy('created_at', 'desc')
-            ->with(['images' => function ($query) {
-                $query->orderBy('created_at', 'desc');
-            }])
-            ->with('typeLetter')
-            ->paginate(10);
-        return view('users.letters-classification/danger-letters', compact('types'));*/
-
-        // $types= Letter::select('type_letter_id')->get();
-        // return view('users.letters-classification/danger-letters', compact('types'));
-    }
-
+    /**
+     * Separation of the letters by its classification.
+     */
     public function danger(){
-        // $types = DB::table('letters')
-        //     ->select('letters.type_letter_id', 'letters.created_at', 'letters.content')
-        //     ->where('letters.type_letter_id', '=', '1')
-        //     ->get();
-        // return(view('users/letters-classification/danger-letters', compact('types')));
         $dangers = Letter::orderBy('created_at', 'desc')
         ->with(['images' => function ($query) {
             $query->orderBy('created_at', 'desc');
