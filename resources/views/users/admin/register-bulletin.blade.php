@@ -1,12 +1,12 @@
 @extends('users.menu')
-@section('title', 'Admin-Registrar Boletin')
-@section('page-title', 'ADMINISTRACION DE BOLETIN')
+@section('title', 'Admin-Registrar Boletín')
+@section('page-title', 'ADMINISTRACIÓN DE BOLETÍN')
 @section('user-content')
     <div class=" color-component register row justify-content-center mt-1 ml-1 mr-1 mb-1">
         <div class="col-md-8 col-md-offset-2">
             <div class="col-md-12">
                 <div class="card mt-4">
-                    <div class="card-header text-center"><h2>REGISTRAR NUEVO BOLETIN</h2></div>
+                    <div class="card-header text-center"><h2>REGISTRAR NUEVO BOLETÍN</h2></div>
                     <div class="card-body">
                         <form class="form-horizontal" method="POST" action="{{ route('register.bulletin') }}">
                             {{ csrf_field() }}
