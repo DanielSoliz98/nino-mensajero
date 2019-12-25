@@ -74,7 +74,8 @@ class BulletinController extends Controller
     /**
      * Return view of bulletins.
      */
-    public function view(){
+    public function view()
+    {
         return view('users.admin.bulletins');
     }
 }
