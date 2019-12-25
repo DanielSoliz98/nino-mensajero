@@ -43,6 +43,7 @@ class PersonalController extends Controller
             ->get();
         return view('users.personal.update-profile', compact('profile'));
     }
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -95,6 +96,7 @@ class PersonalController extends Controller
         }
         return $specialist;
     }
+
     /**
      * Save the profile of a Personal.
      */

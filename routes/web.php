@@ -14,9 +14,6 @@
 /**
  * Route for Home of Children(/), returning view from HomeController: create method.
  */
-
-use App\Http\Controllers\LetterController;
-
 Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
 
 /**
