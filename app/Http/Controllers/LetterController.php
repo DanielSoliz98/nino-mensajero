@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Image;
-use App\Letter;
 use App\Notifications\ImportantLetterNotification;
 use App\Notifications\DangerousLetterNotification;
 use App\Notifications\AlertLetterNotification;
@@ -11,10 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Wamania\Snowball\Spanish;
-use App\User;
-
-use Illuminate\Support\Facades\DB;
+use App\Letter;
 use App\TypesLetter;
+use App\User;
 
 class LetterController extends Controller
 {
@@ -91,15 +88,15 @@ class LetterController extends Controller
             $token = strtok(" \n\t ");
         }
         if ($danger > 0) {
-            Notification::send($users,new DangerousLetterNotification($letter));
+            Notification::send($users, new DangerousLetterNotification($letter));
             $letter->type_letter_id = 1;
             $letter->save();
         } else if ($urgent > 0) {
-            Notification::send($users,new ImportantLetterNotification($letter));
+            Notification::send($users, new ImportantLetterNotification($letter));
             $letter->type_letter_id = 2;
             $letter->save();
         } else if ($alert > 0) {
-            Notification::send($users,new AlertLetterNotification($letter));
+            Notification::send($users, new AlertLetterNotification($letter));
             $letter->type_letter_id = 3;
             $letter->save();
         } else {
@@ -113,14 +110,15 @@ class LetterController extends Controller
      */
     public function classify($type)
     {
-        $types = TypesLetter::find($type);
+        $type = TypesLetter::find($type);
         $letters = Letter::orderBy('created_at', 'desc')
-        ->with(['images' => function ($query) {
-            $query->orderBy('created_at', 'desc');
-        }])
-        ->with('typeLetter')
-        ->where('type_letter_id' , '=', $types->id)
-        ->paginate(10);
-    return(view('users/letters-classification', compact('letters', 'types')));
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')
+            ->where('type_letter_id', '=', $type->id)
+            ->paginate(10);
+
+        return (view('users.letters-classification', compact('letters', 'type')));
     }
 }
