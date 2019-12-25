@@ -1,7 +1,7 @@
 @extends('users.menu')
 @section('title', 'Cartas')
 @section('page-title')
-    Cartas de tipo {{$types->name}}
+    Cartas de tipo {{$type->name}}
 @endsection
 @section('user-content')
 <section class="mt-1 ml-1 mr-1 mb-1"> 
