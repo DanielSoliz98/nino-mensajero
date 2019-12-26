@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Letter; 
+use App\Letter;
 use Stevebauman\Location\Facades\Location;
 use Illuminate\Support\Facades\Auth;
 
