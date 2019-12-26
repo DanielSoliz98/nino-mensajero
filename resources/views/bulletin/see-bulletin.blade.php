@@ -7,9 +7,22 @@
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2">
             <h2 class="text-center">
-                <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
+                <img 
+                    src="letter.svg" 
+                    width="30" 
+                    height="30" 
+                    class="d-inline-block" 
+                >
                 BOLETINES DEL NINO MENSAJERO {{count($bulletins)}}
             </h2>
+            @foreach($bulletins as $bulletin)
+            <div class="card" style="border-radious:25px;background-color:transparent;margin:15px;text-align:center;">
+                <h3>
+                    {{$bulletin->name}}
+                </h3>
+                {{$bulletin->description}}
+            </div>
+            @endforeach
         </div>
     </section>
 @endsection
