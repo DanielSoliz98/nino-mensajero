@@ -13,10 +13,12 @@
                     height="30" 
                     class="d-inline-block" 
                 >
-                BOLETINES DEL NINO MENSAJERO {{count($bulletins)}}
+                BOLETINES DEL NINO MENSAJERO
             </h2>
             @foreach($bulletins as $bulletin)
-            <div class="card" style="border-radious:25px;background-color:transparent;margin:15px;text-align:center;">
+            <div 
+                class="card" 
+                style="background-color:transparent;margin:15px;text-align:center;">
                 <h3>
                     {{$bulletin->name}}
                 </h3>
