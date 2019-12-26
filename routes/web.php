@@ -150,3 +150,6 @@ Route::get('admin/bulletins', 'BulletinController@view')->name('bulletins');
  * Route for publish a bulletin.
  */
 Route::post('admin/bulletins/{id}', 'BulletinController@publish')->name('publish.bulletin');
+ /* Route for see all  published bulletins
+ */
+Route::get('/see-bulletins', 'BulletinController@show')->name('see-bulletins');

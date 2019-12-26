@@ -91,4 +91,15 @@ class BulletinController extends Controller
         $bulletin->save();
         return redirect('/admin/bulletins')->with('success', 'Boletín publicado exitosamente.');
     }
+
+    public function show()
+    {
+        $bulletins = Bulletin::where('is_published',true)->get();
+        return view('bulletin.see-bulletin',compact('bulletins'));
+    }
+
+    public function index()
+    {
+        return view('bulletin.see-bulletin');
+    }
 }
