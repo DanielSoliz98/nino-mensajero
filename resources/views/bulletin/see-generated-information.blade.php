@@ -13,19 +13,14 @@
                     height="30" 
                     class="d-inline-block" 
                 >
-                BOLETINES DEL NINO MENSAJERO
+                INFORMACION GENERADA
             </h2>
-            @foreach($bulletins as $bulletin)
+            @foreach($informations as $information)
             <div 
                 class="card" 
                 style="background-color:transparent;margin:15px;text-align:center;"
             >
-                <a href="{{route('see-generated-information',strval($bulletin->id))}}">
-                    <h3>
-                        {{$bulletin->name}}
-                    </h3>
-                </a>
-                {{$bulletin->description}}
+                {{$information->content}}
             </div>
             @endforeach
         </div>
