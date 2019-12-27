@@ -23,15 +23,15 @@
                                         {{ csrf_field() }}
                                         @if ($bulletin->generatedInformations()->count() == 0)
                                             <span class="badge badge-light"> 0 informaciones generadas.</span>
-                                            <span class="badge badge-primary">Este boletin no esta publicado.</span>
+                                            <span class="badge badge-primary">Este boletín no está publicado.</span>
                                         @elseif ($bulletin->generatedInformations()->count() > 0)
                                             @if($bulletin->is_published == false)
-                                                <span class="badge badge-primary">Este boletin no esta publicado.</span>
+                                                <span class="badge badge-primary">Este boletín no está publicado.</span>
                                                 <button type="submit" class="btn btn-light border border-dark">Publicar
                                                 </button>
                                             @else
                                                 <span class="badge badge-light">{{$bulletin->generatedInformations()->count()}}  informaciones generadas.</span>
-                                                <span class="badge badge-primary">Boletin publicado.</span>
+                                                <span class="badge badge-primary">Boletín publicado.</span>
                                             @endif
                                         @endif
                                     </form>

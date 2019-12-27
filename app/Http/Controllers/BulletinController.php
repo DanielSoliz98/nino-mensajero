@@ -89,6 +89,6 @@ class BulletinController extends Controller
         $bulletin = Bulletin::find($id);
         $bulletin->is_published = true;
         $bulletin->save();
-        return redirect('/admin/bulletins')->with('success', 'Boletin publicado exitosamente.');
+        return redirect('/admin/bulletins')->with('success', 'Boletín publicado exitosamente.');
     }
 }
