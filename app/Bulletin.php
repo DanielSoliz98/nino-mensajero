@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Jenssegers\Date\Date;
 use Illuminate\Database\Eloquent\Model;
 
 class Bulletin extends Model
@@ -11,5 +12,10 @@ class Bulletin extends Model
     public function generatedInformations()
     {
         return $this->hasMany(GeneratedInformation::class);
+    }
+
+    public function getPublicationDateAttribute($date)
+    {
+        return new Date($date);
     }
 }
