@@ -10,10 +10,8 @@ use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Wamania\Snowball\Spanish;
 use App\Letter;
-use App\User;
-
-use Illuminate\Support\Facades\DB;
 use App\TypesLetter;
+use App\User;
 
 class LetterController extends Controller
 {
@@ -112,14 +110,15 @@ class LetterController extends Controller
      */
     public function classify($type)
     {
-        $types = TypesLetter::find($type);
+        $type = TypesLetter::find($type);
         $letters = Letter::orderBy('created_at', 'desc')
-        ->with(['images' => function ($query) {
-            $query->orderBy('created_at', 'desc');
-        }])
-        ->with('typeLetter')
-        ->where('type_letter_id' , '=', $types->id)
-        ->paginate(10);
-    return(view('users/letters-classification', compact('letters', 'types')));
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')
+            ->where('type_letter_id', '=', $type->id)
+            ->paginate(10);
+
+        return (view('users.letters-classification', compact('letters', 'type')));
     }
 }
