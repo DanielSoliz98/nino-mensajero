@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Bulletin;
 use App\GeneratedInformation;
+use App\User;
 
 class BulletinController extends Controller
 {
@@ -14,7 +15,7 @@ class BulletinController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin']);
+        $this->middleware(['auth', 'isAdmin'])->except('index','show','user');
     }
 
     /**
@@ -102,6 +103,12 @@ class BulletinController extends Controller
     public function show($id)
     {
         $informations = GeneratedInformation::where('bulletin_id',$id)->get();
-        return view('bulletin.see-generated-information',compact('informations'));
+        $bulletin = Bulletin::find($id);
+        return view('bulletin.see-generated-information',compact('informations','bulletin'));
+    }
+
+    public function user($user_id)
+    {
+        return User::find($user_id);
     }
 }
