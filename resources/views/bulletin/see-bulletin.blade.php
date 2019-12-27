@@ -2,6 +2,7 @@
 @section('navbar')
     @include('home.navbar')
 @endsection
+@section('title', 'BOLETINES')
 @section('content')
     @include('letter.help')
     <section class="container-fluid slider d-flex justify-content-center">
@@ -16,17 +17,26 @@
                 BOLETINES DEL NINO MENSAJERO
             </h2>
             @foreach($bulletins as $bulletin)
-            <div 
-                class="card" 
-                style="background-color:transparent;margin:15px;text-align:center;"
-            >
-                <a href="{{route('see-generated-information',strval($bulletin->id))}}">
-                    <h3>
+            <div style="margin:2%;">
+                <div style="position:absolute;background:transparent;margin-left:5%;z-index:2">
+                    <button class="btn2  mb-1" disabled>
                         {{$bulletin->name}}
-                    </h3>
-                </a>
-                {{$bulletin->description}}
-            </div>
+                    </button>
+                </div>
+                <br/><br/>
+                <div 
+                    class="card" 
+                    style="background-color:rgba(255, 255, 255, 0.5);text-align:center;z-index:1;align-items:center;"
+                ><br/>
+                <ul><h6>Descripcion:</h6> {{$bulletin->description}}</ul>
+                <ul><h6>Fecha de publicacion:</h6> {{\Carbon\Carbon::parse($bulletin->created_at)->format('d/m/Y')}}</ul>
+                <ul>
+                    <a href="{{route('see-generated-information',strval($bulletin->id))}}" class="btn2">
+                        VER BOLETIN
+                    </a>
+                </ul>
+                </div>
+            </div><br/>
             @endforeach
         </div>
     </section>
