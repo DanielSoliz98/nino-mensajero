@@ -130,7 +130,9 @@ Route::get('/markAsRead', function () {
  * Route for showing the letters by categories.
  */
 Route::get('/home/categories/{type}', 'LetterController@classify')->name('classifiedLetters');
-/** Route for get view for new bulletin.
+
+/** 
+ * Route for get view for new bulletin.
  */
 Route::get('admin/bulletins/register', 'BulletinController@registerView')->name('register.bulletin');
 
