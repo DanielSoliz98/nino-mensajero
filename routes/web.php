@@ -14,10 +14,6 @@
 /**
  * Route for Home of Children(/), returning view from HomeController: create method.
  */
-
-use App\Http\Controllers\LetterController;
-use App\Providers\RouteServiceProvider;
-
 Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
 
 /**
@@ -91,13 +87,16 @@ Route::post('logout', [
     'as' => 'logout',
     'uses' => 'Auth\LoginController@logout'
 ]);
+
 /**
  * Routes for authentification: Register personal.
  */
 Route::get('admin/register', 'RegisterController@createView')->name('register');
 
+/**
+ * Route for register new personal
+ */
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
-
 
 /** 
  * Route for the generation of information of a letter by enter on a Letter
@@ -131,3 +130,16 @@ Route::get('/markAsRead', function () {
  * Route for showing the letters by categories.
  */
 Route::get('/home/categories/{type}', 'LetterController@classify')->name('classifiedLetters');
+/** Route for get view for new bulletin.
+ */
+Route::get('admin/bulletins/register', 'BulletinController@registerView')->name('register.bulletin');
+
+/**
+ * Route for register new bulletin form.
+ */
+Route::post('admin/bulletins/register', 'BulletinController@register')->name('register.bulletin');
+
+/**
+ * Route for get view of bulletins.
+ */
+Route::get('admin/bulletins', 'BulletinController@view')->name('bulletins');

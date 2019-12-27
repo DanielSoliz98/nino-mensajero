@@ -59,16 +59,21 @@ class InformationController extends Controller
     }
 
     public function trace($letter)
-    { 
+    {
         $letter = Letter::find($letter);
         $specificInfos = DB::table('generated_informations')
             ->join('letters', 'letters.id', '=', 'generated_informations.letter_id')
             ->leftJoin('users', 'users.id', '=', 'generated_informations.user_id')
-            ->select('generated_informations.created_at', 'generated_informations.id', 
-                    'generated_informations.content as continf', 'letters.content as contletter', 
-                    'letters.id as lettid', 'full_name')
+            ->select(
+                'generated_informations.created_at',
+                'generated_informations.id',
+                'generated_informations.content as continf',
+                'letters.content as contletter',
+                'letters.id as lettid',
+                'full_name'
+            )
             ->where('letter_id', '=', $letter->id)
             ->get();
-        return view('users.information-per-letter', compact('specificInfos','letter'));
+        return view('users.information-per-letter', compact('specificInfos', 'letter'));
     }
 }
