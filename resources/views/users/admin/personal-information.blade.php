@@ -70,7 +70,7 @@
     @else
         <div class="no-content card mt-1 color-component text-center">
             <div class="card-body">
-                <h5>No hay informaciones generadas aún.</h5>
+                <h5>Aún no se registró personal.</h5>
             </div>
         </div>
     @endif
