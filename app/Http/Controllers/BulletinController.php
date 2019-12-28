@@ -94,21 +94,23 @@ class BulletinController extends Controller
         return redirect('/admin/bulletins')->with('success', 'Boletín publicado exitosamente.');
     }
 
+    /**
+     * View of Bulletins
+     */
     public function index()
     {
         $bulletins = Bulletin::where('is_published',true)->get();
         return view('bulletin.see-bulletin',compact('bulletins'));
     }
 
+    /**
+     * View a specific bulletin
+     */
     public function show($id)
     {
         $informations = GeneratedInformation::where('bulletin_id',$id)->get();
         $bulletin = Bulletin::find($id);
         return view('bulletin.see-generated-information',compact('informations','bulletin'));
     }
-
-    public function user($user_id)
-    {
-        return User::find($user_id);
-    }
+    
 }

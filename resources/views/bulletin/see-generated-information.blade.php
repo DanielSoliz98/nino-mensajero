@@ -4,7 +4,6 @@
 @endsection
 @section('title', 'BOLETIN-'.strtoupper($bulletin->name))
 @section('content')
-@inject('user','App\Http\Controllers\BulletinController')
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2">
             <h2 class="text-center">
@@ -27,7 +26,7 @@
             </div>
                 @foreach($informations as $information)
                 <div class="card" style="margin:3%;background-color:rgba(0, 170, 228, 0.5)">
-                    <ul><h6>Autor:</h6> {{$user->user($information->user_id)->full_name}}</ul>
+                    <ul><h6>Autor:</h6> {{$information->user()->get()[0]->full_name}}</ul>
                     <ul><h6>Informacion generada:</h6> {{$information->content}}</ul>    
                 </div>
                 @endforeach

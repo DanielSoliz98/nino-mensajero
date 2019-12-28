@@ -20,6 +20,6 @@ class GeneratedInformation extends Model
 
     public function bulletin()
     {
-        return $this->belongsTo(Bulletin::class);
+        return $this->belongsTo(Bulletin::class, 'bulletin_id');
     }
 }
