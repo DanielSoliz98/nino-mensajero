@@ -58,9 +58,13 @@
                                             <select name="bulletins" id="bulletins" class="form-control selectpicker"
                                             data-toggle="tooltip">
                                                 <option value="" selected disabled hidden>Seleccione boletín</option>
-                                                @foreach ($bulletins as $item)
-                                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                                @endforeach
+                                                @if ($bulletins->count() > 0)
+                                                    @foreach ($bulletins as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach
+                                                @else
+                                                    <option value="" disabled>No hay boletines disponibles.</option> 
+                                                @endif
                                             </select>
                                             <div class="d-flex align-items-center justify-content-center mt-2">
                                                 <button type="submit" class="btn btn-light border border-dark"><i class="fas fa-plus-circle"></i>Incluir</button>
