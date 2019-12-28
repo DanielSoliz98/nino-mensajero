@@ -40,22 +40,17 @@
                 </select> --}}
                 
                 
-                    <div class="list-group-item list-group-item-action bg-light">
-                        <div class="dropdown">
-                            <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Categorías
-                            </a>
-                            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
-                                <a class="" href="{{route('classifiedLetters', 1)}}">Peligro</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="" href="{{route('classifiedLetters', 2)}}">Urgente</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="" href="{{route('classifiedLetters', 3)}}">Alerta</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="" href="{{route('classifiedLetters', 4)}}">Normal</a>
-                            </div>
-                        </div>
+                <div class="dropdown">
+                    <a class="dropdown-toggle list-group-item list-group-item-action bg-light" role="button" id="dropdownMenuLink" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías 
+                    </a>
+                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 1)}}">Peligro</a>
+                        <a class="list-group-item list-group-item-action bg-light " href="{{route('classifiedLetters', 2)}}">Urgente</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 3)}}">Alerta</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 4)}}">Normal</a>
                     </div>
+                </div>
                 {{-- //// --}}
             </div>
         </div>
