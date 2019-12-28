@@ -27,8 +27,9 @@ class AdminController extends Controller
             ->select('users.id', 'full_name', 'email', 'ci', 'roles.name as role', 'profession')
             ->where('roles.name', '<>', 'admin')
             ->orderBy('full_name', 'asc')
-            ->get();
+            ->paginate(10);
         return view('users.admin.personal-information', compact('personals'));
+
     }
 
     public function profilePersonal($personal)
