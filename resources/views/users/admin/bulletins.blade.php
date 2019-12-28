@@ -8,16 +8,16 @@
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-2">
+                            <div class="col-2 col-md-2 col-lg-2 p-1">
                             <p class="card-text">{{$bulletin->name}}</p>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 col-md-4 col-lg-4 p-1">
                                 <p class="card-text">{{$bulletin->description}}</p>
                             </div>
-                            <div class="col-2">
-                                <p class="card-text">{{$bulletin->publication_date->format('D j F Y')}}</p>
+                            <div class="col-3 col-md-3 col-lg-1 p-1">
+                                <p class="card-text">{{$bulletin->publication_date->format('j F Y')}}</p>
                             </div>
-                            <div class="col-4 d-flex justify-content-end">
+                            <div class="col-3 col-md-3 col-lg-5 d-flex justify-content-end p-1">
                                 <div class="card-text text-muted">
                                     <form method="POST" action="{{ route('publish.bulletin', $bulletin) }}">
                                         {{ csrf_field() }}
@@ -25,12 +25,16 @@
                                             <span class="badge badge-light"> 0 informaciones generadas.</span>
                                             <span class="badge badge-primary">Este boletín no está publicado.</span>
                                         @elseif ($bulletin->generatedInformations()->count() > 0)
+                                            @if ($bulletin->generatedInformations()->count() == 1)
+                                                <span class="badge badge-light"> 1 información generada.</span>
+                                            @else
+                                                <span class="badge badge-light">{{$bulletin->generatedInformations()->count()}}  informaciones generadas.</span>
+                                            @endif
                                             @if($bulletin->is_published == false)
                                                 <span class="badge badge-primary">Este boletín no está publicado.</span>
                                                 <button type="submit" class="btn btn-light border border-dark">Publicar
                                                 </button>
                                             @else
-                                                <span class="badge badge-light">{{$bulletin->generatedInformations()->count()}}  informaciones generadas.</span>
                                                 <span class="badge badge-primary">Boletín publicado.</span>
                                             @endif
                                         @endif
