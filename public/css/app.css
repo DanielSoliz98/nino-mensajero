@@ -400,3 +400,35 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .btnlog{
     font-size: 1rem;
 }
+
+
+/** BULLETINS CHILD  **/
+.bulletin-title{
+    position:absolute;
+    background:transparent;
+    margin-left:5%;
+    z-index:2
+}
+
+.bulletin-content{
+    background-color:rgba(255, 255, 255, 0.5);
+    text-align:center;
+    z-index:1;
+    align-items:center;
+}
+
+/** Generated Information **/
+.gen-information-template{
+    background-color:transparent;
+    margin:15px;
+}
+
+.gen-information-bulletin{
+    align-items:left;
+    background-color:rgba(255, 255, 255, 0.5);
+}
+
+.gen-information{
+    margin:3%;
+    background-color:rgba(0, 170, 228, 0.5);
+}

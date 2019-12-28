@@ -17,15 +17,14 @@
             </h2>
             @foreach($bulletins as $bulletin)
             <div style="margin:2%;">
-                <div style="position:absolute;background:transparent;margin-left:5%;z-index:2">
+                <div class="bulletin-title">
                     <button class="btn2  mb-1" disabled>
                         {{$bulletin->name}}
                     </button>
                 </div>
                 <br/><br/>
                 <div 
-                    class="card" 
-                    style="background-color:rgba(255, 255, 255, 0.5);text-align:center;z-index:1;align-items:center;"
+                    class="card bulletin-content" 
                 ><br/>
                 <ul><h6>Descripcion:</h6> {{$bulletin->description}}</ul>
                 <ul><h6>Fecha de publicacion:</h6> {{\Carbon\Carbon::parse($bulletin->created_at)->format('d/m/Y')}}</ul>
