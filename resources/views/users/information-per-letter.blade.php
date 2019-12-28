@@ -50,23 +50,25 @@
                             </div>
                             <div class="col-4 d-flex justify-content-center">
                                 @if ($info->name !== null)
-                                    {{$info->name}}
+                                    <div class="bulletin-name">{{$info->name}}</div>
                                 @else
-                                    <form class="col-7" method="POST" action="{{'updateInformation', $info->id}}">
-                                        <select name="bulletins" id="bulletins" class="form-control selectpicker"
-                                        data-toggle="tooltip">
-                                            <div>
-                                                <option value="" selected disabled hidden>Seleccione el boletin</option>
-                                                @foreach ($bulletins as $item)
-                                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                                @endforeach
+                                    @role('admin')
+                                        <form class="col-7" method="POST" action="{{ route('updateInformation', $info->id) }}">
+                                            {{csrf_field()}}
+                                            <select name="bulletins" id="bulletins" class="form-control selectpicker"
+                                            data-toggle="tooltip">
+                                                <div>
+                                                    <option value="" selected disabled hidden>Seleccione el boletin</option>
+                                                    @foreach ($bulletins as $item)
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                                    @endforeach
+                                                </div>
+                                            </select>
+                                            <div class="d-flex align-items-center justify-content-center ">
+                                                <button type="submit" class="btn4">Incluir</button>
                                             </div>
-                                        </select>
-                                        <div class="d-flex align-items-center justify-content-center ">
-                                            <button type="submit" class="btn4">Incluir</button>
-                                        </div>
-                                    </form>
-                                    
+                                        </form>
+                                    @endrole
                                 @endif
                             </div>
                         </div>

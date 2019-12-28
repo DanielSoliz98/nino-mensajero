@@ -79,9 +79,9 @@ class InformationController extends Controller
         return view('users.information-per-letter', compact('specificInfos', 'letter', 'bulletins'));
     }
 
-    public function update($id, array $data){
+    public function update($id, Request $request){
         $information = GeneratedInformation::find($id);
-        $information->bulletin_id = $data['bulletins'];
+        $information->bulletin_id = $request->bulletins;
         $information->save();
         return back();
     }
