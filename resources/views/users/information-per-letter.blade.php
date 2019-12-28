@@ -11,9 +11,10 @@
                 <tr class="color-component">
                     <td class="color-component"><b>CARTA:</b></td>
                     <td class="card  color-component">
-                        <a class=" list-group-item-action color-component" href="{{route('user.letter.read', $letter)}}">
+                        <p class=" list-group-item-action color-component">
                             {{$letter->content}}
-                        </a>
+                        </p>
+                        <a href="{{route('user.letter.read', $letter)}}" class="stretched-link"></a>
                     </td>
                 </tr>
             </table>
