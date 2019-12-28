@@ -20,14 +20,17 @@
             <div class="tablebody">
                 <div class="card-header"> 
                     <div class="row">
-                        <div class="col-7 d-flex justify-content-center">
+                        <div class="col-4 d-flex justify-content-center">
                             <b>INFORMACIÓN GENERADA</b>
                         </div>
-                        <div class="col-3 d-flex justify-content-end">
+                        <div class="col-2 d-flex justify-content-end">
                             <b>AUTOR</b>
                         </div>
                         <div class="col-2 d-flex justify-content-center">
                             <b>FECHA</b>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center">
+                            <b>BOLETIN</b>
                         </div>
                     </div>
                 </div>
@@ -36,7 +39,7 @@
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-4">
                                 <p class="card-text">{{$info->continf}}</p>
                             </div>
                             <div class="col-2 d-flex justify-content-end">
@@ -44,6 +47,27 @@
                             </div>
                             <div class="col-2 text-muted d-flex justify-content-end">
                                 {{$info->created_at}}
+                            </div>
+                            <div class="col-4 d-flex justify-content-center">
+                                @if ($info->name !== null)
+                                    {{$info->name}}
+                                @else
+                                    <form class="col-7" method="POST" action="{{'updateInformation', $info->id}}">
+                                        <select name="bulletins" id="bulletins" class="form-control selectpicker"
+                                        data-toggle="tooltip">
+                                            <div>
+                                                <option value="" selected disabled hidden>Seleccione el boletin</option>
+                                                @foreach ($bulletins as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
+                                            </div>
+                                        </select>
+                                        <div class="d-flex align-items-center justify-content-center ">
+                                            <button type="submit" class="btn4">Incluir</button>
+                                        </div>
+                                    </form>
+                                    
+                                @endif
                             </div>
                         </div>
                     </div>

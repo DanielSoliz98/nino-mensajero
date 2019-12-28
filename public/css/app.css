@@ -145,6 +145,29 @@
     color: #76b6cf;
     background-color: #546c75;
 }
+
+.btn4 {
+    border: 1px solid #fff;
+    color: #fff;
+    display: block;
+    font-size: 1rem;
+    font-family: 'trebuchet ms';
+    padding: 2px 8px 2px 8px;
+    position: relative;
+    text-decoration: none;
+    border-radius: 8px;
+    background-color: #293747;
+    margin: 10px;
+}
+
+.btn4:hover {
+    text-decoration: none;
+    border: 1px solid #fff;
+    color: #76b6cf;
+    background-color: #546c75;
+}
+
+
 .dropdown-item{
     font-size: 1.2rem;
     padding: 0.5rem;
