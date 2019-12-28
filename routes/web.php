@@ -122,13 +122,18 @@ Route::get('home/share', 'InformationController@share')->name('shareInformation'
 Route::get('/home/share/{letter}', 'InformationController@trace')->name('informationSpecified');
 
 /**
- * 
+ * Route for showing the notifications of the letters of Danger, Urgent and Alert.
  */
 Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
 
 /**
+ * Route for showing the letters by categories.
+ */
+Route::get('/home/categories/{type}', 'LetterController@classify')->name('classifiedLetters');
+
+/** 
  * Route for get view for new bulletin.
  */
 Route::get('admin/bulletins/register', 'BulletinController@registerView')->name('register.bulletin');

@@ -53,8 +53,10 @@ class InformationController extends Controller
 
     public function share()
     {
-        $informations = Letter::has('generatedInformations')->orderBy('id')->paginate(10);
-        return view('users.generated-information', compact('informations'));
+        $informations = Letter::has('generatedInformations')
+            ->orderBy('id')
+            ->paginate(10);
+        return view('users.generated-information',compact('informations'));
     }
 
     public function trace($letter)

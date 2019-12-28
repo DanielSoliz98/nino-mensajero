@@ -172,7 +172,7 @@
 }
 
 .no-content {
-    min-height: 71vh;
+    min-height: 72vh;
 }
 
 .center {
@@ -301,7 +301,7 @@ div.content {
 
 .register {
     background-color: rgb(220, 237, 245);
-    min-height: 71vh;
+    min-height: 72vh;
 }
 
 .letter {
@@ -325,7 +325,7 @@ img {
 }
 
 #sidebar-wrapper {
-    min-height: 80vh;
+    min-height: 81vh;
     margin-left: -15rem;
     -webkit-transition: margin .25s ease-out;
     -moz-transition: margin .25s ease-out;
