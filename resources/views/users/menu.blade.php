@@ -24,10 +24,39 @@
                     <a href="{{route('shareInformation')}}" class="list-group-item list-group-item-action bg-light">Informaciones generadas</a>
                 @endrole
                 <div class="sidebar-heading title-left">CATEGORÍAS</div>
-                <a href="{{route('classifiedLetters', 1)}}" class="list-group-item list-group-item-action bg-light">Cartas de peligro</a>
+                {{-- <a href="{{route('classifiedLetters', 1)}}" class="list-group-item list-group-item-action bg-light">Cartas de peligro</a>
                 <a href="{{route('classifiedLetters', 2)}}" class="list-group-item list-group-item-action bg-light">Cartas de urgencia</a>
                 <a href="{{route('classifiedLetters', 3)}}" class="list-group-item list-group-item-action bg-light">Cartas de alerta</a>
-                <a href="{{route('classifiedLetters', 4)}}" class="list-group-item list-group-item-action bg-light">Cartas normales</a>
+                <a href="{{route('classifiedLetters', 4)}}" class="list-group-item list-group-item-action bg-light">Cartas normales</a> --}}
+
+                {{-- <select id="type_letter_id" name="type_letter_id" class="form-control selectpicker" 
+                required data-toggle="tooltip" data-placement="top" title="Seleccione categoría.">
+                    <option @if ($profile[0]->degree=="Egresado")selected @endif>Egresado</option>
+                   
+                    <option value="{{route('classifiedLetters', 1)}}"> q</option>
+                    <option value="{{route('classifiedLetters', 2)}}">22</option>
+                    <option value="3"> "{{route('classifiedLetters', 3)}}">Cartas de alerta</option>
+                    <option value="4"> "{{route('classifiedLetters', 4)}}">Cartas normales</option>
+                </select> --}}
+                
+                
+                    <div class="list-group-item list-group-item-action bg-light">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Categorías
+                            </a>
+                            <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+                                <a class="" href="{{route('classifiedLetters', 1)}}">Peligro</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="" href="{{route('classifiedLetters', 2)}}">Urgente</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="" href="{{route('classifiedLetters', 3)}}">Alerta</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="" href="{{route('classifiedLetters', 4)}}">Normal</a>
+                            </div>
+                        </div>
+                    </div>
+                {{-- //// --}}
             </div>
         </div>
 
