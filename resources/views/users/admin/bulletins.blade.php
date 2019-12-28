@@ -43,7 +43,7 @@
                                                     <span class="badge badge-primary">Este boletín no está publicado.</span>
                                                 </div>
                                                 <div class="d-flex justify-content-center">
-                                                    <button type="submit" class="btn btn-light border border-dark">Publicar</button>
+                                                    <button type="submit" class="btn btn-light border border-dark p-1">Publicar</button>
                                                 </div>
                                             @else
                                                 <div class="d-flex justify-content-center">
