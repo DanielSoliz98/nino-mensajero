@@ -23,11 +23,17 @@
                 @else
                     <a href="{{route('shareInformation')}}" class="list-group-item list-group-item-action bg-light">Informaciones generadas</a>
                 @endrole
-                <div class="sidebar-heading title-left">CATEGORÍAS</div>
-                <a href="{{route('classifiedLetters', 1)}}" class="list-group-item list-group-item-action bg-light">Cartas de peligro</a>
-                <a href="{{route('classifiedLetters', 2)}}" class="list-group-item list-group-item-action bg-light">Cartas de urgencia</a>
-                <a href="{{route('classifiedLetters', 3)}}" class="list-group-item list-group-item-action bg-light">Cartas de alerta</a>
-                <a href="{{route('classifiedLetters', 4)}}" class="list-group-item list-group-item-action bg-light">Cartas normales</a>
+                <div class="dropdown">
+                    <a class="dropdown-toggle list-group-item list-group-item-action bg-light" role="button" id="dropdownMenuLink" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías de cartas
+                    </a>
+                    <div class="dropdown-menu text-center col-md-12" aria-labelledby="dropdownMenuLink">
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 1)}}">Peligro</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 2)}}">Urgencia</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 3)}}">Alerta</a>
+                        <a class="list-group-item list-group-item-action bg-light" href="{{route('classifiedLetters', 4)}}">Normal</a>
+                    </div>
+                </div>
             </div>
         </div>
 
