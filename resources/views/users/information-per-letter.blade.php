@@ -8,9 +8,13 @@
     <div class="container">
         <div class="d-flex table-responsive">
             <table class="table color-component tablebody mt-3 ml-2 mr-2 mb-3" border="1px">
-                <tr>
-                    <td><b>CARTA:</b></td>
-                    <td>{{$letter->content}}</td>
+                <tr class="color-component">
+                    <td class="color-component"><b>CARTA:</b></td>
+                    <td class="card  color-component">
+                        <a class=" list-group-item-action color-component" href="{{route('user.letter.read', $letter)}}">
+                            {{$letter->content}}
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>
