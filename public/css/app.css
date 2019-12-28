@@ -95,6 +95,7 @@
     display: flex;
     align-items: center;
     border-radius: 10px;
+    margin-right: 10px;
 }
 
 .btn2:hover {
@@ -167,7 +168,7 @@
 }
 
 .content-home {
-    height: 90vh;
+    min-height: 80vh;
 }
 
 .no-content {

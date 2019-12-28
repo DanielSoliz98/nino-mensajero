@@ -4,8 +4,7 @@
 @endsection
 @section('title', 'BOLETINES')
 @section('content')
-    @include('letter.help')
-    <section class="container-fluid slider d-flex justify-content-center">
+    <section class="container-fluid slider d-flex justify-content-center content-home">
         <div class="container mt-2">
             <h2 class="text-center">
                 <img 

@@ -4,8 +4,6 @@
 @endsection
 @section('title', 'BOLETIN-'.strtoupper($bulletin->name))
 @section('content')
-    @include('letter.help')
-
 @inject('user','App\Http\Controllers\BulletinController')
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2">
