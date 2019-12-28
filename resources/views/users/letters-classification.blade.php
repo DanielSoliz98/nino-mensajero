@@ -1,5 +1,7 @@
 @extends('users.menu')
-@section('title', 'Cartas')
+@section('title')
+    Cartas {{ucfirst($type->name)}}
+@endsection
 @section('page-title')
     Cartas de tipo {{$type->name}}
 @endsection
