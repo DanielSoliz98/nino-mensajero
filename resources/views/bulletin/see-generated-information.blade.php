@@ -4,7 +4,7 @@
 @endsection
 @section('title', 'BOLETIN-'.strtoupper($bulletin->name))
 @section('content')
-    <section class="container-fluid slider d-flex justify-content-center">
+    <section class="container-fluid slider d-flex justify-content-center content-home">
         <div class="container mt-2">
             <h2 class="text-center">
                 <img 
