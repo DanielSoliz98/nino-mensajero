@@ -14,7 +14,7 @@
             </div>
             <div class="list-group list-group-flush">
                     <a href="{{route('home')}}" class="list-group-item list-group-item-action bg-light">Cartas de niños</a>
-                    <div class="dropdown">
+                    <div class="dropdown list-group-item-action bg-light">
                         <a class="dropdown-toggle list-group-item list-group-item-action bg-light" role="button" id="dropdownMenuLink" 
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorías de cartas
                         </a>
