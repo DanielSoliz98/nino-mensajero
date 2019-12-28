@@ -20,16 +20,16 @@
             <div class="tablebody">
                 <div class="card-header"> 
                     <div class="row">
-                        <div class="col-4 d-flex justify-content-center">
+                        <div class="col-5 col-lg-5 d-flex justify-content-center">
                             <b>INFORMACIÓN GENERADA</b>
                         </div>
-                        <div class="col-2 d-flex justify-content-end">
+                        <div class="col-1 col-lg-2 d-flex justify-content-center">
                             <b>AUTOR</b>
                         </div>
-                        <div class="col-2 d-flex justify-content-center">
+                        <div class="col-2 col-lg-2 d-flex justify-content-center">
                             <b>FECHA</b>
                         </div>
-                        <div class="col-4 d-flex justify-content-center">
+                        <div class="col-4 col-lg-3 d-flex justify-content-center">
                             <b>BOLETIN</b>
                         </div>
                     </div>
@@ -39,35 +39,35 @@
                 <div class="card mt-1 color-component">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-5 col-lg-5">
                                 <p class="card-text">{{$info->continf}}</p>
                             </div>
-                            <div class="col-2 d-flex justify-content-end">
+                            <div class="col-1 col-lg-2 d-flex justify-content-center">
                                 {{ucfirst($info->full_name)}}
                             </div>
-                            <div class="col-2 text-muted d-flex justify-content-end">
+                            <div class="col-2 col-lg-2 text-muted d-flex justify-content-center">
                                 {{$info->created_at}}
                             </div>
-                            <div class="col-4 d-flex justify-content-center">
+                            <div class="col-4 col-lg-3 d-flex justify-content-center">
                                 @if ($info->name !== null)
                                     <div class="bulletin-name">{{$info->name}}</div>
                                 @else
                                     @role('admin')
-                                        <form class="col-7" method="POST" action="{{ route('updateInformation', $info->id) }}">
+                                        <form class="col-12 col-md-10 col-lg-12" method="POST" action="{{ route('updateInformation', $info->id) }}">
                                             {{csrf_field()}}
                                             <select name="bulletins" id="bulletins" class="form-control selectpicker"
                                             data-toggle="tooltip">
-                                                <div>
-                                                    <option value="" selected disabled hidden>Seleccione el boletin</option>
-                                                    @foreach ($bulletins as $item)
-                                                        <option value="{{$item->id}}">{{$item->name}}</option>
-                                                    @endforeach
-                                                </div>
+                                                <option value="" selected disabled hidden>Seleccione boletín</option>
+                                                @foreach ($bulletins as $item)
+                                                    <option value="{{$item->id}}">{{$item->name}}</option>
+                                                @endforeach
                                             </select>
-                                            <div class="d-flex align-items-center justify-content-center ">
-                                                <button type="submit" class="btn4">Incluir</button>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <button type="submit" class="btn btn-light border border-dark"><i class="fas fa-plus-circle"></i>Incluir</button>
                                             </div>
                                         </form>
+                                    @else
+                                        Aún no integrado a boletín.
                                     @endrole
                                 @endif
                             </div>

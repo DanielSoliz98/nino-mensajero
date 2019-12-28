@@ -75,7 +75,7 @@ class InformationController extends Controller
             )
             ->where('letter_id', '=', $letter->id)
             ->get();
-            $bulletins = Bulletin::all();
+            $bulletins = Bulletin::where('is_published', false)->get();
         return view('users.information-per-letter', compact('specificInfos', 'letter', 'bulletins'));
     }
 
