@@ -108,6 +108,9 @@ Route::get('letters/generate-information/{id}', 'InformationController@show')->n
  */
 Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');
 
+/**
+ * Route for add a bulletin to a generated information
+ */
 Route::post('letters/generate-information/{id}', 'InformationController@update')->name('updateInformation');
 
 
