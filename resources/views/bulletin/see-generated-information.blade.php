@@ -5,7 +5,7 @@
 @section('title', 'BOLETIN-'.strtoupper($bulletin->name))
 @section('content')
     <section class="container-fluid slider d-flex justify-content-center content-home">
-        <div class="container mt-2 ">
+        <div class="container mt-2">
             <h2 class="text-center">
                 <img 
                     src="../letter.svg" 
@@ -16,7 +16,7 @@
                 {{strtoupper($bulletin->name)}}
             </h2>
             
-            <div class="card gen-information-template ">
+            <div class="card gen-information-template">
                 <div class="card-header gen-information-bulletin text border border-primary no-writ">
                     <ul>Descripcion: <br/> {{$bulletin->description}}</ul>
                     <ul>Fecha de publicacion:<br/> {{\Carbon\Carbon::parse($bulletin->created_at)->format('d/m/Y')}}</ul>
