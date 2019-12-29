@@ -8,7 +8,7 @@
         <div class="container mt-2 ">
             <h2 class="text-center">
                 <img 
-                    src="letter.svg" 
+                    src="../letter.svg" 
                     width="30" 
                     height="30" 
                     class="d-inline-block" 
