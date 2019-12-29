@@ -34,7 +34,7 @@
                                                     <span class="badge badge-light"> 1 información generada.</span>
                                                 </div>
                                             @else
-                                                <div class="d-flex justify-content-center">
+                                                <div class="d-flex justify-content-center mb-1">
                                                     <span class="badge badge-light">{{$bulletin->generatedInformations()->count()}}  informaciones generadas.</span>
                                                 </div>
                                             @endif
