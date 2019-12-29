@@ -43,7 +43,7 @@
     border: 4px solid #61412f;
     color: #61412f;
     display: block;
-    font-size: 1rem;
+    font-size: 1.15rem;
     font-family: 'trebuchet ms';
     letter-spacing: 0.1rem;
     padding: 1rem;
@@ -85,7 +85,7 @@
     color: #61412f;
     display: block;
     font-family: 'trebuchet ms';
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     letter-spacing: 0.1rem;
     padding: 1rem;
     position: relative;
@@ -95,11 +95,25 @@
     display: flex;
     align-items: center;
     border-radius: 10px;
+    margin-right: 10px;
+}
+
+.a-btn {
+    color: #61412f;
+    text-decoration: none !important;
 }
 
 .btn2:hover {
     text-decoration: none;
     color: #5e7de3;
+}
+
+.cero-layer {
+    z-index: 0;
+}
+
+.one-layer {
+    z-index: 1;
 }
 
 .btn2::before {
@@ -151,12 +165,18 @@
     padding: 0.5rem;
 }
 
-.writ {
-    opacity: 0.5;
-    filter: alpha(opacity=80);
+.no-writ {
     font-family: 'trebuchet ms';
     font-size: 1.4rem;
     border-radius: 20px;
+}
+
+.writ {
+    font-family: 'trebuchet ms';
+    font-size: 1.4rem;
+    border-radius: 20px;
+    opacity: 0.5;
+    filter: alpha(opacity=80);
 }
 
 .backgroud {
@@ -168,7 +188,7 @@
 }
 
 .content-home {
-    height: 90vh;
+    min-height: 80vh;
 }
 
 .no-content {
@@ -399,6 +419,39 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 .btnlog {
     font-size: 1rem;
+}
+
+/** BULLETINS CHILD  **/
+
+.bulletin-title {
+    position: absolute;
+    background: transparent;
+    margin-left: 5%;
+    z-index: 2
+}
+
+.bulletin-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    z-index: 1;
+    align-items: center;
+}
+
+/** Generated Information **/
+
+.gen-information-template {
+    background-color: transparent;
+    margin: 15px;
+}
+
+.gen-information-bulletin {
+    align-items: left;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.gen-information {
+    margin: 3%;
+    background-color: rgba(100, 219, 255, 0.5);
 }
 
 .bulletin-name {

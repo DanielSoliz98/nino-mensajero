@@ -5,9 +5,24 @@
 @section('title', 'Niño Mensajero')
 @section('content')
     @include('home.terms')
-    <div class="container-fluid backgroud">
+    <div class="container-fluid backgroud cero-layer">
         <div class=" content-home d-flex align-items-center justify-content-center">
-            <a href="{{route('writeLetter')}}" class="btn2"><i class="far fa-envelope"></i> Escribir mi carta</a>
+            <div class="one-layer">
+                <button class="btn2">    
+                    <a class="a-btn stretched-link" href="{{route('writeLetter')}}">
+                    <i class="far fa-envelope"></i> 
+                        Escribir mi carta
+                    </a>
+                </button>
+            </div>
+            <div class="one-layer">
+                <button class="btn2">
+                    <a class="a-btn stretched-link" href="{{route('see-bulletins')}}">
+                        <i class="fas fa-newspaper"></i>
+                        Ver Boletines
+                    </a>
+                </button>
+            </div>
         </div>
     </div>
 @endsection

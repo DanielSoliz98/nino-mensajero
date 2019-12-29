@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Bulletin;
+use App\GeneratedInformation;
+use App\User;
 
 class BulletinController extends Controller
 {
@@ -13,7 +15,7 @@ class BulletinController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth', 'isAdmin']);
+        $this->middleware(['auth', 'isAdmin'])->except('index','show','user');
     }
 
     /**
@@ -91,4 +93,24 @@ class BulletinController extends Controller
         $bulletin->save();
         return redirect('/admin/bulletins')->with('success', 'Boletín publicado exitosamente.');
     }
+
+    /**
+     * View of Bulletins
+     */
+    public function index()
+    {
+        $bulletins = Bulletin::where('is_published',true)->get();
+        return view('bulletin.see-bulletin',compact('bulletins'));
+    }
+
+    /**
+     * View a specific bulletin
+     */
+    public function show($id)
+    {
+        $informations = GeneratedInformation::where('bulletin_id',$id)->get();
+        $bulletin = Bulletin::find($id);
+        return view('bulletin.see-generated-information',compact('informations','bulletin'));
+    }
+    
 }
