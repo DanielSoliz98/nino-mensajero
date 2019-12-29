@@ -9,8 +9,8 @@
 @section('content')
     @include('letter.help')
     <section class="container-fluid slider d-flex justify-content-center">
-        <div class="container mt-2">
-            <h2 class="text-center">
+        <div class="container mt-2 cero-layer">
+            <h2 class="text-center one-layer">
                 <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
                 CARTA PARA NIÑO MENSAJERO
                 <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
@@ -19,7 +19,7 @@
                 {!! csrf_field() !!}
                 <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)" rows="8" placeholder="Cuéntanos tus experiencias..." name="content" id="content"></textarea>
                 <div class="font-italic" id="charNum"> 20000 caracteres restantes.</div>
-                <div class="d-flex justify-content-center mt-2 mb-4">
+                <div class="d-flex justify-content-center mt-2 mb-4 cero-layer">
                     <div class="dropzone mt-1" id="myDropzone">
                         <div class="dz-message">
                             Arrastra o haz clic aquí para añadir tus imágenes <i class="far fa-smile-wink"></i>,
@@ -28,7 +28,7 @@
                         </div>
                         <div class="dropzone-previews"></div>
                     </div>
-                    <div class="d-flex align-items-center ml-4">
+                    <div class="d-flex align-items-center ml-4 one-layer">
                         <button type="submit" class="btn2" id="submit"><i class="far fa-paper-plane"></i> Enviar mi carta</button>
                     </div>
                 </div>

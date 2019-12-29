@@ -97,10 +97,22 @@
     border-radius: 10px;
     margin-right: 10px;
 }
+.a-btn{
+    color: #61412f;
+    text-decoration: none !important;
+}
 
 .btn2:hover {
     text-decoration: none;
     color: #5e7de3;
+}
+
+.cero-layer{
+    z-index:0;
+}
+
+.one-layer{
+    z-index:1;
 }
 
 .btn2::before {
@@ -116,6 +128,7 @@
     z-index: -1;
     transition: all 0.4s ease;
 }
+
 
 .btn2:hover::before {
     box-shadow: none;
