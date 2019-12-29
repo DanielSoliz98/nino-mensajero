@@ -11,16 +11,15 @@
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2 cero-layer">
             <h2 class="text-center one-layer">
-                <div class="p-1">
+                <div class="p-1 one-layer">
                     <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
                     CARTA PARA NIÑO MENSAJERO
-                    <button class="btn2">
-                        <a class="a-btn stretched-link" href="{{ URL::previous() }}">
+                        <a class="a-btn stretched-link btn2" href="{{ URL::previous() }}">
                             <i class="fas fa-arrow-left"></i> 
                             Atrás
                         </a>
-                    </button>
-                    <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
+                        <a class="btn2 mb-1" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</a>
+                    
                 </div>
             </h2>
             <form class="mt-5" enctype="multipart/form-data" method="POST">
