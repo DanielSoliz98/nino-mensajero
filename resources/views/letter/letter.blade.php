@@ -14,7 +14,7 @@
                 <div class="p-1 one-layer">
                     <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
                     CARTA PARA NIÑO MENSAJERO
-                        <a class="a-btn stretched-link btn2" href="{{ URL::previous() }}">
+                        <a class="a-btn stretched-link btn2" href="/">
                             <i class="fas fa-arrow-left"></i> 
                             Atrás
                         </a>
