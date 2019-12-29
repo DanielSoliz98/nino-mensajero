@@ -60,9 +60,7 @@
                                                 <option value="" selected disabled hidden>Seleccione boletín</option>
                                                 @if ($bulletins->count() > 0)
                                                     @foreach ($bulletins as $item)
-                                                        @if (!$item->is_published)
-                                                            <option value="{{$item->id}}">{{$item->name}}</option>
-                                                        @endif
+                                                        <option value="{{$item->id}}">{{$item->name}}</option>
                                                     @endforeach
                                                 @else
                                                     <option value="" disabled>No hay boletines disponibles.</option> 
