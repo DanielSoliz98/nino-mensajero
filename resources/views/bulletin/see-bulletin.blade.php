@@ -25,10 +25,10 @@
                         </div>
                         <br/><br/>
                         <div 
-                            class="card bulletin-content" 
+                            class="card bulletin-content text border border-primary no-writ"
                         ><br/>
-                        <ul><h6>Descripcion:</h6> {{$bulletin->description}}</ul>
-                        <ul><h6>Fecha de publicacion:</h6> {{\Carbon\Carbon::parse($bulletin->created_at)->format('d/m/Y')}}</ul>
+                        <ul>Descripcion:<br/> {{$bulletin->description}}</ul>
+                        <ul>Fecha de publicacion:<br/> {{\Carbon\Carbon::parse($bulletin->created_at)->format('d/m/Y')}}</ul>
                         <ul>
                             <a href="{{route('see-generated-information',strval($bulletin->id))}}" class="btn2">
                                 VER BOLETIN

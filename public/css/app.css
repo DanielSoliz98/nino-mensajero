@@ -164,12 +164,17 @@
     padding: 0.5rem;
 }
 
-.writ {
-    opacity: 0.5;
-    filter: alpha(opacity=80);
+.no-writ{
     font-family: 'trebuchet ms';
     font-size: 1.4rem;
     border-radius: 20px;
+}
+.writ{
+    font-family: 'trebuchet ms';
+    font-size: 1.4rem;
+    border-radius: 20px;
+    opacity: 0.5;
+    filter: alpha(opacity=80);
 }
 
 .backgroud {
