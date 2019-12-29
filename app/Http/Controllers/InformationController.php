@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bulletin;
 use App\GeneratedInformation;
 use App\Letter;
 use Illuminate\Http\Request;
@@ -64,16 +65,26 @@ class InformationController extends Controller
         $specificInfos = DB::table('generated_informations')
             ->join('letters', 'letters.id', '=', 'generated_informations.letter_id')
             ->leftJoin('users', 'users.id', '=', 'generated_informations.user_id')
+            ->leftJoin('bulletins', 'bulletins.id', '=', 'generated_informations.bulletin_id')
             ->select(
                 'generated_informations.created_at',
                 'generated_informations.id',
                 'generated_informations.content as continf',
                 'letters.content as contletter',
                 'letters.id as lettid',
-                'full_name'
+                'full_name',
+                'name'
             )
             ->where('letter_id', '=', $letter->id)
             ->get();
-        return view('users.information-per-letter', compact('specificInfos', 'letter'));
+            $bulletins = Bulletin::where('is_published', false)->get();
+        return view('users.information-per-letter', compact('specificInfos', 'letter', 'bulletins'));
+    }
+
+    public function update($id, Request $request){
+        $information = GeneratedInformation::find($id);
+        $information->bulletin_id = $request->bulletins;
+        $information->save();
+        return back();
     }
 }

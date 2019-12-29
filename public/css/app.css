@@ -145,7 +145,8 @@
     color: #76b6cf;
     background-color: #546c75;
 }
-.dropdown-item{
+
+.dropdown-item {
     font-size: 1.2rem;
     padding: 0.5rem;
 }
@@ -396,6 +397,12 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     border-radius: 20px;
 }
 
-.btnlog{
+.btnlog {
     font-size: 1rem;
+}
+
+.bulletin-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

@@ -15,7 +15,7 @@ class CreateBulletinsTable extends Migration {
 		Schema::create('bulletins', function(Blueprint $table)
 		{
 			$table->bigIncrements('id', true);
-			$table->string('name', 50);
+			$table->string('name', 50)->unique();
 			$table->string('description', 200);
 			$table->date('publication_date');
 			$table->boolean('is_published');
