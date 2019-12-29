@@ -97,7 +97,8 @@
     border-radius: 10px;
     margin-right: 10px;
 }
-.a-btn{
+
+.a-btn {
     color: #61412f;
     text-decoration: none !important;
 }
@@ -107,12 +108,12 @@
     color: #5e7de3;
 }
 
-.cero-layer{
-    z-index:0;
+.cero-layer {
+    z-index: 0;
 }
 
-.one-layer{
-    z-index:1;
+.one-layer {
+    z-index: 1;
 }
 
 .btn2::before {
@@ -128,7 +129,6 @@
     z-index: -1;
     transition: all 0.4s ease;
 }
-
 
 .btn2:hover::before {
     box-shadow: none;
@@ -159,17 +159,19 @@
     color: #76b6cf;
     background-color: #546c75;
 }
-.dropdown-item{
+
+.dropdown-item {
     font-size: 1.2rem;
     padding: 0.5rem;
 }
 
-.no-writ{
+.no-writ {
     font-family: 'trebuchet ms';
     font-size: 1.4rem;
     border-radius: 20px;
 }
-.writ{
+
+.writ {
     font-family: 'trebuchet ms';
     font-size: 1.4rem;
     border-radius: 20px;
@@ -415,38 +417,45 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
     border-radius: 20px;
 }
 
-.btnlog{
+.btnlog {
     font-size: 1rem;
 }
 
-
 /** BULLETINS CHILD  **/
-.bulletin-title{
-    position:absolute;
-    background:transparent;
-    margin-left:5%;
-    z-index:2
+
+.bulletin-title {
+    position: absolute;
+    background: transparent;
+    margin-left: 5%;
+    z-index: 2
 }
 
-.bulletin-content{
-    background-color:rgba(255, 255, 255, 0.5);
-    text-align:center;
-    z-index:1;
-    align-items:center;
+.bulletin-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    z-index: 1;
+    align-items: center;
 }
 
 /** Generated Information **/
-.gen-information-template{
-    background-color:transparent;
-    margin:15px;
+
+.gen-information-template {
+    background-color: transparent;
+    margin: 15px;
 }
 
-.gen-information-bulletin{
-    align-items:left;
-    background-color:rgba(255, 255, 255, 0.5);
+.gen-information-bulletin {
+    align-items: left;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
-.gen-information{
-    margin:3%;
-    background-color:rgba(100, 219, 255, 0.5);
+.gen-information {
+    margin: 3%;
+    background-color: rgba(100, 219, 255, 0.5);
+}
+
+.bulletin-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
