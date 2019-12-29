@@ -11,11 +11,19 @@
     <section class="container-fluid slider d-flex justify-content-center">
         <div class="container mt-2 cero-layer">
             <h2 class="text-center one-layer">
-                <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
-                CARTA PARA NIÑO MENSAJERO
-                <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
+                <div class="p-1">
+                    <img src="letter.svg" width="30" height="30" class="d-inline-block" alt="">
+                    CARTA PARA NIÑO MENSAJERO
+                    <button class="btn2">
+                        <a class="a-btn stretched-link" href="{{ URL::previous() }}">
+                            <i class="fas fa-arrow-left"></i> 
+                            Atrás
+                        </a>
+                    </button>
+                    <button class="btn2 mb-1" type="button" data-toggle="modal" data-target="#helpModal"><i class="far fa-question-circle"></i> Ayuda</button>
+                </div>
             </h2>
-            <form enctype="multipart/form-data" method="POST">
+            <form class="mt-5" enctype="multipart/form-data" method="POST">
                 {!! csrf_field() !!}
                 <textarea maxlength="20000" class="form-control text form-rounded border border-primary mt-2 writ" onkeyup="countChar(this)" rows="8" placeholder="Cuéntanos tus experiencias..." name="content" id="content"></textarea>
                 <div class="font-italic" id="charNum"> 20000 caracteres restantes.</div>
