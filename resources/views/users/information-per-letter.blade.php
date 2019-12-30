@@ -72,7 +72,7 @@
                                                 @endif
                                             </select>
                                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                                <button type="submit" class="btn btn-light border border-dark"><i class="fas fa-plus-circle"></i>Incluir</button>
+                                                <button type="submit" class="btn btn-light border border-dark"><i class="fas fa-plus-circle"></i>INCLUIR</button>
                                             </div>
                                         </form>
                                     @else
