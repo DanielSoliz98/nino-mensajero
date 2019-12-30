@@ -49,7 +49,7 @@
                             </div>
         
                             <div class="form-group{{ $errors->has('publication_date') ? ' has-error' : '' }} row">
-                                <label for="publication_date" class="col-md-4 control-label d-flex justify-content-end">Fecha de publicación</label>
+                                <label for="publication_date" class="col-md-4 control-label d-flex justify-content-end">Fecha publición</label>
         
                                 <div class="col-md-7">
                                     <input id="publication_date" type="date" class="form-control" name="publication_date" value="{{ old('publication_date') }}"
