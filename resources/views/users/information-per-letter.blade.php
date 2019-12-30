@@ -77,7 +77,7 @@
                                         </form>
                                     @else
                                     <div>
-                                        <span class="badge badge-warning">Aún no integrado a boletín.</span>
+                                        <span class="badge badge-warning">Aún no incluido a boletín.</span>
                                     </div>
                                     @endrole
                                 @endif
