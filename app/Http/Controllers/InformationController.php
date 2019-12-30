@@ -83,8 +83,12 @@ class InformationController extends Controller
 
     public function update($id, Request $request){
         $information = GeneratedInformation::find($id);
-        $information->bulletin_id = $request->bulletins;
-        $information->save();
-        return back();
+        if($request->bulletins){
+            $information->bulletin_id = $request->bulletins;
+            $information->save();
+            return back()->with('success', 'Información generada incluida exitosamente.');
+        }else{
+            return back()->with('error', 'Seleccione un boletín');
+        }
     }
 }
