@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\ImportantLetterNotification;
+use App\Notifications\UrgentLetterNotification;
 use App\Notifications\DangerousLetterNotification;
 use App\Notifications\AlertLetterNotification;
 use Illuminate\Http\Request;
@@ -92,7 +92,7 @@ class LetterController extends Controller
             $letter->type_letter_id = 1;
             $letter->save();
         } else if ($urgent > 0) {
-            Notification::send($users, new ImportantLetterNotification($letter));
+            Notification::send($users, new UrgentLetterNotification($letter));
             $letter->type_letter_id = 2;
             $letter->save();
         } else if ($alert > 0) {
