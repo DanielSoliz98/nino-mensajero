@@ -34,3 +34,26 @@ const ALERT_WORDS = array(
     "angusti", "arañ", "castig", "desconsider", "discut", "irrespons", "molest", "mord", "rencor",
     "reneg", "renieg", "reprob", "reprueb", "riñ", "reñ", "ret", "torp"
 );
+
+const WHITELIST = array(
+    "tare", "trabaj", "proyect", "labor", "limpiez", "cocin", "oficin", "amig", "compañer", "limpi", 
+    "orden", "materi", "comput", "profesor", "maestr", "mayor", "person", "ofert", "descuent", "rebaj", 
+    "fin", "rat", "moment", "tiemp", "vacacion", "mejor", "karat", "tae", "jueg", "jug", 
+    "medic", "personal", "zapat", "tenis", "fil", "agu", "señal", "internet", "television", "televisor", 
+    "pantall", "conexion", "ded", "papel", "regal", "cabell", "traj", "disfraz", "construct", "segur", 
+    "aut", "carr", "muel", "dient", "hues", "cabez", "braz", "rodill", "cas", "pelicul", 
+    "seri", "caricatur", "dibuj", "anim", "novel", "juguet", "peluch", "muñec", "hiel", "fri", 
+    "moj", "pesc", "calor", "divert", "gracios", "chistos", "bonit", "resfri", "grip", "sorprend", 
+    "sorpres", "emocion", "perr", "gat", "mascot", "lor", "animal", "pelot", "bol", "artificial", 
+    "carnaval", "navid", "nuev", "suert", "fortun", "conjunt", "apoy", "nombr", "reaccion", "mod", 
+    "estil", "pint", "ave", "pajar", "canari", "hor", "alegr", "felic", "stick", "pegament", 
+    "cartulin", "lamin", "color", "lapicer", "lapiz", "habl", "dec", "dij", "basur", "part", 
+    "bosqu", "jungl", "selv", "instrument", "music", "cancion", "ritm", "raton", "despert", "levant", 
+    "escuel", "colegi", "tempran", "pertenent", "material", "clas", "aul", "aves", "patit", "antoj", 
+    "dulc", "ric", "puert", "ventan", "equilibri", "firm", "fiel", "organiz", "manch", "sucied", 
+    "ray", "espiritual", "iglesi", "religi", "rop", "alfombr", "pati", "pas", "parq", "plaz", 
+    "amor", "enamor", "fiest", "cumpleañ", "visit", "centr", "superhero", "hero", "asamble", "debat", 
+    "cariñ", "contrinc", "buen", "bien", "excelent", "veran", "hoj", "entreg", "investig", "le", 
+    "convers", "parcial", "posterg", "cronogram", "solicit", "grup", "arch", "voluntari", "verific", "inscrib",
+    "inscripcion", "soc", "humanitar", "tort"
+);
