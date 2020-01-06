@@ -99,10 +99,6 @@ class LetterController extends Controller
             $letter->type_letter_id = 4;
             $letter->save();
         }
-        echo "<br/>PEL: ",$danger;
-        echo "<br/>UR: ",$urgent;
-        echo "<br/>AL: ",$alert;
-        echo "<br/>NOR: ",$normal;
     }
 
     /**
