@@ -6,8 +6,14 @@
 
 @section('content')
 <section class="slider d-flex align-items-center ">
-    <div class="content mt-2 ">
-        <h2 class="text-center">¿Quiénes somos?</h2><br>
+    <div class="content mt-2 one-layer">
+        <div>
+            <a class="a-btn stretched-link btn2" href="{{ URL::previous() }}">
+                <i class="fas fa-arrow-left"></i> 
+                Atrás
+            </a>
+        </div>
+        <h2 class="text-center"><img src="letter.svg" width="30" height="30" class="d-inline-block" alt=""> ¿QUIÉNES SOMOS?</h2><br>
         <form enctype="multipart/form-data" method="POST">
             <div class=" mt-2 mb-4 us">
                 <div class="">

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Letter;
-use App\Notifications\ImportantLetterNotification;
+use App\Notifications\UrgentLetterNotification;
 use App\Notifications\DangerousLetterNotification;
 use App\Notifications\AlertLetterNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Wamania\Snowball\Spanish;
+use App\Letter;
+use App\TypesLetter;
 use App\User;
 
 class LetterController extends Controller
@@ -56,9 +57,7 @@ class LetterController extends Controller
             }
             $letter->save();
         }
-
         $this->analyzeLetter($letter);
-
         return redirect('/')->with('success', 'Gracias amiguit@. Tu carta fue enviada al Niño Mensajero.');
     }
 
@@ -69,38 +68,53 @@ class LetterController extends Controller
     {
         include 'ListOfWords.php';
         $stemmer = new Spanish();
-        $users = User::get();
         $content = $letter->content;
         $strLowerCase = strtolower($content);
         $contentClean = preg_replace('/[^a-zA-Z0-9]/', " ", $strLowerCase);
         $token = strtok($contentClean, " \n\t ");
-        $danger = $urgent = $alert = 0;
+        $danger = $urgent = $alert = $normal = 0;
         while ($token !== false) {
             $token = $stemmer->stem($token);
-            if (in_array($token, DANGER_WORDS)) {
+            if ( in_array($token, DANGER_WORDS) ) {
                 $danger += 1;
-            } else if (in_array($token, URGENT_WORDS)) {
+            } else if ( in_array($token, URGENT_WORDS) ) {
                 $urgent += 1;
-            } else if (in_array($token, ALERT_WORDS)) {
+            } else if ( in_array($token, ALERT_WORDS) ) {
                 $alert += 1;
+            } else if ( in_array($token, WHITELIST) ){
+                $normal += 1;
             }
             $token = strtok(" \n\t ");
         }
-        if ($danger > 0) {
-            Notification::send($users,new DangerousLetterNotification($letter));
+        if ( (($danger > 0) && ($normal == 0)) || ($danger >= $normal) ) {
             $letter->type_letter_id = 1;
             $letter->save();
-        } else if ($urgent > 0) {
-            Notification::send($users,new ImportantLetterNotification($letter));
+        } else if ( (($urgent > 0) && ($normal == 0)) || ($urgent >= $normal) ) {
             $letter->type_letter_id = 2;
             $letter->save();
-        } else if ($alert > 0) {
-            Notification::send($users,new AlertLetterNotification($letter));
+        } else if ( (($alert > 0) && ($normal == 0)) || ($alert >= $normal) ) {
             $letter->type_letter_id = 3;
             $letter->save();
-        } else {
+        } else if($normal > 0){
             $letter->type_letter_id = 4;
             $letter->save();
         }
+    }
+
+    /**
+     * Separation of the letters by its classification.
+     */
+    public function classify($type)
+    {
+        $type = TypesLetter::find($type);
+        $letters = Letter::orderBy('created_at', 'desc')
+            ->with(['images' => function ($query) {
+                $query->orderBy('created_at', 'desc');
+            }])
+            ->with('typeLetter')
+            ->where('type_letter_id', '=', $type->id)
+            ->paginate(10);
+
+        return (view('users.letters-classification', compact('letters', 'type')));
     }
 }

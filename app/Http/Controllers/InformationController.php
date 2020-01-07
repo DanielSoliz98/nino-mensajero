@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bulletin;
 use App\GeneratedInformation;
 use App\Letter;
 use Illuminate\Http\Request;
@@ -52,21 +53,42 @@ class InformationController extends Controller
 
     public function share()
     {
-        $informations = Letter::has('generatedInformations')->orderBy('id')->paginate(10);
+        $informations = Letter::has('generatedInformations')
+            ->orderBy('id')
+            ->paginate(10);
         return view('users.generated-information',compact('informations'));
     }
 
     public function trace($letter)
-    { 
+    {
         $letter = Letter::find($letter);
         $specificInfos = DB::table('generated_informations')
             ->join('letters', 'letters.id', '=', 'generated_informations.letter_id')
             ->leftJoin('users', 'users.id', '=', 'generated_informations.user_id')
-            ->select('generated_informations.created_at', 'generated_informations.id', 
-                    'generated_informations.content as continf', 'letters.content as contletter', 
-                    'letters.id as lettid', 'full_name')
+            ->leftJoin('bulletins', 'bulletins.id', '=', 'generated_informations.bulletin_id')
+            ->select(
+                'generated_informations.created_at',
+                'generated_informations.id',
+                'generated_informations.content as continf',
+                'letters.content as contletter',
+                'letters.id as lettid',
+                'full_name',
+                'name'
+            )
             ->where('letter_id', '=', $letter->id)
             ->get();
-        return view('users.information-per-letter', compact('specificInfos','letter'));
+            $bulletins = Bulletin::where('is_published', false)->get();
+        return view('users.information-per-letter', compact('specificInfos', 'letter', 'bulletins'));
+    }
+
+    public function update($id, Request $request){
+        $information = GeneratedInformation::find($id);
+        if($request->bulletins){
+            $information->bulletin_id = $request->bulletins;
+            $information->save();
+            return back()->with('success', 'Información generada incluida exitosamente.');
+        }else{
+            return back()->with('error', 'Seleccione un boletín');
+        }
     }
 }

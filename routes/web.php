@@ -14,9 +14,6 @@
 /**
  * Route for Home of Children(/), returning view from HomeController: create method.
  */
-
-use App\Http\Controllers\LetterController;
-
 Route::get('/', 'HomeController@createHomeChildren')->name('home.children');
 
 /**
@@ -90,13 +87,16 @@ Route::post('logout', [
     'as' => 'logout',
     'uses' => 'Auth\LoginController@logout'
 ]);
+
 /**
  * Routes for authentification: Register personal.
  */
 Route::get('admin/register', 'RegisterController@createView')->name('register');
 
+/**
+ * Route for register new personal
+ */
 Route::post('admin/register', 'RegisterController@register')->name('register.personal');
-
 
 /** 
  * Route for the generation of information of a letter by enter on a Letter
@@ -108,6 +108,11 @@ Route::get('letters/generate-information/{id}', 'InformationController@show')->n
  */
 Route::post('letters/generate-information', 'InformationController@store')->name('saveInformation');
 
+/**
+ * Route for add a bulletin to a generated information
+ */
+Route::post('letters/generate-information/{id}', 'InformationController@update')->name('updateInformation');
+
 
 /**
  * Route for sharing the generated informations of letters to all the personal
@@ -118,6 +123,45 @@ Route::get('home/share', 'InformationController@share')->name('shareInformation'
  * Route for showing the specific information generated of a letter
  */
 Route::get('/home/share/{letter}', 'InformationController@trace')->name('informationSpecified');
+
+/**
+ * Route for showing the notifications of the letters of Danger, Urgent and Alert.
+ */
 Route::get('/markAsRead', function () {
     auth()->user()->unreadNotifications->markAsRead();
 });
+
+/**
+ * Route for showing the letters by categories.
+ */
+Route::get('/home/categories/{type}', 'LetterController@classify')->name('classifiedLetters');
+
+/** 
+ * Route for get view for new bulletin.
+ */
+Route::get('admin/bulletins/register', 'BulletinController@registerView')->name('register.bulletin');
+
+/**
+ * Route for register new bulletin.
+ */
+Route::post('admin/bulletins/register', 'BulletinController@register')->name('register.bulletin');
+
+/**
+ * Route for get view of bulletins.
+ */
+Route::get('admin/bulletins', 'BulletinController@view')->name('bulletins');
+
+/**
+ * Route for publish a bulletin.
+ */
+Route::post('admin/bulletins/{id}', 'BulletinController@publish')->name('publish.bulletin');
+
+ /**
+  * Route for see all  published bulletins
+ */
+Route::get('/see-bulletins', 'BulletinController@index')->name('see-bulletins');
+
+/**
+ * Route for generated information from bulletin
+ */
+ Route::get('/see-bulletins/{id}','BulletinController@show')->name('see-generated-information');

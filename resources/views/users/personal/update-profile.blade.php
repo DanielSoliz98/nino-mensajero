@@ -83,7 +83,6 @@
                                             <option @if ((strpos($profile[0]->profession,"Escritor"))!==false)selected @endif>Escritor</option>
                                             <option @if ((strpos($profile[0]->profession,"Psiquiatra"))!==false)selected @endif>Psiquiatra</option>
                                             <option @if ((strpos($profile[0]->profession,"Abogado"))!==false)selected @endif>Abogado</option>
-                                            <option @if ((strpos($profile[0]->profession,"Otro"))!==false)selected @endif>Otro</option>
                                         </select>
                                         @if ($errors->has('profession'))
                                             <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
@@ -131,7 +130,6 @@
                                                 <option @if ((strpos($profile[0]->specialties,"Escritor Infantil"))!==false)selected @endif>Escritor Infantil</option>
                                                 <option @if ((strpos($profile[0]->specialties,"Educación Infantil"))!==false)selected @endif>Educación Infantil</option>
                                                 <option @if ((strpos($profile[0]->specialties,"Educación Especial"))!==false)selected @endif>Educación Especial</option>
-                                                <option @if ((strpos($profile[0]->specialties,"Otro"))!==false)selected @endif>Otro</option>
                                             </select>
                                             @if ($errors->has('specialties'))
                                                 <div class="alert alert-danger mt-1 alert-dismissible fade show" role="alert">
